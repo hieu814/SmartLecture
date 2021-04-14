@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smartlecture/ui/views/NewLecture/NewLecture_view.dart';
 import 'ui/views/home/home_view.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeView(),
+      home: NewLecture(),
     );
   }
 }
