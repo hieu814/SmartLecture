@@ -20,7 +20,10 @@ class DragWidget extends StatefulWidget {
       this.child})
       : super(key: key);
 
-  void getpositionaa() {}
+  void getpositionaa() {
+    changePrice(10.0);
+  }
+
   @override
   _DragWidgetState createState() => _DragWidgetState();
 }
