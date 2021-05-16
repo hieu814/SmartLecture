@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smartlecture/widgets/BallWidget.dart';
-import 'package:smartlecture/widgets/ManipulatingBall.dart';
+import 'package:smartlecture/widgets/common/BallWidget.dart';
+import 'package:smartlecture/widgets/common/ManipulatingBall.dart';
 
 const ballDiameter = 10.0;
 const minsize = 30.0;
@@ -8,6 +8,7 @@ const minsize = 30.0;
 class ResizebleWidget extends StatefulWidget {
   final void Function(double dx, double dy) onPositionChange;
   final void Function(double width, double height) onSizeChange;
+  final VoidCallback onDoubleTap;
   final double width;
   final double height;
   final double x;
@@ -20,7 +21,8 @@ class ResizebleWidget extends StatefulWidget {
       this.width = 50,
       this.height = 50,
       this.x = 80,
-      this.y = 80});
+      this.y = 80,
+      this.onDoubleTap});
 
   @override
   _ResizebleWidgetState createState() => _ResizebleWidgetState();
@@ -63,6 +65,7 @@ class _ResizebleWidgetState extends State<ResizebleWidget> {
                   left = left + dx;
                 });
               },
+              onDoubleTap: widget.onDoubleTap,
               onDragEnd: () {
                 widget.onPositionChange(left, top);
               },

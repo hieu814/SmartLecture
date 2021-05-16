@@ -1,62 +1,37 @@
-import 'dart:async';
-import 'dart:developer';
-
+import 'package:smartlecture/models/ItemImage.dart';
+import 'package:smartlecture/models/ItemText.dart';
+import 'package:smartlecture/models/common/Item.dart';
+import 'package:stacked/stacked.dart';
 import 'package:flutter/material.dart';
 
-class CounterModel with ChangeNotifier {
-  int _counter = 0;
-  List<int> _data = [1, 2, 3, 4, 5];
-  getCounter() => _counter;
+class SectionViewModel extends BaseViewModel {
+  ItemImage t = new ItemImage.argument(
+      x: 100,
+      y: 100,
+      width: 100,
+      height: 100,
+      url:
+          "https://duhocvietglobal.com/wp-content/uploads/2018/12/dat-nuoc-va-con-nguoi-anh-quoc.jpg");
+  ItemText txt = new ItemText.argument(
+      x: 100, y: 100, width: 100, height: 100, text: "Input there", type: "1");
 
-  setCounter(int counter) => _counter = counter;
+  List<dynamic> listdata = [];
+  SectionViewModel() {
+    listdata.add(txt);
+  }
 
-  void incrementCounter() {
-    int x = _counter;
-    _data.add(x);
-    _counter++;
+  List<dynamic> getdatas() => this.listdata;
+
+  void addComponent(String type) {
+    if (type == "2") {
+      listdata.add(t);
+    } else if (type == "1") {
+      listdata.add(txt);
+    }
     notifyListeners();
   }
 
-  void decrementCounter() {
-    _counter--;
-    notifyListeners();
+  void updateComponent(dynamic data, int index) {
+    listdata[index] = data;
   }
 }
-
-class MyStream {
-  List<Offset> _data;
-  int counter = 0;
-  StreamController counterController = StreamController<
-      List<Offset>>.broadcast(); //= new StreamController<int>();
-  Stream get counterStream => counterController.stream.asBroadcastStream();
-  //g//et controllerOut => counterController.stream.asBroadcastStream();
-  get controllerIn => counterController.sink;
-  MyStream() {
-    //counterController = new StreamController<List<int>>();
-    //counterController.stream.listen((event) => _data.add(event));
-    _data = [Offset(1.0, 2.9)];
-  }
-  void addx(Offset t) {
-    counter += 1;
-    _data.add(t);
-    controllerIn.add(_data);
-  }
-
-  void sua(int inx, Offset t) {
-    _data[inx] = t;
-    controllerIn.add(_data);
-  }
-
-  void decre() {
-    counter += 1;
-    _data.removeLast();
-    controllerIn.add(_data);
-  }
-
-  void dispose() {
-    counterController.close();
-  }
-}
-
-// Random Colour generator
-

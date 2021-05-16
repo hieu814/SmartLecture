@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:smartlecture/ui/views/SECTION/SECTION_view.dart';
-import 'ui/views/home/home_view.dart';
+import 'package:smartlecture/ui/modules/injection.dart';
+import 'package:smartlecture/ui/views/Section/Section_view.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
-    runApp(new MyApp());
-  });
-  //runApp(MyApp());
+void main() async {
+  await configureDependencies();
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

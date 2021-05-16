@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ManipulatingBall extends StatefulWidget {
-  ManipulatingBall({Key key, this.onDrag, this.child, this.onDragEnd});
-
   final Function onDrag;
   final Function onDragEnd;
+  final VoidCallback onDoubleTap;
   final Widget child;
+  ManipulatingBall(
+      {Key key, this.onDrag, this.child, this.onDragEnd, this.onDoubleTap});
   @override
   _ManipulatingBallState createState() => _ManipulatingBallState();
 }
@@ -37,6 +38,7 @@ class _ManipulatingBallState extends State<ManipulatingBall> {
         onPanEnd: (_) {
           widget.onDragEnd();
         },
+        onDoubleTap: widget.onDoubleTap,
         child: widget.child);
   }
 }
