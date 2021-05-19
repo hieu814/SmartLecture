@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
+import 'package:smartlecture/ui/views/Login/Test.dart';
 import 'package:smartlecture/ui/views/Section/Section_view.dart';
 
 void main() async {

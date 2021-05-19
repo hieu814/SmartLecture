@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "855915870792",
+    "project_id": "smartlecture-90eb5",
+    "storage_bucket": "smartlecture-90eb5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855915870792:android:c81e442952517edeb0f67d",
+        "android_client_info": {
+          "package_name": "com.humg.app.smartlecture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855915870792-9k558f65hv27c6pqcjetrmjkf9kt30sf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.humg.app.smartlecture",
+            "certificate_hash": "82e85d5265a14f70bb422c7ffae7fa59591b3b3c"
+          }
+        },
+        {
+          "client_id": "855915870792-0jlbie46lqlhuimjuopcc0r32u214f91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK1K2zfbpInXileZFsZ2hIQEYCX8pxToA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855915870792-0jlbie46lqlhuimjuopcc0r32u214f91.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

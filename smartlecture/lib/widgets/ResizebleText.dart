@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smartlecture/models/ItemText.dart';
 import 'package:smartlecture/widgets/common/ResizebleWidget.dart';
 import 'package:smartlecture/widgets/manage/AddLink.dart';
+import 'package:smartlecture/widgets/manage/EditText.dart';
 
 class ResizebleText extends StatefulWidget {
   final ItemText data;
@@ -13,14 +15,27 @@ class ResizebleText extends StatefulWidget {
 }
 
 class _ResizebleTextState extends State<ResizebleText> {
-  TextEditingController textController = new TextEditingController();
   FocusNode _focusNode;
   ItemText temp = new ItemText();
   @override
   void initState() {
     super.initState();
-    textController.text = widget.data.text;
     temp = widget.data;
+  }
+
+  void savedata(dynamic s) {
+    temp.text = s;
+    widget.onDataChange(temp);
+  }
+
+  void moveToSecondPage() async {
+    final information = await Navigator.push(
+      context,
+      CupertinoPageRoute(
+          fullscreenDialog: true, builder: (context) => EditText()),
+    );
+
+    savedata(information);
   }
 
   @override
@@ -30,32 +45,9 @@ class _ResizebleTextState extends State<ResizebleText> {
       y: widget.data.y,
       width: widget.data.width,
       height: widget.data.height,
-      child: TextField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          isDense: false,
-          contentPadding: const EdgeInsets.all(10.0),
-          // Added this
-        ),
-        expands: true,
-        controller: textController,
-        maxLines: null,
-        keyboardType: TextInputType.multiline,
-        onEditingComplete: () {
-          _focusNode.unfocus();
-        },
-
-        // textInputAction: TextInputAction.done
-      ),
+      child: Text(widget.data.text),
       onDoubleTap: () {
-        showDialog(
-            context: context,
-            builder: (_) => new AddLink(
-                  //txtDescription: "asdasad",
-                  returnData: (s) {
-                    Navigator.of(context).pop();
-                  },
-                ));
+        moveToSecondPage();
       },
       onPositionChange: (x, y) {
         temp.x = x;

@@ -32,6 +32,7 @@ class _SECTIONState extends State<SECTION> {
         onModelReady: (model) => SectionViewModel(),
         builder: (context, model, child) => Scaffold(
               key: getIt.get<MyGlobals>().scaffoldKey,
+              resizeToAvoidBottomInset: false,
               appBar: PreferredSize(
                 preferredSize: Size.fromHeight(40.0),
                 child: AppBar(
@@ -74,6 +75,7 @@ class _SECTIONState extends State<SECTION> {
                                     return Component(
                                       data: model.getdatas()[index],
                                       onDataChange: (data) {
+                                        print(data.toString());
                                         model.updateComponent(data, index);
                                       },
                                     );
