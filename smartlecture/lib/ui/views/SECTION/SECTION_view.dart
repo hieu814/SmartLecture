@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -6,16 +8,17 @@ import 'package:smartlecture/models/common/Item.dart';
 import 'package:smartlecture/ui/modules/Navi.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/widgets/Component.dart';
+import 'package:smartlecture/widgets/manage/ListSection.dart';
 import 'package:stacked/stacked.dart';
 
 import 'Section_viewmodel.dart';
 
-class SECTION extends StatefulWidget {
+class SectionView extends StatefulWidget {
   @override
-  _SECTIONState createState() => _SECTIONState();
+  _SectionViewState createState() => _SectionViewState();
 }
 
-class _SECTIONState extends State<SECTION> {
+class _SectionViewState extends State<SectionView> {
   @override
   void initState() {
     super.initState();
@@ -87,63 +90,26 @@ class _SECTIONState extends State<SECTION> {
                         ),
                       ),
                       Expanded(
-                          // width: double.infinity,
-                          // height: 80,
-                          flex: 2,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: <Widget>[
-                              Container(
-                                width: 50.0,
-                                color: Colors.red,
-                              ),
-                              Container(
-                                width: 50.0,
-                                color: Colors.orange,
-                              ),
-                              Container(
-                                width: 50.0,
-                                color: Colors.pink,
-                              ),
-                              Container(
-                                width: 50.0,
-                                color: Colors.yellow,
-                              ),
-                            ],
-                          )),
+                        // width: double.infinity,
+                        // height: 80,
+                        flex: 2,
+                        child: ListSection(
+                          isHorizontal: true,
+                        ),
+                      ),
                     ],
                   );
                 } else {
                   return Row(
                     children: <Widget>[
                       Expanded(
-                          flex: 2,
-                          // width: 80,
-                          // height: double.infinity,
-                          child: ListView(
-                            children: <Widget>[
-                              Container(
-                                width: 50.0,
-                                height: 100,
-                                color: Colors.red,
-                              ),
-                              Container(
-                                width: 50.0,
-                                height: 100,
-                                color: Colors.orange,
-                              ),
-                              Container(
-                                width: 50.0,
-                                height: 100,
-                                color: Colors.pink,
-                              ),
-                              Container(
-                                width: 50.0,
-                                height: 100,
-                                color: Colors.yellow,
-                              ),
-                            ],
-                          )),
+                        flex: 2,
+                        // width: 80,
+                        // height: double.infinity,
+                        child: ListSection(
+                          isHorizontal: true,
+                        ),
+                      ),
                       Expanded(
                         flex: 7,
                         child: Stack(
@@ -225,7 +191,6 @@ class _SECTIONState extends State<SECTION> {
                     onPressed: () {
                       model.addComponent("1");
                       ItemText txt = new ItemText.argument(text: "1");
-                      print("object--------------------------------");
                       Item t = new Item.argument(
                           id: 1,
                           height: 0,
