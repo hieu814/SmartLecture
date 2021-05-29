@@ -11,7 +11,7 @@ class Page {
   });
 
   Items items;
-  String id;
+  int id;
   String title;
   String backgroundImage;
   String backgroundColor;
@@ -19,7 +19,7 @@ class Page {
 
   factory Page.fromJson(Map<String, dynamic> json) => Page(
         items: Items.fromJson(json["ITEMS"]),
-        id: json["_id"],
+        id: int.parse((json["_id"])),
         title: json["_title"],
         backgroundImage: json["_backgroundImage"],
         backgroundColor: json["_backgroundColor"],

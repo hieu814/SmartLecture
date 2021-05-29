@@ -9,7 +9,7 @@ class Appear {
     this.index,
   });
 
-  int id;
+  String id;
   String name;
   String direction;
   String start;

@@ -7,14 +7,14 @@ class AnswerInfo {
     this.answerInfoDetail,
   });
 
-  String id;
-  Type type;
+  int id;
+  String type;
   String value;
   String answer;
   List<AnswerInfoDetail> answerInfoDetail;
 
   factory AnswerInfo.fromJson(Map<String, dynamic> json) => AnswerInfo(
-        id: json["_Id"],
+        id: json["_id"] != null ? int.parse((json["_id"])) : 1,
         type: json["_Type"] == null ? null : json["_Type"],
         value: json["_Value"] == null ? null : json["_Value"],
         answer: json["_Answer"] == null ? null : json["_Answer"],
@@ -42,13 +42,13 @@ class AnswerInfoDetail {
     this.answerCheck,
   });
 
-  String id;
+  int id;
   String imageUrl;
   String answerCheck;
 
   factory AnswerInfoDetail.fromJson(Map<String, dynamic> json) =>
       AnswerInfoDetail(
-        id: json["_Id"],
+        id: json["_id"] != null ? int.parse((json["_id"])) : 1,
         imageUrl: json["_ImageUrl"],
         answerCheck: json["_AnswerCheck"],
       );

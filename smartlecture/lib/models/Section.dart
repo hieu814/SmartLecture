@@ -8,12 +8,12 @@ class Section {
   });
 
   List<Page> page;
-  String id;
+  int id;
   String title;
 
   factory Section.fromJson(Map<String, dynamic> json) => Section(
         page: List<Page>.from(json["PAGE"].map((x) => Page.fromJson(x))),
-        id: json["_id"],
+        id: int.parse((json["_id"])),
         title: json["_title"],
       );
 

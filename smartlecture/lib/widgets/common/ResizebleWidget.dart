@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smartlecture/ui/modules/Scale.dart';
+import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/widgets/common/BallWidget.dart';
 import 'package:smartlecture/widgets/common/ManipulatingBall.dart';
 
@@ -14,6 +16,7 @@ class ResizebleWidget extends StatefulWidget {
   final double x;
   final double y;
   final Widget child;
+  final ScalePage scale;
   ResizebleWidget(
       {this.child,
       this.onPositionChange,
@@ -22,7 +25,8 @@ class ResizebleWidget extends StatefulWidget {
       this.height = 50,
       this.x = 80,
       this.y = 80,
-      this.onDoubleTap});
+      this.onDoubleTap,
+      this.scale});
 
   @override
   _ResizebleWidgetState createState() => _ResizebleWidgetState();
@@ -33,7 +37,6 @@ class _ResizebleWidgetState extends State<ResizebleWidget> {
   double width = 0;
   double top = 0;
   double left = 0;
-
   @override
   void initState() {
     super.initState();
@@ -61,8 +64,9 @@ class _ResizebleWidgetState extends State<ResizebleWidget> {
               ),
               onDrag: (dx, dy) {
                 setState(() {
-                  top = top + dy;
-                  left = left + dx;
+                  top = top + dy * widget.scale.height;
+                  left = left + dx * widget.scale.width;
+                  //getIt.get<ScalePage>();
                 });
               },
               onDoubleTap: widget.onDoubleTap,
@@ -79,10 +83,10 @@ class _ResizebleWidgetState extends State<ResizebleWidget> {
           child: ManipulatingBall(
             child: BallWidget(diameter: ballDiameter),
             onDrag: (dx, dy) {
-              var newHeight = height - dy;
+              var newHeight = height - dy * widget.scale.width;
               setState(() {
                 height = newHeight > minsize ? newHeight : minsize;
-                top = top + dy;
+                top = top + dy * widget.scale.width;
               });
             },
             onDragEnd: () {
@@ -97,7 +101,7 @@ class _ResizebleWidgetState extends State<ResizebleWidget> {
           child: ManipulatingBall(
             child: BallWidget(diameter: ballDiameter),
             onDrag: (dx, dy) {
-              var newWidth = width + dx;
+              var newWidth = width + dx * widget.scale.height;
               setState(() {
                 width = newWidth > minsize ? newWidth : minsize;
               });
@@ -114,7 +118,7 @@ class _ResizebleWidgetState extends State<ResizebleWidget> {
           child: ManipulatingBall(
             child: BallWidget(diameter: ballDiameter),
             onDrag: (dx, dy) {
-              var newHeight = height + dy;
+              var newHeight = height + dy * widget.scale.width;
               setState(() {
                 height = newHeight > minsize ? newHeight : minsize;
               });
@@ -131,10 +135,10 @@ class _ResizebleWidgetState extends State<ResizebleWidget> {
           child: ManipulatingBall(
             child: BallWidget(diameter: ballDiameter),
             onDrag: (dx, dy) {
-              var newWidth = width - dx;
+              var newWidth = width - dx * widget.scale.height;
               setState(() {
                 width = newWidth > minsize ? newWidth : minsize;
-                left = left + dx;
+                left = left + dx * widget.scale.height;
               });
             },
             onDragEnd: () {

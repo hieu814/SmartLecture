@@ -24,32 +24,32 @@ class Item {
   Appear appear;
   Speech speech;
   Audio audio;
-  String id;
+  int id;
   String name;
   String type;
-  String x;
-  String y;
-  String width;
-  String height;
-  String scaleX;
-  String scaleY;
-  String rotation;
+  double x;
+  double y;
+  double width;
+  double height;
+  double scaleX;
+  double scaleY;
+  double rotation;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
         itemInfo: ItemInfo.fromJson(json["ITEM_INFO"]),
         appear: Appear.fromJson(json["APPEAR"]),
         speech: json["SPEECH"] == null ? null : Speech.fromJson(json["SPEECH"]),
         audio: json["AUDIO"] == null ? null : Audio.fromJson(json["AUDIO"]),
-        id: json["_id"],
+        id: int.parse((json["_id"])),
         name: json["_name"],
         type: json["_type"],
-        x: json["_x"],
-        y: json["_y"],
-        width: json["_width"],
-        height: json["_height"],
-        scaleX: json["_scaleX"],
-        scaleY: json["_scaleY"],
-        rotation: json["_rotation"],
+        x: double.parse((json["_x"])),
+        y: double.parse((json["_y"])),
+        width: double.parse((json["_width"])),
+        height: double.parse((json["_height"])),
+        scaleX: double.parse((json["_scaleX"])),
+        scaleY: double.parse((json["_scaleY"])),
+        rotation: double.parse((json["_rotation"])),
       );
 
   Map<String, dynamic> toJson() => {

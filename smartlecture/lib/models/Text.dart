@@ -1,21 +1,21 @@
 class Text {
   Text({
-    this.text,
-    this.font,
-    this.size,
-    this.color,
-    this.bold,
-    this.align,
-    this.leading,
-    this.italic,
-    this.underline,
-    this.leftMargin,
-    this.bullet,
+    this.text = "",
+    this.font = "",
+    this.size = 0,
+    this.color = "",
+    this.bold = "",
+    this.align = "",
+    this.leading = "",
+    this.italic = "",
+    this.underline = "",
+    this.leftMargin = "",
+    this.bullet = "",
   });
 
   String text;
   String font;
-  String size;
+  double size;
   String color;
   String bold;
   String align;
@@ -28,7 +28,7 @@ class Text {
   factory Text.fromJson(Map<String, dynamic> json) => Text(
         text: json["_text"],
         font: json["_font"],
-        size: json["_size"],
+        size: double.parse(json["_size"]),
         color: json["_color"],
         bold: json["_bold"],
         align: json["_align"],

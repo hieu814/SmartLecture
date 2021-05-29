@@ -43,7 +43,7 @@ class Answer {
   });
 
   String id;
-  Type type;
+  String type;
   String value;
   String checked;
   Left left;
@@ -51,7 +51,7 @@ class Answer {
 
   factory Answer.fromJson(Map<String, dynamic> json) => Answer(
         id: json["_id"],
-        type: json["_type"] == null ? null : json["_type"],
+        type: json["_type"],
         value: json["_value"] == null ? null : json["_value"],
         checked: json["_checked"] == null ? null : json["_checked"],
         left: json["left"] == null ? null : Left.fromJson(json["left"]),
@@ -77,7 +77,7 @@ class Left {
   });
 
   String id;
-  Type type;
+  String type;
   String value;
   String index;
 
