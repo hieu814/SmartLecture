@@ -1,6 +1,8 @@
 class RouteName {
-  static final String loginPage = 'LoginPage';
-  static final String tasksPage = 'TasksPage';
-  static final String donePage = 'DonePage';
-  static final String optimizationPage = 'OptimizationPage';
+  static const String loginPage = 'LoginPage';
+  static const String homePage = 'HomePage';
+  static const String sectionPage = 'SectionPage';
+  static const String signUpPage = 'signUpPage';
+
+  static const String optimizationPage = 'OptimizationPage';
 }

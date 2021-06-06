@@ -19,7 +19,7 @@ class Page {
 
   factory Page.fromJson(Map<String, dynamic> json) => Page(
         items: Items.fromJson(json["ITEMS"]),
-        id: int.parse((json["_id"])),
+        id: json["_id"] is int ? json["_id"] : int.parse((json["_id"])),
         title: json["_title"],
         backgroundImage: json["_backgroundImage"],
         backgroundColor: json["_backgroundColor"],

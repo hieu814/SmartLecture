@@ -30,18 +30,6 @@ class User {
     return '$firstName $lastName';
   }
 
-  User.formUser(User user) {
-    this.email = user.email;
-    this.firstName = user.firstName;
-    this.lastName = user.lastName;
-    this.phoneNumber = user.phoneNumber;
-    this.active = user.active;
-    this.lastOnlineTimestamp = user.lastOnlineTimestamp;
-    this.userID = user.userID;
-    this.profilePictureURL = user.profilePictureURL;
-    this.selected = user.selected;
-    this.appIdentifier = user.appIdentifier;
-  }
   factory User.fromJson(Map<String, dynamic> parsedJson) {
     return new User(
         email: parsedJson['email'] ?? '',

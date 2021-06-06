@@ -8,7 +8,10 @@ import 'package:flutter/services.dart';
 import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/services/authenticate.dart';
 import 'package:smartlecture/services/helper.dart';
+import 'package:smartlecture/ui/modules/router.dart';
+import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Home/Home_view.dart';
+import 'package:smartlecture/ui/views/Home/home_view.dart';
 import 'package:smartlecture/ui/views/Login/Login_viewmodel.dart';
 import 'package:smartlecture/ui/views/Section/Section_view.dart';
 import 'package:smartlecture/models/user.dart';
@@ -158,43 +161,18 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(32.0),
-                      child: Center(
-                        child: Text(
-                          'OR',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          right: 40.0, left: 40.0, bottom: 20),
-                      child: ConstrainedBox(
-                        constraints:
-                            const BoxConstraints(minWidth: double.infinity),
-                        child: RaisedButton.icon(
-                          label: Text(
-                            'Facebook Login',
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                      child: GestureDetector(
+                        child: Center(
+                            child: Text(
+                          "Register",
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontSize: 20.0,
                           ),
-                          icon: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: Image.asset(
-                              'assets/images/facebook_logo.png',
-                              color: Colors.white,
-                              height: 30,
-                              width: 30,
-                            ),
-                          ),
-                          color: Color(FACEBOOK_BUTTON_COLOR),
-                          textColor: Colors.white,
-                          splashColor: Color(FACEBOOK_BUTTON_COLOR),
-                          onPressed: () async {},
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
-                              side: BorderSide(
-                                  color: Color(FACEBOOK_BUTTON_COLOR))),
-                        ),
+                        )),
+                        onTap: () {
+                          Navigator.pushNamed(context, RouteName.signUpPage);
+                        },
                       ),
                     ),
                   ],
@@ -373,7 +351,7 @@ class _LoginScreen extends State<LoginScreen> {
       _key.currentState.save();
       showProgress(context, 'Logging in, please wait...', false);
       User user = await loginWithUserNameAndPassword();
-      if (user != null) pushAndRemoveUntil(context, SectionView(), false);
+      //if (user != null) pushAndRemoveUntil(context, HomeView()(), false);
     } else {
       setState(() {
         _validate = AutovalidateMode.onUserInteraction;

@@ -40,16 +40,26 @@ class Item {
         appear: Appear.fromJson(json["APPEAR"]),
         speech: json["SPEECH"] == null ? null : Speech.fromJson(json["SPEECH"]),
         audio: json["AUDIO"] == null ? null : Audio.fromJson(json["AUDIO"]),
-        id: int.parse((json["_id"])),
+        id: json["_id"] is int ? json["_id"] : int.parse((json["_id"])),
         name: json["_name"],
         type: json["_type"],
-        x: double.parse((json["_x"])),
-        y: double.parse((json["_y"])),
-        width: double.parse((json["_width"])),
-        height: double.parse((json["_height"])),
-        scaleX: double.parse((json["_scaleX"])),
-        scaleY: double.parse((json["_scaleY"])),
-        rotation: double.parse((json["_rotation"])),
+        x: json["_x"] is double ? json["_x"] : double.parse((json["_x"])),
+        y: json["_y"] is double ? json["_y"] : double.parse((json["_y"])),
+        width: json["_width"] is double
+            ? json["_width"]
+            : double.parse((json["_width"])),
+        height: json["_height"] is double
+            ? json["_height"]
+            : double.parse((json["_height"])),
+        scaleX: json["_scaleX"] is double
+            ? json["_scaleX"]
+            : double.parse((json["_scaleX"])),
+        scaleY: json["_scaleY"] is double
+            ? json["_scaleY"]
+            : double.parse((json["_scaleY"])),
+        rotation: json["_rotation"] is double
+            ? json["_rotation"]
+            : double.parse((json["_rotation"])),
       );
 
   Map<String, dynamic> toJson() => {

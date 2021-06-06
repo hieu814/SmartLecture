@@ -14,7 +14,7 @@ class AnswerInfo {
   List<AnswerInfoDetail> answerInfoDetail;
 
   factory AnswerInfo.fromJson(Map<String, dynamic> json) => AnswerInfo(
-        id: json["_id"] != null ? int.parse((json["_id"])) : 1,
+        id: json["_id"] is int ? json["_id"] : int.parse((json["_id"])),
         type: json["_Type"] == null ? null : json["_Type"],
         value: json["_Value"] == null ? null : json["_Value"],
         answer: json["_Answer"] == null ? null : json["_Answer"],
@@ -48,7 +48,7 @@ class AnswerInfoDetail {
 
   factory AnswerInfoDetail.fromJson(Map<String, dynamic> json) =>
       AnswerInfoDetail(
-        id: json["_id"] != null ? int.parse((json["_id"])) : 1,
+        id: json["_id"] is int ? json["_id"] : int.parse((json["_id"])),
         imageUrl: json["_ImageUrl"],
         answerCheck: json["_AnswerCheck"],
       );

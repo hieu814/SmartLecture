@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:smartlecture/models/Lecture.dart';
+import 'package:smartlecture/models/LectuteData.dart';
+import 'package:smartlecture/services/helper.dart';
+import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Section/Section_view.dart';
+import 'package:smartlecture/widgets/Page.dart';
 import 'package:stacked/stacked.dart';
 import 'home_viewmodel.dart';
 
@@ -15,7 +20,8 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
-      onModelReady: (HomeViewModel model) => model.load(),
+      onModelReady: (HomeViewModel model) =>
+          model.load().then((value) => model.setBusy(false)),
       builder: (context, HomeViewModel model, child) => Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
@@ -41,83 +47,106 @@ class _HomeViewState extends State<HomeView> {
             padding: EdgeInsets.zero,
             children: <Widget>[
               UserAccountsDrawerHeader(
-                accountName: Text("Hieu"),
-                accountEmail: Text("Hieuvu81198@gmail.com"),
+                accountName: Text(model.user.firstName ?? ""),
+                accountEmail: Text(model.user.email),
+                onDetailsPressed: () {},
+                otherAccountsPictures: [
+                  IconButton(
+                      onPressed: () async {
+                        await model.logout();
+                        Navigator.pushNamed(context, RouteName.loginPage);
+                      },
+                      icon: const Icon(Icons.logout_outlined))
+                ],
                 currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.green,
+                  child: displayCircleImage(
+                      model.user.profilePictureURL, 125, false),
                 ),
               ),
               ListTile(
                 title: ButtonBar(),
               ),
               ListTile(
-                title: Text("Product"),
-                onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => ProductManager()),
-                  // );
-                },
+                leading: Icon(
+                  Icons.settings,
+                  color: Colors.black,
+                  size: 20,
+                ),
+                title: Text(
+                  'Setting',
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
               ),
             ],
           ),
         ),
-        body: GridView.builder(
-          itemCount: model.items.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: MediaQuery.of(context).size.width /
-                (MediaQuery.of(context).size.height / 1.4),
-          ),
-          itemBuilder: (context, int index) {
-            var item = model.items[index];
-            return Card(
-              child: GestureDetector(
-                onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => null()),
-                  // );
-                },
-                child: Column(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 5,
-                      child: Container(
-                        color: Colors.green,
-                        child: Image.network(url),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        margin: const EdgeInsets.only(left: 20.0, right: 20.0),
-                        width: double.infinity,
-                        //color: Colors.yellow,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            const SizedBox(height: 8),
-                            Text(
-                              item,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.red,
-                                  fontSize: 15),
-                              overflow: TextOverflow.clip,
-                              maxLines: 2,
-                            ),
-                            const SizedBox(height: 8),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+        body: model.isBusy
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : GridView.builder(
+                itemCount: model.items.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: MediaQuery.of(context).size.width /
+                      (MediaQuery.of(context).size.height / 1.4),
                 ),
+                itemBuilder: (context, int index) {
+                  LectuteData item = model.items[index];
+                  double width = MediaQuery.of(context).size.height / 1.4;
+                  return Card(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, RouteName.sectionPage,
+                            arguments: item);
+                      },
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 5,
+                            child: Container(
+                              child: IPage(
+                                width: MediaQuery.of(context).size.width,
+                                height: 6 * width / 8,
+                                page: item.lecture.section[0].page[0],
+                                isPresentation: true,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              margin: const EdgeInsets.only(
+                                  left: 20.0, right: 20.0),
+                              width: double.infinity,
+                              //color: Colors.yellow,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    item.lecture.title,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.red,
+                                        fontSize: 15),
+                                    overflow: TextOverflow.clip,
+                                    maxLines: 2,
+                                  ),
+                                  const SizedBox(height: 8),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
-            );
-          },
-        ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: _selectedIndex,
@@ -128,20 +157,12 @@ class _HomeViewState extends State<HomeView> {
           ],
           onTap: (int id) {
             if (id == 0) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomeView()),
-              );
+              Navigator.pushNamed(context, RouteName.homePage);
             } else if (id == 1) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SectionView()),
-              );
+              Navigator.pushNamed(context, RouteName.sectionPage);
             } else if (id == 2) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SectionView()),
-              );
+              print("more");
+              model.more();
             }
           },
         ),

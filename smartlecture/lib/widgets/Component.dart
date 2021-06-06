@@ -32,7 +32,8 @@ class _ComponentState extends State<Component> {
 
   @override
   Widget build(BuildContext context) {
-    return ResizebleWidget(
+    temp = widget.item;
+    return new ResizebleWidget(
       scale: widget.scale,
       x: temp.x,
       y: temp.y,

@@ -5,6 +5,8 @@ import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/models/user.dart';
 import 'package:smartlecture/services/authenticate.dart';
 import 'package:smartlecture/services/helper.dart';
+import 'package:smartlecture/ui/modules/UserService.dart';
+import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/ui/views/Home/Home_view.dart';
 import 'package:stacked/stacked.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
@@ -66,7 +68,7 @@ class LoginViewModel extends BaseViewModel {
   Future<void> signUp(context, User user, String password, File image) async {
     try {
       var profilePicUrl = '';
-      String email = user.email;
+
       auth.UserCredential result = await auth.FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: user.email.trim(), password: password.trim());
@@ -81,8 +83,6 @@ class LoginViewModel extends BaseViewModel {
           .collection(USERS)
           .doc(result.user.uid)
           .set(user.toJson());
-
-      //MyApp.currentUser = user;
       pushAndRemoveUntil(context, HomeView(), false);
     } on auth.FirebaseAuthException catch (error) {
       String message = 'Couldn\'t sign up';

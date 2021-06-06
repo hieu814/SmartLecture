@@ -366,7 +366,7 @@ class _SignUpState extends State<SignUpView> {
             .doc(result.user.uid)
             .set(user.toJson());
         hideProgress();
-        MyApp.currentUser = user;
+        //MyApp.currentUser = user;
         pushAndRemoveUntil(context, HomeView(), false);
       } on auth.FirebaseAuthException catch (error) {
         hideProgress();

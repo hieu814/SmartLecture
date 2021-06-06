@@ -28,7 +28,9 @@ class Text {
   factory Text.fromJson(Map<String, dynamic> json) => Text(
         text: json["_text"],
         font: json["_font"],
-        size: double.parse(json["_size"]),
+        size: json["_size"] is double
+            ? json["_size"]
+            : double.parse((json["_size"])),
         color: json["_color"],
         bold: json["_bold"],
         align: json["_align"],

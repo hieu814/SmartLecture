@@ -4,6 +4,8 @@ const COLOR_PRIMARY_DARK = 0xFF6900be;
 const COLOR_PRIMARY = 0xFFa011f2;
 const FACEBOOK_BUTTON_COLOR = 0xFF415893;
 const USERS = 'users';
+const LECTUTES = 'lectures';
+const USER_LECTUTES = 'user_lectures';
 const double BASE_WIDTH = 800.0; //x
 const double BASE_HEIGHT = 600.0; //411
 enum Type {
