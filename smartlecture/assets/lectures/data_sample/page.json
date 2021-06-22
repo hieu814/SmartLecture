@@ -1,0 +1,48 @@
+{
+   "ITEMS": {
+      "ITEM": [
+         {
+            "ITEM_INFO": {
+               "TEXT": {
+                  "_text": "Nhập văn bản vào đây!",
+                  "_font": "Arial",
+                  "_size": "36",
+                  "_color": "-663885",
+                  "_bold": "True",
+                  "_align": "left",
+                  "_leading": "0",
+                  "_italic": "False",
+                  "_underline": "False",
+                  "_leftMargin": "0",
+                  "_bullet": "False"
+               }
+            },
+            "APPEAR": {
+               "_id": "NoID",
+               "_name": "None",
+               "_direction": "None",
+               "_start": "Auto",
+               "_speed": "0",
+               "_repeat": "false",
+               "_index": "0"
+            },
+            "_id": "1",
+            "_name": "iTextBlock",
+            "_type": "component",
+            "_x": "0",
+            "_y": "10",
+            "_width": "400",
+            "_height": "60",
+            "_scaleX": "1",
+            "_scaleY": "1",
+            "_rotation": "0"
+         }
+         
+      ]
+   },
+   "_id": "1",
+   "_title": "Page2",
+   "_backgroundImage": "pack://application:,,,/Presentation;component/Icon/bg/board.jpg",
+   "_backgroundColor": "0",
+   "_backgroundAlpha": "0"
+}

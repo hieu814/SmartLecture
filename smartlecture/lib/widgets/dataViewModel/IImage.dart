@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,12 +20,22 @@ class _IImageState extends State<IImage> {
   @override
   void initState() {
     super.initState();
-    temp = widget.image;
+    temp = widget.image ?? new t.Image(url: "");
   }
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(temp.url);
+    return CachedNetworkImage(
+      imageUrl: temp.url,
+      placeholder: (context, url) => _getPlaceholder(),
+      errorWidget: (context, url, error) => _getPlaceholder(),
+      fit: BoxFit.fill,
+    );
   }
 }
+
+Widget _getPlaceholder() => Image.asset(
+      'assets/images/placeholder.jpg',
+      fit: BoxFit.fill,
+    );
 //mdColors

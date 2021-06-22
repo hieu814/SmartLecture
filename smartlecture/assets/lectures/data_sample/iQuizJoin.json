@@ -1,0 +1,165 @@
+{
+   "ITEM": {
+      "ITEM_INFO": {
+         "quizs": {
+            "question": {
+               "answer": [
+                  {
+                     "left": {
+                        "_id": "left-0",
+                        "_type": "text",
+                        "_value": "What colour is it?",
+                        "_index": "0"
+                     },
+                     "right": {
+                        "_id": "right-0",
+                        "_type": "text",
+                        "_value": "It’s white",
+                        "_index": "0"
+                     },
+                     "_id": "answer-0"
+                  },
+                  {
+                     "left": {
+                        "_id": "left-1",
+                        "_type": "text",
+                        "_value": "What time do you have lunch?",
+                        "_index": "1"
+                     },
+                     "right": {
+                        "_id": "right-1",
+                        "_type": "text",
+                        "_value": "At 11 0’clock",
+                        "_index": "1"
+                     },
+                     "_id": "answer-1"
+                  },
+                  {
+                     "left": {
+                        "_id": "left-2",
+                        "_type": "text",
+                        "_value": "What’s your favourite drink?",
+                        "_index": "2"
+                     },
+                     "right": {
+                        "_id": "right-2",
+                        "_type": "text",
+                        "_value": "I like milk",
+                        "_index": "2"
+                     },
+                     "_id": "answer-2"
+                  },
+                  {
+                     "left": {
+                        "_id": "left-3",
+                        "_type": "text",
+                        "_value": "What is her job?",
+                        "_index": "3"
+                     },
+                     "right": {
+                        "_id": "right-3",
+                        "_type": "text",
+                        "_value": "She is a worker",
+                        "_index": "3"
+                     },
+                     "_id": "answer-3"
+                  },
+                  {
+                     "left": {
+                        "_id": "left-4",
+                        "_type": "text",
+                        "_value": "Would you like some noodles?",
+                        "_index": "4"
+                     },
+                     "right": {
+                        "_id": "right-4",
+                        "_type": "text",
+                        "_value": "Yes, please",
+                        "_index": "4"
+                     },
+                     "_id": "answer-4"
+                  },
+                  {
+                     "left": {
+                        "_id": "left-5",
+                        "_type": "text",
+                        "_value": "How much are they?",
+                        "_index": "5"
+                     },
+                     "right": {
+                        "_id": "right-5",
+                        "_type": "text",
+                        "_value": "They are 20.000 dong",
+                        "_index": "5"
+                     },
+                     "_id": "answer-5"
+                  },
+                  {
+                     "left": {
+                        "_id": "left-6",
+                        "_type": "text",
+                        "_value": "Where are you from?",
+                        "_index": "6"
+                     },
+                     "right": {
+                        "_id": "right-6",
+                        "_type": "text",
+                        "_value": "I am from England ",
+                        "_index": "6"
+                     },
+                     "_id": "answer-6"
+                  },
+                  {
+                     "left": {
+                        "_id": "left-7",
+                        "_type": "text",
+                        "_value": "When is your birthday?",
+                        "_index": "7"
+                     },
+                     "right": {
+                        "_id": "right-7",
+                        "_type": "text",
+                        "_value": "It is in January",
+                        "_index": "7"
+                     },
+                     "_id": "answer-7"
+                  }
+               ],
+               "_value": "Ghép hai vế với nhau sao cho đúng.",
+               "_mediatype": "image",
+               "_mediaurl": ""
+            },
+            "_font": "Arial",
+            "_size": "14",
+            "_color": "0x333333",
+            "_bold": "true",
+            "_underline": "false",
+            "_align": "left",
+            "_leading": "6"
+         }
+      },
+      "APPEAR": {
+         "_id": "NoID",
+         "_name": "None",
+         "_direction": "None",
+         "_start": "Auto",
+         "_speed": "0",
+         "_repeat": "false",
+         "_index": "0"
+      },
+      "LINK": {
+         "_type": "none",
+         "_href": ""
+      },
+      "_id": "B9E4D40E-8C0C-FF80-EAD7-38D7EAEE3C3D",
+      "_name": "iQuizJoin",
+      "_type": "module",
+      "_x": "35.0385144791332",
+      "_y": "48.6340934332381",
+      "_width": "687.544841766357",
+      "_height": "479.289310822081",
+      "_scaleX": "1",
+      "_scaleY": "1",
+      "_rotation": "0"
+   }
+}

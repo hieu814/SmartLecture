@@ -48,9 +48,9 @@ class _ListSectionState extends State<ListSection> {
       child: Row(
         children: <Widget>[
           Expanded(
-            flex: 9,
+            flex: 8,
             child: Container(
-              height: reload ? 100 : 100,
+              height: 100,
               width: 100,
               child: ListView.builder(
                 itemCount: pages.length,
@@ -85,18 +85,6 @@ class _ListSectionState extends State<ListSection> {
               ),
             ),
           ),
-          Expanded(
-              flex: 1,
-              child: Card(
-                child: Container(
-                    width: 100,
-                    height: 100,
-                    child: Center(
-                      child: IconButton(
-                          iconSize: 15, onPressed: null, icon: Icon(Icons.add)),
-                    ),
-                    margin: EdgeInsets.all(5)),
-              ))
         ],
       ),
     );

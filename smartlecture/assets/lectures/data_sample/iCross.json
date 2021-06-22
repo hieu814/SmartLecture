@@ -1,0 +1,101 @@
+{
+   "ITEM": {
+      "ITEM_INFO": {
+         "crossgame": {
+            "item": [
+               {
+                  "_id": "answer-0",
+                  "_mediatype": "image",
+                  "_mediaurl": "",
+                  "_question": "Hậu quả mà quân Nam Hán phải nhận khi sang xâm lược nước ta năm 938",
+                  "_answer": "ThấtBại",
+                  "_selectedIndex": "4"
+               },
+               {
+                  "_id": "answer-0",
+                  "_mediatype": "image",
+                  "_mediaurl": "",
+                  "_question": "Nơi Ngô Quyền chọn làm kinh đô",
+                  "_answer": "CổLoa",
+                  "_selectedIndex": "4"
+               },
+               {
+                  "_id": "answer-0",
+                  "_mediatype": "image",
+                  "_mediaurl": "",
+                  "_question": "Vũ khí làm thủng thuyền của giặc",
+                  "_answer": "  CọcGỗ",
+                  "_selectedIndex": "4"
+               },
+               {
+                  "_id": "answer-0",
+                  "_mediatype": "image",
+                  "_mediaurl": "",
+                  "_question": "Ngô Quyền đã dựa vào hiện tượng thiên nhiên này để đánh giặc",
+                  "_answer": "   ThủyTriều",
+                  "_selectedIndex": "4"
+               },
+               {
+                  "_id": "answer-0",
+                  "_mediatype": "image",
+                  "_mediaurl": "",
+                  "_question": "Quê của Ngô Quyền",
+                  "_answer": "    ĐườngLâm",
+                  "_selectedIndex": "4"
+               },
+               {
+                  "_id": "answer-0",
+                  "_mediatype": "image",
+                  "_mediaurl": "",
+                  "_question": "Quân Nam Hán đến từ phương này",
+                  "_answer": "   Bắc",
+                  "_selectedIndex": "4"
+               },
+               {
+                  "_id": "answer-0",
+                  "_mediatype": "image",
+                  "_mediaurl": "",
+                  "_question": "Người lãnh đạo trận Bạch Đằng",
+                  "_answer": "    NgôQuyền",
+                  "_selectedIndex": "4"
+               },
+               {
+                  "_id": "answer-0",
+                  "_mediatype": "image",
+                  "_mediaurl": "",
+                  "_question": "Tướng giặc tử trận ở Bạch Đằng",
+                  "_answer": "HoàngTháo",
+                  "_selectedIndex": "4"
+               }
+            ],
+            "_font": "Arial",
+            "_size": "14",
+            "_color": "0x333333",
+            "_bold": "true",
+            "_underline": "false",
+            "_align": "false",
+            "_leading": "6",
+            "_question": "Trận đánh thắng quân Nam Hán"
+         }
+      },
+      "APPEAR": {
+         "_id": "NoID",
+         "_name": "None",
+         "_direction": "None",
+         "_start": "Auto",
+         "_speed": "0",
+         "_repeat": "false",
+         "_index": "0"
+      },
+      "_id": "0",
+      "_name": "iCross",
+      "_type": "component",
+      "_x": "23.5608379746802",
+      "_y": "31.5711862049786",
+      "_width": "677.828884320882",
+      "_height": "501.211792518426",
+      "_scaleX": "1",
+      "_scaleY": "1",
+      "_rotation": "0"
+   }
+}

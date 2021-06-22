@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class AddLink extends StatefulWidget {
+class AddOneData extends StatefulWidget {
+  final String title;
   final String data;
-  final Function(String) returnData;
 
-  const AddLink({Key key, this.data, this.returnData}) : super(key: key);
+  const AddOneData({Key key, this.data, this.title}) : super(key: key);
 
   @override
-  _AddLinkState createState() => _AddLinkState();
+  _AddOneDataState createState() => _AddOneDataState();
 }
 
-class _AddLinkState extends State<AddLink> {
+class _AddOneDataState extends State<AddOneData> {
   TextEditingController imgUrlController = new TextEditingController();
 
   @override
@@ -24,14 +24,12 @@ class _AddLinkState extends State<AddLink> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: new Text("Nhập đường dẫn ảnh"),
+      title: new Text(widget.title ?? "Nhập"),
       content: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             TextField(
               controller: imgUrlController,
-              decoration: InputDecoration(
-                  hintText: "Image Url", labelText: "Image Url"),
               maxLines: null,
             ),
           ],
@@ -39,15 +37,15 @@ class _AddLinkState extends State<AddLink> {
       ),
       actions: <Widget>[
         TextButton(
-          child: Text('Cancel'),
+          child: Text('Huỷ'),
           onPressed: () {
-            Navigator.of(context, rootNavigator: true).pop();
+            Navigator.pop(context, "");
           },
         ),
         TextButton(
-            child: Text("Save"),
+            child: Text("Lưu"),
             onPressed: () {
-              widget.returnData(imgUrlController.text);
+              Navigator.pop(context, imgUrlController.text);
             })
       ],
     );

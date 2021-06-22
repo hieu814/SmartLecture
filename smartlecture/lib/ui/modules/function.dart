@@ -1,8 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/models/Item.dart';
 import 'package:smartlecture/models/Text.dart' as iText;
+import 'package:smartlecture/widgets/dataViewModel/IImage.dart';
 import 'package:smartlecture/widgets/dataViewModel/Itext.dart';
+import 'package:smartlecture/widgets/manage/FormEdit.dart';
+import 'package:smartlecture/widgets/manage/FormEditMedia.dart';
 
 bool toBool(dynamic x) {
   if (x == null) return false;
@@ -24,7 +28,7 @@ TextAlign getTextAlign(String a) {
 }
 
 Color hexToColor(String code) {
-  return new Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
+  return new Color(int.parse(code.replaceAll('#', '0xff')));
 }
 
 Widget fromItem(Item item) {
@@ -33,6 +37,23 @@ Widget fromItem(Item item) {
     return Itext(
       text: data,
     );
+  } else if (typeName.map[item.name] == Type.IMAGE) {
+    iText.Text data = item.itemInfo.text;
+    return Itext(
+      text: data,
+    );
   }
-  return Text("Double tap to change text");
+  return IImage();
+}
+
+Future<String> editMedia(BuildContext context, String url, bool isVideo) async {
+  return Navigator.push(
+    context,
+    CupertinoPageRoute(
+        fullscreenDialog: true,
+        builder: (context) => FormEditMedia(
+              isVideo: isVideo,
+              url: url,
+            )),
+  );
 }

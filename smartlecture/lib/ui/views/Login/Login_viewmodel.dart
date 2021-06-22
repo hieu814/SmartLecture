@@ -36,30 +36,28 @@ class LoginViewModel extends BaseViewModel {
       hideProgress();
       switch ((exception).code) {
         case "invalid-email":
-          showAlertDialog(context, 'Couldn\'t Authenticate', 'malformedEmail');
+          showAlertDialog(context, 'Không thể đăng nhập', 'Email không đúng');
           break;
         case "wrong-password":
-          showAlertDialog(context, 'Couldn\'t Authenticate', 'Wrong password');
+          showAlertDialog(context, 'Không thể đăng nhập', 'Sai mật khẩu');
           break;
         case "user-not-found":
-          showAlertDialog(context, 'Couldn\'t Authenticate',
-              'No user corresponds to this email');
+          showAlertDialog(
+              context, 'Không thể đăng nhập', 'Tài khoản không tồn tại');
           break;
         case "user-disabled":
-          showAlertDialog(
-              context, 'Couldn\'t Authenticate', 'This user is disabled');
+          showAlertDialog(context, 'Không thể đăng nhập', 'Tài khoản bị khóa');
           break;
         case 'too-many-requests':
-          showAlertDialog(context, 'Couldn\'t Authenticate',
-              'Too many requests, Please try again later.');
+          showAlertDialog(context, 'Không thể đăng nhập',
+              'Quá nhiều yêu cầu, Xin hãy thẻ lại sau.');
           break;
       }
       print(exception.toString());
       return false;
     } catch (e) {
       hideProgress();
-      showAlertDialog(
-          context, 'Couldn\'t Authenticate', 'Login failed. Please try again.');
+      showAlertDialog(context, 'Không thể đăng nhập', 'Xin hãy thẻ lại sau');
       print(e.toString());
       return false;
     }
@@ -73,7 +71,7 @@ class LoginViewModel extends BaseViewModel {
           .createUserWithEmailAndPassword(
               email: user.email.trim(), password: password.trim());
       if (image != null) {
-        updateProgress('Uploading image, Please wait...');
+        updateProgress('Đang upload hình ảnh...');
         profilePicUrl = await FireStoreUtils()
             .uploadUserImageToFireStorage(image, result.user.uid);
       }
@@ -88,27 +86,27 @@ class LoginViewModel extends BaseViewModel {
       String message = 'Couldn\'t sign up';
       switch (error.code) {
         case 'email-already-in-use':
-          message = 'Email address already in use';
+          message = 'Email đã tồn tại';
           break;
         case 'invalid-email':
           message = 'validEmail';
           break;
         case 'operation-not-allowed':
-          message = 'Email/password accounts are not enabled';
+          message = 'Tài khoản bị khóa';
           break;
         case 'weak-password':
-          message = 'password is too weak.';
+          message = 'Mật khẩu yếu.';
           break;
         case 'too-many-requests':
-          message = 'Too many requests, '
-              'Please try again later.';
+          message = 'Có quá nhiều yêu cầu, '
+              'Xin hãy thử lại sau.';
           break;
       }
       showAlertDialog(context, 'Failed', message);
       print(error.toString());
     } catch (e) {
       print('_SignUpState._sendToServer $e');
-      showAlertDialog(context, 'Failed', 'Couldn\'t sign up');
+      showAlertDialog(context, 'Lỗi', 'Không thể đăng kí');
     }
   }
 }

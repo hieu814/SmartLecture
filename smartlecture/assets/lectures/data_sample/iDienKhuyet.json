@@ -1,0 +1,39 @@
+{
+   "ITEM": {
+      "ITEM_INFO": {
+         "rootquest": {
+            "WHICHWORD": {
+               "DRAG_DROP": "a) My printer does not work because I have not turned it on yet\nb) The printer is still under guarantee. So the company will replace it.\nc) We have already taken the English exam.\nd) You can read this instruction how to repair it in the manual",
+               "_Title": "Suggested fill in the blank",
+               "_Image": "",
+               "_Dapan": "60,63|95,104|150,157|240,246",
+               "_MediaType": "image",
+               "_MediaUrl": ""
+            }
+         }
+      },
+      "APPEAR": {
+         "_id": "NoID",
+         "_name": "None",
+         "_direction": "None",
+         "_start": "Auto",
+         "_speed": "0",
+         "_repeat": "false",
+         "_index": "0"
+      },
+      "LINK": {
+         "_type": "none",
+         "_href": ""
+      },
+      "_id": "4BD763BE-E976-C203-5590-3C746C52CD37",
+      "_name": "iDienKhuyet",
+      "_type": "module",
+      "_x": "34.6105543287811",
+      "_y": "48.1191489361702",
+      "_width": "518.388509588844",
+      "_height": "323.046808510638",
+      "_scaleX": "1",
+      "_scaleY": "1",
+      "_rotation": "0"
+   }
+}

@@ -1,0 +1,73 @@
+{
+   "LECTURE": {
+      "SECTION": [
+         {
+            "PAGE": [
+               {
+                  "ITEMS": {
+                     "ITEM": [
+                        {
+                           "ITEM_INFO": {
+                              "TEXT": {
+                                 "_text": "Nhập văn bản vào đây!",
+                                 "_font": "Arial",
+                                 "_size": "36",
+                                 "_color": "-663885",
+                                 "_bold": "True",
+                                 "_align": "left",
+                                 "_leading": "0",
+                                 "_italic": "False",
+                                 "_underline": "False",
+                                 "_leftMargin": "0",
+                                 "_bullet": "False"
+                              }
+                           },
+                           "APPEAR": {
+                              "_id": "NoID",
+                              "_name": "None",
+                              "_direction": "None",
+                              "_start": "Auto",
+                              "_speed": "0",
+                              "_repeat": "false",
+                              "_index": "1"
+                           },
+                           "SPEECH": {
+                              "_Value": "",
+                              "_IsMale": "True"
+                           },
+                           "AUDIO": {
+                              "_Url": ""
+                           },
+                           "_id": "0",
+                           "_name": "iTextBlock",
+                           "_type": "component",
+                           "_x": "100",
+                           "_y": "30",
+                           "_width": "400",
+                           "_height": "60",
+                           "_scaleX": "1",
+                           "_scaleY": "1",
+                           "_rotation": "0"
+                        }
+                     ]
+                  },
+                  "_id": "0",
+                  "_title": "Trang bìa",
+                  "_backgroundImage": "http://thuvien.bkt1.vn/Library/Image/Trung-hoc-co-so/Lop-7/Tieng-Anh-7/Tieng-Anh-7-1.1/E7-NXBGD-Unit1-Lesson1-Nen2.jpg",
+                  "_backgroundColor": "0",
+                  "_backgroundAlpha": "0"
+               }
+            ],
+            "_id": "0",
+            "_title": "Trang bìa"
+         }
+         
+      ],
+      "_title": "New",
+      "_type": "0",
+      "_authorId": "0",
+      "_editorId": "0",
+      "_createdDate": "10:06:52 14-06-2020",
+      "_editedDate": "12:09:24 17-06-2020"
+   }
+}

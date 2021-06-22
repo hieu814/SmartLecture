@@ -1,0 +1,28 @@
+{
+   "ITEM": {
+      "ITEM_INFO": {
+         "IMAGE": {
+            "_url": "pack://application:,,,/Presentation;component/Icon/no-image.jpg"
+         }
+      },
+      "APPEAR": {
+         "_id": "NoID",
+         "_name": "None",
+         "_direction": "None",
+         "_start": "Auto",
+         "_speed": "0",
+         "_repeat": "false",
+         "_index": "0"
+      },
+      "_id": "1",
+      "_name": "iImage",
+      "_type": "component",
+      "_x": "90.1925391095066",
+      "_y": "169.477124183007",
+      "_width": "583.333333333334",
+      "_height": "208.58098969007",
+      "_scaleX": "1",
+      "_scaleY": "1",
+      "_rotation": "0"
+   }
+}

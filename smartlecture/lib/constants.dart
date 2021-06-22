@@ -6,6 +6,8 @@ const FACEBOOK_BUTTON_COLOR = 0xFF415893;
 const USERS = 'users';
 const LECTUTES = 'lectures';
 const USER_LECTUTES = 'user_lectures';
+const NO_IMAGE = "assets/images/no_image.png";
+const NO_BACKGROUND = "assets/images/transparent.jpg";
 const double BASE_WIDTH = 800.0; //x
 const double BASE_HEIGHT = 600.0; //411
 enum Type {

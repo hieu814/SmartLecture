@@ -35,7 +35,7 @@ class _ItextState extends State<Itext> {
           decoration: toBool(temp.underline)
               ? TextDecoration.underline
               : TextDecoration.none,
-          color: Color(int.parse(temp.color))),
+          color: hexToColor(temp.color)),
     );
   }
 }

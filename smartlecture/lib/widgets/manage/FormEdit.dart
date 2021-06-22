@@ -32,13 +32,18 @@ class _FormEditState extends State<FormEdit> {
         actions: <Widget>[
           ElevatedButton(
             onPressed: () {
-              Navigator.pop(context, textController.text);
+              Navigator.pop(context, temp);
             },
             child: Text('Lưu'),
           ),
         ],
       ),
-      body: EditText(),
+      body: EditText(
+        item: temp,
+        returnData: (a) {
+          temp = a;
+        },
+      ),
     );
   }
 }

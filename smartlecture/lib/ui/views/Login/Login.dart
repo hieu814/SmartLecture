@@ -8,12 +8,8 @@ import 'package:flutter/services.dart';
 import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/services/authenticate.dart';
 import 'package:smartlecture/services/helper.dart';
-import 'package:smartlecture/ui/modules/router.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
-import 'package:smartlecture/ui/views/Home/Home_view.dart';
-import 'package:smartlecture/ui/views/Home/home_view.dart';
 import 'package:smartlecture/ui/views/Login/Login_viewmodel.dart';
-import 'package:smartlecture/ui/views/Section/Section_view.dart';
 import 'package:smartlecture/models/user.dart';
 import 'package:stacked/stacked.dart';
 

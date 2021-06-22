@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:smartlecture/models/Item.dart';
 import 'package:smartlecture/models/Text.dart' as iText;
+import 'package:smartlecture/models/common/MyColors.dart';
 import 'package:smartlecture/ui/modules/function.dart';
 
 import '../../constants.dart';
 
 class EditText extends StatefulWidget {
   final Item item;
-  final Function(iText.Text) returnData;
+  final Function(Item) returnData;
 
   const EditText({Key key, this.item, this.returnData}) : super(key: key);
 
@@ -17,135 +18,170 @@ class EditText extends StatefulWidget {
 
 class _EditTextState extends State<EditText> {
   TextEditingController textController = new TextEditingController();
-  iText.Text temp = new iText.Text();
+
+  Item temp;
   @override
   void initState() {
     super.initState();
     if (widget.item != null) {
-      temp = widget.item.itemInfo.text;
+      temp = widget.item;
+      textController.text = temp.itemInfo.text.text;
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    widget.returnData(temp);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Container(
-            width: double.infinity,
-            height: 100,
+          Align(
+            alignment: FractionalOffset.bottomCenter,
+            child: Padding(
+                padding: EdgeInsets.only(bottom: 0),
+                child: Container(
+                  height: 50,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      PopupMenuButton(
+                        icon: Icon(
+                          Icons.format_color_text,
+                          color: hexToColor(temp.itemInfo.text.color),
+                        ),
+                        itemBuilder: (context) => [
+                          PopupMenuItem(
+                              padding: EdgeInsets.all(0),
+                              enabled: false,
+                              value: 1,
+                              child: Center(
+                                child: Container(
+                                    height: 300,
+                                    width: 100,
+                                    child: ListView.builder(
+                                      itemCount: mainColors.length,
+                                      itemBuilder: (context, index) {
+                                        return GestureDetector(
+                                          child: Card(
+                                            child: Container(
+                                              padding: EdgeInsets.all(1),
+                                              height: 40,
+                                              width: 40,
+                                              color: mainColors[index],
+                                            ),
+                                          ),
+                                          onTap: () {
+                                            setState(() {
+                                              temp.itemInfo.text.color =
+                                                  mainColors[index]
+                                                      .toHex()
+                                                      .toString();
+                                            });
+                                          },
+                                        );
+                                      },
+                                    )),
+                              ))
+                        ],
+                      ),
+                      IconButton(
+                          icon: Icon(Icons.format_bold_sharp),
+                          onPressed: () {
+                            setState(() {
+                              temp.itemInfo.text.bold =
+                                  temp.itemInfo.text.bold == "true"
+                                      ? "false"
+                                      : "true";
+                            });
+                          }),
+                      IconButton(
+                          icon: Icon(Icons.format_italic_sharp),
+                          onPressed: () {
+                            setState(() {
+                              temp.itemInfo.text.italic =
+                                  temp.itemInfo.text.italic == "true"
+                                      ? "false"
+                                      : "true";
+                            });
+                          }),
+                      IconButton(
+                          icon: Icon(Icons.format_underline_sharp),
+                          onPressed: () {
+                            setState(() {
+                              temp.itemInfo.text.underline =
+                                  temp.itemInfo.text.underline == "true"
+                                      ? "false"
+                                      : "true";
+                            });
+                          }),
+                      IconButton(
+                          icon: Icon(Icons.format_align_left_sharp),
+                          onPressed: () {
+                            setState(() {
+                              temp.itemInfo.text.align = "left";
+                            });
+                          }),
+                      IconButton(
+                          icon: Icon(Icons.format_align_center_sharp),
+                          onPressed: () {
+                            setState(() {
+                              temp.itemInfo.text.align = "center";
+                            });
+                          }),
+                      IconButton(
+                          icon: Icon(Icons.format_align_right_sharp),
+                          onPressed: () {
+                            setState(() {
+                              temp.itemInfo.text.align = "right";
+                            });
+                          }),
+                      Container(
+                        child: DropdownButton<int>(
+                          value: temp.itemInfo.text.size.toInt(),
+                          onChanged: (i) {
+                            setState(() {
+                              temp.itemInfo.text.size = i.toDouble();
+                            });
+                          },
+                          items: List.generate(
+                              40,
+                              (index) => DropdownMenuItem<int>(
+                                    value: index,
+                                    child: Text(index.toString()),
+                                  )),
+                        ),
+                      )
+                    ],
+                  ),
+                  //decoration:
+                  //BoxDecoration(border: Border.all(color: Colors.red)),
+                )),
+          ),
+          Expanded(
+            flex: 7,
             child: TextField(
               style: TextStyle(
-                fontStyle:
-                    toBool(temp.italic) ? FontStyle.italic : FontStyle.normal,
-                fontWeight:
-                    toBool(temp.bold) ? FontWeight.bold : FontWeight.normal,
-                fontSize: temp.size > 10 ? temp.size : 10,
-                fontFamily: temp.font,
-                decoration: toBool(temp.underline)
-                    ? TextDecoration.underline
-                    : TextDecoration.none,
-                //color: Color(int.parse(temp.color))
-              ),
+                  fontStyle: toBool(temp.itemInfo.text.italic)
+                      ? FontStyle.italic
+                      : FontStyle.normal,
+                  fontWeight: toBool(temp.itemInfo.text.bold)
+                      ? FontWeight.bold
+                      : FontWeight.normal,
+                  fontSize: temp.itemInfo.text.size,
+                  fontFamily: temp.itemInfo.text.font,
+                  decoration: toBool(temp.itemInfo.text.underline)
+                      ? TextDecoration.underline
+                      : TextDecoration.none,
+                  color: hexToColor(temp.itemInfo.text.color)),
               keyboardType: TextInputType.multiline,
               controller: textController,
               maxLines: null,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-          ),
-          Expanded(
-            child: Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                  padding: EdgeInsets.only(bottom: 0),
-                  child: Container(
-                    height: 50,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        PopupMenuButton(
-                          icon: Icon(Icons.color_lens_rounded),
-                          itemBuilder: (context) => [
-                            PopupMenuItem(
-                                value: 1,
-                                child: Container(
-                                    height: 300,
-                                    width: 300,
-                                    child: GridView.builder(
-                                      gridDelegate:
-                                          SliverGridDelegateWithMaxCrossAxisExtent(
-                                              maxCrossAxisExtent: 40,
-                                              childAspectRatio: 1,
-                                              crossAxisSpacing: 5,
-                                              mainAxisSpacing: 5),
-                                      itemCount: mdColors.length,
-                                      itemBuilder: (context, index) {
-                                        return Container(
-                                          padding: EdgeInsets.all(1),
-                                          height: 40,
-                                          width: 40,
-                                          color: hexToColor(mdColors[index]),
-                                        );
-                                      },
-                                    )))
-                          ],
-                        ),
-                        IconButton(
-                            icon: Icon(Icons.format_align_left_sharp),
-                            onPressed: () {
-                              setState(() {
-                                temp.align = "left";
-                              });
-                            }),
-                        IconButton(
-                            icon: Icon(Icons.format_align_center_sharp),
-                            onPressed: () {
-                              setState(() {
-                                temp.align = "center";
-                              });
-                            }),
-                        IconButton(
-                            icon: Icon(Icons.format_align_right_sharp),
-                            onPressed: () {
-                              setState(() {
-                                temp.align = "right";
-                              });
-                            }),
-                        IconButton(
-                            icon: Icon(Icons.format_bold_sharp),
-                            onPressed: () {
-                              setState(() {
-                                temp.bold =
-                                    temp.bold == "true" ? "false" : "true";
-                              });
-                            }),
-                        IconButton(
-                            icon: Icon(Icons.format_italic_sharp),
-                            onPressed: () {
-                              setState(() {
-                                temp.italic =
-                                    temp.italic == "true" ? "false" : "true";
-                              });
-                            }),
-                        IconButton(
-                            icon: Icon(Icons.format_underline_sharp),
-                            onPressed: () {
-                              setState(() {
-                                temp.italic =
-                                    temp.underline == "true" ? "false" : "true";
-                              });
-                            }),
-                        IconButton(
-                            icon: Icon(Icons.format_color_fill),
-                            onPressed: () {}),
-                      ],
-                    ),
-                    //decoration:
-                    //BoxDecoration(border: Border.all(color: Colors.red)),
-                  )),
+              textAlign: getTextAlign(temp.itemInfo.text.align),
+              onChanged: (s) {
+                temp.itemInfo.text.text = s;
+                widget.returnData(temp);
+              },
             ),
           ),
         ],

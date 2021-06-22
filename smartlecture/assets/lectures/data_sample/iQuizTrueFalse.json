@@ -1,0 +1,66 @@
+{
+   "ITEM": {
+      "ITEM_INFO": {
+         "quizs": {
+            "question": {
+               "answer": [
+                  {
+                     "_id": "answer-0",
+                     "_type": "text",
+                     "_value": "1. Tom is going for a picnic with his family.",
+                     "_checked": "false"
+                  },
+                  {
+                     "_id": "answer-1",
+                     "_type": "text",
+                     "_value": "2. They are going to take some food, fruit and drinks.",
+                     "_checked": "true"
+                  },
+                  {
+                     "_id": "answer-2",
+                     "_type": "text",
+                     "_value": "3. They are going to play some sports and games.",
+                     "_checked": "true"
+                  },
+                  {
+                     "_id": "answer-3",
+                     "_type": "text",
+                     "_value": "4. Tom is going to take a radio.",
+                     "_checked": "false"
+                  }
+               ],
+               "_value": "True and false test:",
+               "_selectedindex": "0",
+               "_mediatype": "image",
+               "_mediaurl": ""
+            },
+            "_font": "Arial",
+            "_size": "14",
+            "_color": "0x333333",
+            "_bold": "true",
+            "_underline": "false",
+            "_align": "false",
+            "_leading": "6"
+         }
+      },
+      "APPEAR": {
+         "_id": "NoID",
+         "_name": "None",
+         "_direction": "None",
+         "_start": "Auto",
+         "_speed": "0",
+         "_repeat": "false",
+         "_index": "0"
+      },
+      "_id": "0",
+      "_name": "iQuizTrueFalse",
+      "_type": "component",
+      "_x": "51.0846159993501",
+      "_y": "45.819867241594",
+      "_width": "472.959779354299",
+      "_height": "398.828350623195",
+      "_scaleX": "1",
+      "_scaleY": "1",
+      "_rotation": "0"
+   }
+}

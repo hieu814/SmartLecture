@@ -1,0 +1,30 @@
+{
+   "ITEM": {
+      "ITEM_INFO": {
+         "MEDIA": {
+            "_MediaUrl": "https://www.youtube.com/watch?v=efW4KRHpulk",
+            "_MediaType": "movie",
+            "_MediaSourceType": "Google"
+         }
+      },
+      "APPEAR": {
+         "_id": "NoID",
+         "_name": "None",
+         "_direction": "None",
+         "_start": "Auto",
+         "_speed": "0",
+         "_repeat": "false",
+         "_index": "0"
+      },
+      "_id": "0",
+      "_name": "iMainMedia",
+      "_type": "component",
+      "_x": "19.6450060168455",
+      "_y": "51.0457516339865",
+      "_width": "685.431440710466",
+      "_height": "58.588290919205",
+      "_scaleX": "1",
+      "_scaleY": "1",
+      "_rotation": "0"
+   }
+}
