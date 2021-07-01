@@ -1,9 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import 'package:smartlecture/models/Image.dart' as t;
-import 'package:smartlecture/ui/modules/function.dart';
+import 'package:smartlecture/models/lecture_model/Image.dart' as t;
 
 class IImage extends StatefulWidget {
   final t.Image image;

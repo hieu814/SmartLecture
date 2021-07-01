@@ -88,7 +88,7 @@ hideProgress() async {
 //helper method to show alert dialog
 showAlertDialog(BuildContext context, String title, String content) {
   print("show dialog: " + title + "-" + content);
-  Widget okButton = FlatButton(
+  Widget okButton = TextButton(
     child: Text("OK"),
     onPressed: () {
       Navigator.pop(context);

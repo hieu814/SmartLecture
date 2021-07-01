@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:smartlecture/models/user.dart';
+import 'package:smartlecture/models/user_model/user.dart';
 import 'package:smartlecture/services/authenticate.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 

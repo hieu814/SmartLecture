@@ -3,36 +3,44 @@ import 'dart:convert';
 import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:smartlecture/constants.dart';
-import 'package:smartlecture/models/Item.dart';
-import 'package:smartlecture/models/Lecture.dart';
-import 'package:smartlecture/models/Section.dart';
-import 'package:smartlecture/models/UserLectures.dart';
+import 'package:smartlecture/models/lecture_model/Item.dart';
+import 'package:smartlecture/models/lecture_model/Lecture.dart';
+import 'package:smartlecture/models/lecture_model/LectuteData.dart';
+import 'package:smartlecture/models/lecture_model/Section.dart';
+import 'package:smartlecture/models/user_model/UserLectures.dart';
 import 'package:smartlecture/models/common/SectionIndex..dart';
-import 'package:smartlecture/models/user.dart';
+import 'package:smartlecture/models/user_model/user.dart';
 import 'package:smartlecture/services/authenticate.dart';
 import 'package:smartlecture/ui/modules/UserService.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
-import 'package:stacked/stacked.dart';
-import 'package:smartlecture/models/Page.dart' as p;
+import 'package:smartlecture/models/lecture_model/Page.dart' as p;
 
 var db = FireStoreUtils.firestore;
 
-class SectionViewModel extends BaseViewModel {
+class SectionViewModel with ChangeNotifier {
   Lecture _lecture;
   Lecture example;
   SectionIndex _currentIndex;
   bool _loading;
   User currentUser;
   String uid;
+  bool _isBusy;
   UserLecture myLectures;
   get loadData => _loading;
   get currentIndex => _currentIndex;
   get lecture => _lecture;
-  SectionViewModel({this.uid}) {
+  get isBusy => _isBusy;
+  get currentSection => _currentIndex.currentSectionIndex;
+  get currentPage => _currentIndex.currentPageIndex;
+  get currentItem => _currentIndex.currentItemIndex;
+  SectionViewModel({Lecture init, String uid}) {
+    _isBusy = false;
     _loading = false;
-    _lecture = new Lecture();
+    _lecture = init;
+    this.uid = uid;
     myLectures = new UserLecture(lectures: []);
     _currentIndex = new SectionIndex(
         currentPageIndex: 0, currentSectionIndex: 0, currentItemIndex: 0);
@@ -69,6 +77,7 @@ class SectionViewModel extends BaseViewModel {
             1;
       }
     }
+    notifyListeners();
   }
 
   void setPage(p.Page t) {
@@ -77,7 +86,11 @@ class SectionViewModel extends BaseViewModel {
   }
 
   void setModelBusy() {
-    setBusy(false);
+    //setBusy(false);
+  }
+  setLecture(LectuteData data) {
+    _lecture = data.lecture;
+    uid = data.id;
   }
 
   Future<String> getJson(String name) async {
@@ -85,7 +98,7 @@ class SectionViewModel extends BaseViewModel {
     return rootBundle.loadString('assets/lectures/data_sample/$name.json');
   }
 
-  void addComponent(Type type) async {
+  Future<void> addComponent(Type type) async {
     String data = await getJson(typeName.reverse[type]);
     Item t = Item.fromJson(json.decode(data)["ITEM"]);
     _lecture.section[_currentIndex.currentSectionIndex]
@@ -105,6 +118,18 @@ class SectionViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  Future<void> addPage() async {
+    setBusy(true);
+    await getJson("lecture").then((value) {
+      Lecture example = Lecture.fromJson(json.decode(value)["LECTURE"]);
+      p.Page t = example.section.first.page.first;
+      t.id =
+          _lecture.section[_currentIndex.currentSectionIndex].page.length ?? 0;
+      _lecture.section[_currentIndex.currentSectionIndex].page.add(t);
+    });
+    notifyListeners();
+  }
+
   void changeBackgroundImage(String url, int type) {
     if (url == "") return;
     if (type == 0) {
@@ -117,15 +142,8 @@ class SectionViewModel extends BaseViewModel {
     _lecture = a ?? example;
   }
 
-  addPage() async {
-    await getJson("lecture").then((value) {
-      Lecture example = Lecture.fromJson(json.decode(value)["LECTURE"]);
-      p.Page t = example.section.first.page.first;
-      t.id =
-          _lecture.section[_currentIndex.currentSectionIndex].page.length ?? 0;
-      _lecture.section[_currentIndex.currentSectionIndex].page.add(t);
-    });
-
+  setBusy(bool t) {
+    _isBusy = t;
     notifyListeners();
   }
 
@@ -170,20 +188,18 @@ class SectionViewModel extends BaseViewModel {
     }
   }
 
-  void deleteSection() async {
+  Future deleteSection() async {
+    setCurrenindex(SectionIndex(
+        currentPageIndex: 0,
+        currentSectionIndex: _currentIndex.currentSectionIndex - 1));
     if (_lecture.section.length > 1) {
-      _lecture.section.removeAt(_currentIndex.currentSectionIndex);
+      _lecture.section.removeAt(_currentIndex.currentSectionIndex + 1);
     } else {
       await addSection("Trang mới")
           .then((value) => {_lecture.section.removeAt(0)});
     }
-    setCurrenindex(SectionIndex(
-        currentPageIndex: 0,
-        currentSectionIndex: _currentIndex.currentSectionIndex > 0
-            ? _currentIndex.currentSectionIndex--
-            : 0));
 
-    notifyListeners();
+    //notifyListeners();
   }
 
   void deletePage() async {
@@ -195,9 +211,8 @@ class SectionViewModel extends BaseViewModel {
             _lecture.section[_currentIndex.currentSectionIndex].page.removeAt(0)
           });
     }
-
     setCurrenindex(SectionIndex(
-        currentPageIndex: _currentIndex.currentPageIndex--,
+        currentPageIndex: _currentIndex.currentPageIndex - 1,
         currentSectionIndex: _currentIndex.currentSectionIndex));
     notifyListeners();
   }
@@ -218,7 +233,7 @@ class SectionViewModel extends BaseViewModel {
     await getJson("lecture").then((value) {
       example = Lecture.fromJson(json.decode(value)["LECTURE"]);
     });
-    setBusy(true);
+    //setBusy(true);
 
     //notifyListeners();
   }

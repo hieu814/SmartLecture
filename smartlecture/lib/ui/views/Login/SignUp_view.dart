@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:smartlecture/constants.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:smartlecture/main.dart';
-import 'package:smartlecture/models/user.dart';
+import 'package:smartlecture/models/user_model/user.dart';
 import 'package:smartlecture/services/authenticate.dart';
 import 'package:smartlecture/services/helper.dart';
 import 'package:smartlecture/ui/views/Home/Home_view.dart';

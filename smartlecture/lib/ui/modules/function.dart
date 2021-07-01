@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smartlecture/constants.dart';
-import 'package:smartlecture/models/Item.dart';
-import 'package:smartlecture/models/Text.dart' as iText;
+import 'package:smartlecture/models/lecture_model/Item.dart';
+import 'package:smartlecture/models/lecture_model/Text.dart' as iText;
 import 'package:smartlecture/widgets/dataViewModel/IImage.dart';
 import 'package:smartlecture/widgets/dataViewModel/Itext.dart';
-import 'package:smartlecture/widgets/manage/FormEdit.dart';
 import 'package:smartlecture/widgets/manage/FormEditMedia.dart';
 
 bool toBool(dynamic x) {

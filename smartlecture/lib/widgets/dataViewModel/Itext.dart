@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import 'package:smartlecture/models/Text.dart' as t;
+import 'package:smartlecture/models/lecture_model/Text.dart' as t;
 import 'package:smartlecture/ui/modules/function.dart';
 
 class Itext extends StatefulWidget {

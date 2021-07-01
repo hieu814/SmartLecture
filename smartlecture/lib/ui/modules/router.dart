@@ -1,10 +1,9 @@
-import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:smartlecture/models/Lecture.dart';
-import 'package:smartlecture/models/LectuteData.dart';
-import 'package:smartlecture/ui/modules/UserService.dart';
-import 'package:smartlecture/ui/modules/injection.dart';
+import 'package:smartlecture/models/lecture_model/LectuteData.dart';
+
 import 'package:smartlecture/ui/modules/router_name.dart';
+import 'package:smartlecture/ui/views/Admin/Dashboard_View.dart';
+import 'package:smartlecture/ui/views/Admin/components/dataManager.dart';
 import 'package:smartlecture/ui/views/Home/home_view.dart';
 import 'package:smartlecture/ui/views/Login/Login.dart';
 import 'package:smartlecture/ui/views/Login/SignUp_view.dart';
@@ -22,6 +21,11 @@ class MyRouter {
         return MaterialPageRoute(builder: (context) => SectionView(data));
       case RouteName.signUpPage:
         return MaterialPageRoute(builder: (context) => SignUpView());
+      case RouteName.adminPage:
+        return MaterialPageRoute(builder: (context) => DashboardView());
+      case RouteName.dataDetailPage:
+        return MaterialPageRoute(
+            builder: (context) => DashboardViewDataDetail());
       default:
         return MaterialPageRoute(builder: (_) {
           return Scaffold(

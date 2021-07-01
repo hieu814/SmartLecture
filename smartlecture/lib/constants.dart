@@ -1,15 +1,26 @@
+import 'package:flutter/material.dart';
+
 const FINISHED_ON_BOARDING = 'finishedOnBoarding';
 const COLOR_ACCENT = 0xFFd756ff;
 const COLOR_PRIMARY_DARK = 0xFF6900be;
 const COLOR_PRIMARY = 0xFFa011f2;
 const FACEBOOK_BUTTON_COLOR = 0xFF415893;
+const primaryColor = Color(0xFF2697FF);
+const secondaryColor = Colors.greenAccent;
+const bgColor = Color(0xFF212332);
+
+const defaultPadding = 16.0;
 const USERS = 'users';
+const USER_ROLE_USER = 'user';
+const USER_ROLE_ADMIN = 'admin';
+
 const LECTUTES = 'lectures';
 const USER_LECTUTES = 'user_lectures';
 const NO_IMAGE = "assets/images/no_image.png";
 const NO_BACKGROUND = "assets/images/transparent.jpg";
 const double BASE_WIDTH = 800.0; //x
 const double BASE_HEIGHT = 600.0; //411
+enum DataTypes { LECTURES, AUDIOS, VIDEOS, IMAGES, USERS }
 enum Type {
   IMAGE,
   TEXT,

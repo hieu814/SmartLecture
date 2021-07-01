@@ -2,11 +2,9 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:smartlecture/constants.dart';
-import 'package:smartlecture/models/user.dart';
+import 'package:smartlecture/models/user_model/user.dart';
 import 'package:smartlecture/services/authenticate.dart';
 import 'package:smartlecture/services/helper.dart';
-import 'package:smartlecture/ui/modules/UserService.dart';
-import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/ui/views/Home/Home_view.dart';
 import 'package:stacked/stacked.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;

@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:smartlecture/models/user.dart';
+import 'package:smartlecture/models/user_model/user.dart';
 import 'package:smartlecture/ui/modules/Navi.dart';
 import 'package:smartlecture/ui/modules/Scale.dart';
 import 'package:smartlecture/ui/modules/UserService.dart';

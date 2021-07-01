@@ -10,7 +10,7 @@ import 'package:smartlecture/services/authenticate.dart';
 import 'package:smartlecture/services/helper.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Login/Login_viewmodel.dart';
-import 'package:smartlecture/models/user.dart';
+import 'package:smartlecture/models/user_model/user.dart';
 import 'package:stacked/stacked.dart';
 
 class LoginView extends StatefulWidget {

@@ -1,20 +1,20 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:smartlecture/constants.dart';
-import 'package:smartlecture/models/Lecture.dart';
-import 'package:smartlecture/models/LectuteData.dart';
-import 'package:smartlecture/models/UserLectures.dart';
-import 'package:smartlecture/models/user.dart';
+import 'package:smartlecture/models/lecture_model/Lecture.dart';
+import 'package:smartlecture/models/lecture_model/LectuteData.dart';
+import 'package:smartlecture/models/user_model/UserLectures.dart';
+import 'package:smartlecture/models/user_model/user.dart';
 import 'package:smartlecture/services/authenticate.dart';
 import 'package:smartlecture/ui/modules/UserService.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
-import 'package:stacked/stacked.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 var db = FireStoreUtils.firestore;
 
-class HomeViewModel extends BaseViewModel {
+class HomeViewModel extends ChangeNotifier {
   UserLecture _myLectures;
   List<LectuteData> _listMylecture = <LectuteData>[];
   User _user;
@@ -39,11 +39,8 @@ class HomeViewModel extends BaseViewModel {
     await auth.FirebaseAuth.instance.signOut();
   }
 
-  Future<void> fetchAndSetWorkouts() async {
-    notifyListeners();
-  }
-
   Future<void> loadAll() async {
+    _listMylecture.clear();
     _myLectures.lectures.forEach((element) async {
       Lecture a;
       a = await loadLecture(element);
@@ -52,7 +49,6 @@ class HomeViewModel extends BaseViewModel {
         notifyListeners();
       }
     });
-    notifyListeners();
   }
 
   Future<Lecture> loadLecture(String id) async {
@@ -67,7 +63,7 @@ class HomeViewModel extends BaseViewModel {
   }
 
   Future load() async {
-    setBusy(true);
+    //setBusy(true);
     UserService _userService = locator<UserService>();
     _user = await _userService.getUser();
     DocumentSnapshot doc =
@@ -76,8 +72,6 @@ class HomeViewModel extends BaseViewModel {
       _myLectures = UserLecture.fromMap(doc.data());
     } else {}
     await loadAll();
-    //_listMylecture.add("");
     notifyListeners();
-    await fetchAndSetWorkouts();
   }
 }

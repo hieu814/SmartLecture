@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smartlecture/models/Item.dart';
-import 'package:smartlecture/models/Text.dart' as iText;
+import 'package:smartlecture/models/lecture_model/Item.dart';
+import 'package:smartlecture/models/lecture_model/Text.dart' as iText;
 import 'package:smartlecture/models/common/MyColors.dart';
 import 'package:smartlecture/ui/modules/function.dart';
 

@@ -1,28 +1,30 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smartlecture/ui/modules/UserService.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/ui/modules/router.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
-import 'package:smartlecture/ui/views/Home/home_view.dart';
-import 'package:smartlecture/ui/views/Login/SignUp_view.dart';
-import 'package:smartlecture/ui/views/Login/Login.dart';
+import 'package:smartlecture/ui/views/Admin/Dashboard_ViewModel.dart';
+import 'package:smartlecture/ui/views/Home/home_viewmodel.dart';
 
-import 'models/user.dart';
-
+bool _islog;
 void main() async {
   await configureDependencies();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   UserService _userService = locator<UserService>();
-  bool islog = await _userService.isLogged();
-  runApp(MaterialApp(
-    title: 'Flutter Demo',
-    initialRoute: islog ? RouteName.homePage : RouteName.loginPage,
-    onGenerateRoute: MyRouter.generateRoute,
-    theme: ThemeData(
-      primarySwatch: Colors.blue,
-    ),
+  _islog = await _userService.isLogged();
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<MenuViewModel>(
+        create: (context) => MenuViewModel(),
+      ),
+      ChangeNotifierProvider<HomeViewModel>(
+        create: (context) => HomeViewModel(),
+      ),
+    ],
+    child: MyApp(),
   ));
 }
 
@@ -32,10 +34,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: RouteName.loginPage,
+      initialRoute: _islog ? RouteName.homePage : RouteName.loginPage,
       onGenerateRoute: MyRouter.generateRoute,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
     );
   }
