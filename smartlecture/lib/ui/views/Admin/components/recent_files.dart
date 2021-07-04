@@ -1,13 +1,14 @@
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:smartlecture/models/admin_model/RecentFile.dart';
-import 'package:data_table_2/data_table_2.dart';
-import 'package:smartlecture/models/lecture_model/Lecture.dart';
-import 'package:smartlecture/models/user_model/user.dart';
+import 'package:smartlecture/ui/views/Admin/Dashboard_ViewModel.dart';
+import 'package:smartlecture/widgets/manage/MyForm.dart';
 import '../../../../constants.dart';
+import 'delegate/LectureDataDelegate.dart';
+import 'delegate/UserDelegate.dart';
+import 'package:provider/provider.dart';
 
 String _typeData;
 
@@ -30,6 +31,7 @@ class _RecentFilesState extends State<RecentFiles> {
 
   @override
   Widget build(BuildContext context) {
+    context.read<AdminViewModel>().setCurrentCollection(_typeData);
     return Container(
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
@@ -46,76 +48,56 @@ class _RecentFilesState extends State<RecentFiles> {
           Container(
             width: 1000,
             height: 500,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: StreamBuilder(
-                  stream: FirebaseFirestore.instance
-                      .collection(_typeData)
-                      .snapshots(),
-                  builder: (context, snapshot) {
-                    if (!snapshot.hasData) {
-                      return CircularProgressIndicator();
-                    }
-                    return DataTable2(
-                        columnSpacing: defaultPadding,
-                        minWidth: 600,
-                        columns: _titleTable(),
-                        rows: _createRows(snapshot.data));
-                  }),
-            ),
+            child: StreamBuilder(
+                stream: context.read<AdminViewModel>().streamData,
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return CircularProgressIndicator();
+                  }
+                  return Container(
+                    child: ListView(
+                      children: _createRows(snapshot.data),
+                    ),
+                  );
+                }),
           ),
         ],
       ),
     );
   }
-}
 
-List<DataColumn> _titleTable() {
-  List<String> dataList = [];
-
-  if (_typeData == USERS) {
-    dataList = listUserTitle;
-  } else if (_typeData == LECTUTES) {
-    dataList = listLectureTitle;
+  void moveManageData() async {
+    await Navigator.push(
+      context,
+      CupertinoPageRoute(
+          fullscreenDialog: true, builder: (context) => MyForm()),
+    ).then((value) {
+      if (value == null) return;
+    });
   }
-  return dataList.map((e) {
-    return DataColumn2(size: ColumnSize.L, label: Text(e));
-  }).toList();
 }
 
-List<DataRow> _createRows(QuerySnapshot snapshot) {
-  List<DataRow> newList =
-      snapshot.docs.map((DocumentSnapshot documentSnapshot) {
-    return dataRow(documentSnapshot);
-  }).toList();
+List<Widget> _createRows(QuerySnapshot snapshot) {
+  List<Widget> newList = [];
+  if (_typeData == USERS) {
+    newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
+      return UserDelegate(doc: documentSnapshot);
+    }).toList();
+  } else if (_typeData == LECTUTES) {
+    newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
+      return LectureDataDelegate(doc: documentSnapshot);
+    }).toList();
+  }
 
   return newList;
 }
 
-DataRow dataRow(DocumentSnapshot documentSnapshot) {
-  List<String> dataList = [];
+_createDelegate(DocumentSnapshot documentSnapshot) {
   if (_typeData == USERS) {
-    User u = User.fromJson(documentSnapshot.data());
-    dataList.add(u.fullName());
-    dataList.add(u.email);
-    dataList.add(u.phoneNumber);
-    dataList.add(DateFormat('yyyy-MM-dd')
-        .format(u.lastOnlineTimestamp.toDate())
-        .toString());
-    dataList.add(u.role);
+    return UserDelegate(doc: documentSnapshot);
   } else if (_typeData == LECTUTES) {
-    Lecture a = Lecture.fromJson(documentSnapshot.data());
-    dataList.add(a.title);
-    dataList.add(a.authorId);
-    dataList.add(a.createdDate);
-    dataList.add(a.editedDate);
+    return UserDelegate(doc: documentSnapshot);
   }
-  return DataRow(
-      cells: List.generate(
-    dataList.length,
-    (index) => DataCell(Text(dataList[index]),
-        placeholder: true, showEditIcon: index == dataList.length - 1),
-  ));
 }
 
 List<String> listUserTitle = [

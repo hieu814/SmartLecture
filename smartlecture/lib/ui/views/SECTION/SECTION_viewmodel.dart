@@ -39,8 +39,13 @@ class SectionViewModel with ChangeNotifier {
   SectionViewModel({Lecture init, String uid}) {
     _isBusy = false;
     _loading = false;
-    _lecture = init;
+
     this.uid = uid;
+    if (uid != "") {
+      _lecture = init;
+    } else {
+      _lecture = init;
+    }
     myLectures = new UserLecture(lectures: []);
     _currentIndex = new SectionIndex(
         currentPageIndex: 0, currentSectionIndex: 0, currentItemIndex: 0);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartlecture/models/lecture_model/Lecture.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
 import 'package:smartlecture/services/helper.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
@@ -52,11 +53,17 @@ class _HomeViewState extends State<HomeView> {
           BottomNavigationBarItem(icon: Icon(Icons.add), label: "Add"),
           BottomNavigationBarItem(icon: Icon(Icons.mail), label: "Email"),
         ],
-        onTap: (int id) {
+        onTap: (int id) async {
           if (id == 0) {
             Navigator.pushNamed(context, RouteName.homePage);
           } else if (id == 1) {
-            Navigator.pushNamed(context, RouteName.sectionPage);
+            await context
+                .read<HomeViewModel>()
+                .addNewLecture()
+                .then((value) => {
+                      Navigator.pushNamed(context, RouteName.sectionPage,
+                          arguments: LectuteData(id: "", lecture: value))
+                    });
           } else if (id == 2) {
             Navigator.pushNamed(context, RouteName.adminPage);
           }

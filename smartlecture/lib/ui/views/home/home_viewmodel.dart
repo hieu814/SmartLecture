@@ -2,9 +2,11 @@ import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/models/lecture_model/Lecture.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
+import 'package:smartlecture/models/lecture_model/Section.dart';
 import 'package:smartlecture/models/user_model/UserLectures.dart';
 import 'package:smartlecture/models/user_model/user.dart';
 import 'package:smartlecture/services/authenticate.dart';
@@ -48,6 +50,17 @@ class HomeViewModel extends ChangeNotifier {
         _listMylecture.add(LectuteData(id: element, lecture: a));
         notifyListeners();
       }
+    });
+  }
+
+  Future<String> getJson(String name) async {
+    return rootBundle.loadString('assets/lectures/data_sample/$name.json');
+  }
+
+  Future<Lecture> addNewLecture() {
+    return getJson("lecture").then((value) {
+      Lecture example = Lecture.fromJson(json.decode(value)["LECTURE"]);
+      return example;
     });
   }
 

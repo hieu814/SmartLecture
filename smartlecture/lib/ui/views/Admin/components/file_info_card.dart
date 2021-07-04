@@ -12,7 +12,7 @@ class FileInfoCard extends StatelessWidget {
     this.info,
     this.onSelect,
   }) : super(key: key);
-  final Function(int) onSelect;
+  final Function(String) onSelect;
   final CloudStorageInfo info;
 
   @override
@@ -45,23 +45,13 @@ class FileInfoCard extends StatelessWidget {
                   ),
                 ),
               ),
-              PopupMenuButton(
-                initialValue: 0,
-                padding: EdgeInsets.all(0),
-                color: secondaryColor,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15.0))),
-                icon: Icon(Icons.more_vert, color: Colors.black),
-                onSelected: onSelect,
-                itemBuilder: (context) {
-                  return List.generate(1, (index) {
-                    return PopupMenuItem(
-                      value: index,
-                      child: Center(child: Text("Chi tiết")),
-                    );
-                  });
-                },
-              ),
+              Text(
+                info.numOfFiles.toString(),
+                style: TextStyle(
+                    color: info.color,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold),
+              )
             ],
           ),
           Text(
@@ -69,29 +59,28 @@ class FileInfoCard extends StatelessWidget {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
-          ProgressLine(
-            color: info.color,
-            percentage: info.percentage,
+          GestureDetector(
+            onTap: () {
+              String a = info.type ?? "";
+              onSelect(a);
+            },
+            child: Card(
+              shadowColor: Colors.red,
+              child: Container(
+                color: secondaryColor,
+                height: 30,
+                child: Row(
+                  children: [
+                    Expanded(flex: 8, child: Text("Chi tiết")),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      //size: 10,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "${info.numOfFiles} Files",
-                style: Theme.of(context)
-                    .textTheme
-                    .caption
-                    .copyWith(color: Colors.black38),
-              ),
-              Text(
-                info.totalStorage,
-                style: Theme.of(context)
-                    .textTheme
-                    .caption
-                    .copyWith(color: Colors.red),
-              ),
-            ],
-          )
         ],
       ),
     );

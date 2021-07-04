@@ -37,4 +37,12 @@ class FireStoreUtils {
         await (await uploadTask.whenComplete(() {})).ref.getDownloadURL();
     return downloadUrl.toString();
   }
+
+  Future<String> uploadImageToFireStorage(File image) async {
+    Reference upload = storage.child("images/" ".png");
+    UploadTask uploadTask = upload.putFile(image);
+    var downloadUrl =
+        await (await uploadTask.whenComplete(() {})).ref.getDownloadURL();
+    return downloadUrl.toString();
+  }
 }

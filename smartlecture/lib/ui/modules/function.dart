@@ -1,11 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/models/lecture_model/Item.dart';
 import 'package:smartlecture/models/lecture_model/Text.dart' as iText;
+import 'package:smartlecture/ui/views/Admin/Dashboard_ViewModel.dart';
 import 'package:smartlecture/widgets/dataViewModel/IImage.dart';
 import 'package:smartlecture/widgets/dataViewModel/Itext.dart';
 import 'package:smartlecture/widgets/manage/FormEditMedia.dart';
+import 'package:provider/provider.dart';
+import 'package:smartlecture/widgets/manage/MyForm.dart';
 
 bool toBool(dynamic x) {
   if (x == null) return false;
@@ -53,6 +57,26 @@ Future<String> editMedia(BuildContext context, String url, bool isVideo) async {
         builder: (context) => FormEditMedia(
               isVideo: isVideo,
               url: url,
+            )),
+  );
+}
+
+void showInSnackBar(BuildContext context, String value) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(value),
+    duration: const Duration(seconds: 1),
+  ));
+}
+
+Future<void> editDatabase(
+    BuildContext context, DocumentSnapshot doc, String type) async {
+  return Navigator.push(
+    context,
+    CupertinoPageRoute(
+        fullscreenDialog: true,
+        builder: (context) => MyForm(
+              doc: doc,
+              type: type,
             )),
   );
 }

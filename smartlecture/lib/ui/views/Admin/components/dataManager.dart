@@ -73,7 +73,9 @@ class DashboardData extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: defaultPadding),
-                      RecentFiles(),
+                      RecentFiles(
+                        typeData: context.read<AdminViewModel>().collection,
+                      ),
                     ],
                   ),
                 ),

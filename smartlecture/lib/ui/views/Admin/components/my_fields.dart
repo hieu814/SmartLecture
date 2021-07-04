@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:smartlecture/models/admin_model/MyFiles.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
+import 'package:smartlecture/ui/views/Section/SECTION_viewmodel.dart';
 import '../../../../constants.dart';
 import '../../../../responsive.dart';
+import '../Dashboard_ViewModel.dart';
 import 'file_info_card.dart';
+import 'package:provider/provider.dart';
 
 class MyFiles extends StatelessWidget {
   const MyFiles({
@@ -64,10 +67,11 @@ class FileInfoCardGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<AdminViewModel>().getDataLength();
     return GridView.builder(
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: demoMyFiles.length,
+      itemCount: context.read<AdminViewModel>().datas.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: defaultPadding,
@@ -75,8 +79,10 @@ class FileInfoCardGridView extends StatelessWidget {
         childAspectRatio: childAspectRatio,
       ),
       itemBuilder: (context, index) => FileInfoCard(
-        info: demoMyFiles[index],
-        onSelect: (t) {
+        info: context.read<AdminViewModel>().datas[index],
+        onSelect: (s) {
+          print("ádsadasdsda  " + s);
+          context.read<AdminViewModel>().setCurrentCollection(s);
           Navigator.pushNamed(context, RouteName.dataDetailPage);
         },
       ),

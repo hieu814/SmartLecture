@@ -49,8 +49,8 @@ class _SectionViewState extends State<SectionView> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) =>
-              SectionViewModel(init: widget.data.lecture, uid: widget.data.id),
+          create: (context) => SectionViewModel(
+              init: widget.data.lecture, uid: widget.data.id ?? ""),
         ),
         ChangeNotifierProvider(
           create: (context) => MyAudio(),
