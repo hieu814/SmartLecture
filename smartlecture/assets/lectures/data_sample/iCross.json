@@ -4,98 +4,98 @@
          "crossgame": {
             "item": [
                {
-                  "_id": "answer-0",
-                  "_mediatype": "image",
-                  "_mediaurl": "",
-                  "_question": "Hậu quả mà quân Nam Hán phải nhận khi sang xâm lược nước ta năm 938",
-                  "_answer": "ThấtBại",
-                  "_selectedIndex": "4"
+                  "id": "answer-0",
+                  "mediatype": "image",
+                  "mediaurl": "",
+                  "question": "Hậu quả mà quân Nam Hán phải nhận khi sang xâm lược nước ta năm 938",
+                  "answer": "ThấtBại",
+                  "selectedIndex": "4"
                },
                {
-                  "_id": "answer-0",
-                  "_mediatype": "image",
-                  "_mediaurl": "",
-                  "_question": "Nơi Ngô Quyền chọn làm kinh đô",
-                  "_answer": "CổLoa",
-                  "_selectedIndex": "4"
+                  "id": "answer-0",
+                  "mediatype": "image",
+                  "mediaurl": "",
+                  "question": "Nơi Ngô Quyền chọn làm kinh đô",
+                  "answer": "CổLoa",
+                  "selectedIndex": "4"
                },
                {
-                  "_id": "answer-0",
-                  "_mediatype": "image",
-                  "_mediaurl": "",
-                  "_question": "Vũ khí làm thủng thuyền của giặc",
-                  "_answer": "  CọcGỗ",
-                  "_selectedIndex": "4"
+                  "id": "answer-0",
+                  "mediatype": "image",
+                  "mediaurl": "",
+                  "question": "Vũ khí làm thủng thuyền của giặc",
+                  "answer": "  CọcGỗ",
+                  "selectedIndex": "4"
                },
                {
-                  "_id": "answer-0",
-                  "_mediatype": "image",
-                  "_mediaurl": "",
-                  "_question": "Ngô Quyền đã dựa vào hiện tượng thiên nhiên này để đánh giặc",
-                  "_answer": "   ThủyTriều",
-                  "_selectedIndex": "4"
+                  "id": "answer-0",
+                  "mediatype": "image",
+                  "mediaurl": "",
+                  "question": "Ngô Quyền đã dựa vào hiện tượng thiên nhiên này để đánh giặc",
+                  "answer": "   ThủyTriều",
+                  "selectedIndex": "4"
                },
                {
-                  "_id": "answer-0",
-                  "_mediatype": "image",
-                  "_mediaurl": "",
-                  "_question": "Quê của Ngô Quyền",
-                  "_answer": "    ĐườngLâm",
-                  "_selectedIndex": "4"
+                  "id": "answer-0",
+                  "mediatype": "image",
+                  "mediaurl": "",
+                  "question": "Quê của Ngô Quyền",
+                  "answer": "    ĐườngLâm",
+                  "selectedIndex": "4"
                },
                {
-                  "_id": "answer-0",
-                  "_mediatype": "image",
-                  "_mediaurl": "",
-                  "_question": "Quân Nam Hán đến từ phương này",
-                  "_answer": "   Bắc",
-                  "_selectedIndex": "4"
+                  "id": "answer-0",
+                  "mediatype": "image",
+                  "mediaurl": "",
+                  "question": "Quân Nam Hán đến từ phương này",
+                  "answer": "   Bắc",
+                  "selectedIndex": "4"
                },
                {
-                  "_id": "answer-0",
-                  "_mediatype": "image",
-                  "_mediaurl": "",
-                  "_question": "Người lãnh đạo trận Bạch Đằng",
-                  "_answer": "    NgôQuyền",
-                  "_selectedIndex": "4"
+                  "id": "answer-0",
+                  "mediatype": "image",
+                  "mediaurl": "",
+                  "question": "Người lãnh đạo trận Bạch Đằng",
+                  "answer": "    NgôQuyền",
+                  "selectedIndex": "4"
                },
                {
-                  "_id": "answer-0",
-                  "_mediatype": "image",
-                  "_mediaurl": "",
-                  "_question": "Tướng giặc tử trận ở Bạch Đằng",
-                  "_answer": "HoàngTháo",
-                  "_selectedIndex": "4"
+                  "id": "answer-0",
+                  "mediatype": "image",
+                  "mediaurl": "",
+                  "question": "Tướng giặc tử trận ở Bạch Đằng",
+                  "answer": "HoàngTháo",
+                  "selectedIndex": "4"
                }
             ],
-            "_font": "Arial",
-            "_size": "14",
-            "_color": "0x333333",
-            "_bold": "true",
-            "_underline": "false",
-            "_align": "false",
-            "_leading": "6",
-            "_question": "Trận đánh thắng quân Nam Hán"
+            "font": "Arial",
+            "size": "14",
+            "color": "0x333333",
+            "bold": "true",
+            "underline": "false",
+            "align": "false",
+            "leading": "6",
+            "question": "Trận đánh thắng quân Nam Hán"
          }
       },
       "APPEAR": {
-         "_id": "NoID",
-         "_name": "None",
-         "_direction": "None",
-         "_start": "Auto",
-         "_speed": "0",
-         "_repeat": "false",
-         "_index": "0"
+         "id": "NoID",
+         "name": "None",
+         "direction": "None",
+         "start": "Auto",
+         "speed": "0",
+         "repeat": "false",
+         "index": "0"
       },
-      "_id": "0",
-      "_name": "iCross",
-      "_type": "component",
-      "_x": "23.5608379746802",
-      "_y": "31.5711862049786",
-      "_width": "677.828884320882",
-      "_height": "501.211792518426",
-      "_scaleX": "1",
-      "_scaleY": "1",
-      "_rotation": "0"
+      "id": "0",
+      "name": "iCross",
+      "type": "component",
+      "x": "23.5608379746802",
+      "y": "31.5711862049786",
+      "width": "677.828884320882",
+      "height": "501.211792518426",
+      "scaleX": "1",
+      "scaleY": "1",
+      "rotation": "0"
    }
 }

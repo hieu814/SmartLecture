@@ -31,14 +31,14 @@ class Crossgame {
             ? null
             : List<ItemElement>.from(
                 json["item"].map((x) => ItemElement.fromJson(x))),
-        font: json["_font"],
-        size: json["_size"],
-        color: json["_color"],
-        bold: json["_bold"],
-        underline: json["_underline"],
-        align: json["_align"],
-        leading: json["_leading"],
-        question: json["_question"] == null ? null : json["_question"],
+        font: json["font"],
+        size: json["size"],
+        color: json["color"],
+        bold: json["bold"],
+        underline: json["underline"],
+        align: json["align"],
+        leading: json["leading"],
+        question: json["question"] == null ? null : json["question"],
         crossgameQuestion: json["question"] == null
             ? null
             : QuestionClass.fromJson(json["question"]),
@@ -48,14 +48,14 @@ class Crossgame {
         "item": item == null
             ? null
             : List<dynamic>.from(item.map((x) => x.toJson())),
-        "_font": font,
-        "_size": size,
-        "_color": color,
-        "_bold": bold,
-        "_underline": underline,
-        "_align": align,
-        "_leading": leading,
-        "_question": question == null ? null : question,
+        "font": font,
+        "size": size,
+        "color": color,
+        "bold": bold,
+        "underline": underline,
+        "align": align,
+        "leading": leading,
+        "question": question == null ? null : question,
         "question":
             crossgameQuestion == null ? null : crossgameQuestion.toJson(),
       };

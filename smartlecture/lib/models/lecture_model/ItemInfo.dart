@@ -27,26 +27,29 @@ class ItemInfo {
   Info chooseAndCompleteInfo;
   Crossgame crossgame;
 
-  factory ItemInfo.fromJson(Map<String, dynamic> json) => ItemInfo(
-        text: json["TEXT"] == null ? null : Text.fromJson(json["TEXT"]),
-        image: json["IMAGE"] == null ? null : Image.fromJson(json["IMAGE"]),
-        media: json["MEDIA"] == null ? null : Media.fromJson(json["MEDIA"]),
-        quizs: json["quizs"] == null ? null : Crossgame.fromJson(json["quizs"]),
-        rootquest: json["rootquest"] == null
-            ? null
-            : Rootquest.fromJson(json["rootquest"]),
-        quizInfo:
-            json["QuizInfo"] == null ? null : Info.fromJson(json["QuizInfo"]),
-        keoThaImageContentInfo: json["KeoThaImageContentInfo"] == null
-            ? null
-            : Info.fromJson(json["KeoThaImageContentInfo"]),
-        chooseAndCompleteInfo: json["ChooseAndCompleteInfo"] == null
-            ? null
-            : Info.fromJson(json["ChooseAndCompleteInfo"]),
-        crossgame: json["crossgame"] == null
-            ? null
-            : Crossgame.fromJson(json["crossgame"]),
-      );
+  factory ItemInfo.fromJson(Map<String, dynamic> json) {
+    print("----- ItemInfo: " + json.toString());
+    return ItemInfo(
+      text: json["TEXT"] == null ? null : Text.fromJson(json["TEXT"]),
+      image: json["IMAGE"] == null ? null : Image.fromJson(json["IMAGE"]),
+      media: json["MEDIA"] == null ? null : Media.fromJson(json["MEDIA"]),
+      quizs: json["quizs"] == null ? null : Crossgame.fromJson(json["quizs"]),
+      rootquest: json["rootquest"] == null
+          ? null
+          : Rootquest.fromJson(json["rootquest"]),
+      quizInfo:
+          json["QuizInfo"] == null ? null : Info.fromJson(json["QuizInfo"]),
+      keoThaImageContentInfo: json["KeoThaImageContentInfo"] == null
+          ? null
+          : Info.fromJson(json["KeoThaImageContentInfo"]),
+      chooseAndCompleteInfo: json["ChooseAndCompleteInfo"] == null
+          ? null
+          : Info.fromJson(json["ChooseAndCompleteInfo"]),
+      crossgame: json["crossgame"] == null
+          ? null
+          : Crossgame.fromJson(json["crossgame"]),
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "TEXT": text == null ? null : text.toJson(),
@@ -72,9 +75,12 @@ class Rootquest {
 
   Whichword whichword;
 
-  factory Rootquest.fromJson(Map<String, dynamic> json) => Rootquest(
-        whichword: Whichword.fromJson(json["WHICHWORD"]),
-      );
+  factory Rootquest.fromJson(Map<String, dynamic> json) {
+    print("-----Rootquest : " + json.toString());
+    return Rootquest(
+      whichword: Whichword.fromJson(json["WHICHWORD"]),
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "WHICHWORD": whichword.toJson(),
@@ -102,31 +108,34 @@ class Whichword {
   List<ExtendDrag> extendDrag;
   String mediaurl;
 
-  factory Whichword.fromJson(Map<String, dynamic> json) => Whichword(
-        dragDrop: json["DRAG_DROP"],
-        title: json["_Title"],
-        image: json["_Image"],
-        dapan: json["_Dapan"],
-        mediaType: json["_MediaType"] == null ? null : json["_MediaType"],
-        mediaUrl: json["_MediaUrl"] == null ? null : json["_MediaUrl"],
-        extendDrag: json["EXTEND_DRAG"] == null
-            ? null
-            : List<ExtendDrag>.from(
-                json["EXTEND_DRAG"].map((x) => ExtendDrag.fromJson(x))),
-        mediaurl: json["_mediaurl"] == null ? null : json["_mediaurl"],
-      );
+  factory Whichword.fromJson(Map<String, dynamic> json) {
+    print("-----Whichword : " + json.toString());
+    return Whichword(
+      dragDrop: json["DRAG_DROP"].toString(),
+      title: json["Title"],
+      image: json["Image"],
+      dapan: json["Dapan"],
+      mediaType: json["MediaType"] == null ? null : json["MediaType"],
+      mediaUrl: json["MediaUrl"] == null ? null : json["MediaUrl"],
+      extendDrag: json["EXTEND_DRAG"] == null
+          ? null
+          : List<ExtendDrag>.from(
+              json["EXTEND_DRAG"].map((x) => ExtendDrag.fromJson(x))),
+      mediaurl: json["mediaurl"] == null ? null : json["mediaurl"],
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "DRAG_DROP": dragDrop,
-        "_Title": title,
-        "_Image": image,
-        "_Dapan": dapan,
-        "_MediaType": mediaType == null ? null : mediaType,
-        "_MediaUrl": mediaUrl == null ? null : mediaUrl,
+        "Title": title,
+        "Image": image,
+        "Dapan": dapan,
+        "MediaType": mediaType == null ? null : mediaType,
+        "MediaUrl": mediaUrl == null ? null : mediaUrl,
         "EXTEND_DRAG": extendDrag == null
             ? null
             : List<dynamic>.from(extendDrag.map((x) => x.toJson())),
-        "_mediaurl": mediaurl == null ? null : mediaurl,
+        "mediaurl": mediaurl == null ? null : mediaurl,
       };
 }
 
@@ -138,10 +147,10 @@ class ExtendDrag {
   String data;
 
   factory ExtendDrag.fromJson(Map<String, dynamic> json) => ExtendDrag(
-        data: json["_data"],
+        data: json["data"],
       );
 
   Map<String, dynamic> toJson() => {
-        "_data": data,
+        "data": data,
       };
 }

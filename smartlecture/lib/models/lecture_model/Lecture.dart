@@ -22,21 +22,21 @@ class Lecture {
   factory Lecture.fromJson(Map<String, dynamic> json) => Lecture(
         section:
             List<Section>.from(json["SECTION"].map((x) => Section.fromJson(x))),
-        title: json["_title"],
-        type: json["_type"],
-        authorId: json["_authorId"],
-        editorId: json["_editorId"],
-        createdDate: json["_createdDate"],
-        editedDate: json["_editedDate"],
+        title: json["title"],
+        type: json["type"],
+        authorId: json["authorId"],
+        editorId: json["editorId"],
+        createdDate: json["createdDate"],
+        editedDate: json["editedDate"],
       );
 
   Map<String, dynamic> toJson() => {
         "SECTION": List<dynamic>.from(section.map((x) => x.toJson())),
-        "_title": title,
-        "_type": type,
-        "_authorId": authorId,
-        "_editorId": editorId,
-        "_createdDate": createdDate,
-        "_editedDate": editedDate,
+        "title": title,
+        "type": type,
+        "authorId": authorId,
+        "editorId": editorId,
+        "createdDate": createdDate,
+        "editedDate": editedDate,
       };
 }

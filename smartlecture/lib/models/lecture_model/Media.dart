@@ -10,14 +10,14 @@ class Media {
   String mediaSourceType;
 
   factory Media.fromJson(Map<String, dynamic> json) => Media(
-        mediaUrl: json["_MediaUrl"],
-        mediaType: json["_MediaType"],
-        mediaSourceType: json["_MediaSourceType"],
+        mediaUrl: json["MediaUrl"],
+        mediaType: json["MediaType"],
+        mediaSourceType: json["MediaSourceType"],
       );
 
   Map<String, dynamic> toJson() => {
-        "_MediaUrl": mediaUrl,
-        "_MediaType": mediaType,
-        "_MediaSourceType": mediaSourceType,
+        "MediaUrl": mediaUrl,
+        "MediaType": mediaType,
+        "MediaSourceType": mediaSourceType,
       };
 }

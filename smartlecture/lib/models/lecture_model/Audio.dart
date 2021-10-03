@@ -1,15 +1,19 @@
 class Audio {
   Audio({
-    this.url,
+    this.url = "",
   });
 
   String url;
 
-  factory Audio.fromJson(Map<String, dynamic> json) => Audio(
-        url: json["_Url"],
-      );
+  factory Audio.fromJson(Map<String, dynamic> json) {
+    return json == null
+        ? Audio()
+        : Audio(
+            url: json["Url"],
+          );
+  }
 
   Map<String, dynamic> toJson() => {
-        "_Url": url,
+        "Url": url,
       };
 }

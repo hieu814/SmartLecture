@@ -6,10 +6,10 @@ class Image {
   String url;
 
   factory Image.fromJson(Map<String, dynamic> json) => Image(
-        url: json["_url"],
+        url: json["url"],
       );
 
   Map<String, dynamic> toJson() => {
-        "_url": url,
+        "url": url,
       };
 }

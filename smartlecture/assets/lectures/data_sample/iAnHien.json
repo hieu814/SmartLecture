@@ -4,32 +4,32 @@
          "rootquest": {
             "WHICHWORD": {
                "DRAG_DROP": "Miss Hoa: Good morning, children\nChildren: Good morning, Miss Hoa\nMiss Hoa: How are you?\nChildren: We're fine, thank you. How are you?\nMiss Hoa: Fine thank. Good bye.\nChildren: Bye",
-               "_Title": "3. Fill in each blank with a suitable word",
-               "_Image": "",
-               "_Dapan": "24,32|62,66|78,81|114,123|161,169",
-               "_MediaType": "image",
-               "_MediaUrl": ""
+               "Title": "3. Fill in each blank with a suitable word",
+               "Image": "",
+               "Dapan": "24,32|62,66|78,81|114,123|161,169",
+               "MediaType": "image",
+               "MediaUrl": ""
             }
          }
       },
       "APPEAR": {
-         "_id": "NoID",
-         "_name": "None",
-         "_direction": "None",
-         "_start": "Auto",
-         "_speed": "0",
-         "_repeat": "false",
-         "_index": "0"
+         "id": "NoID",
+         "name": "None",
+         "direction": "None",
+         "start": "Auto",
+         "speed": "0",
+         "repeat": "false",
+         "index": "0"
       },
-      "_id": "0",
-      "_name": "iAnHien",
-      "_type": "component",
-      "_x": "36.9348148846487",
-      "_y": "51.3371436517868",
-      "_width": "383.284199767702",
-      "_height": "422.415074398554",
-      "_scaleX": "1",
-      "_scaleY": "1",
-      "_rotation": "0"
+      "id": "0",
+      "name": "iAnHien",
+      "type": "component",
+      "x": "36.9348148846487",
+      "y": "51.3371436517868",
+      "width": "383.284199767702",
+      "height": "422.415074398554",
+      "scaleX": "1",
+      "scaleY": "1",
+      "rotation": "0"
    }
 }

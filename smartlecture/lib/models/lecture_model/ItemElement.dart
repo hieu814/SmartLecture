@@ -16,20 +16,20 @@ class ItemElement {
   String selectedIndex;
 
   factory ItemElement.fromJson(Map<String, dynamic> json) => ItemElement(
-        id: json["_id"],
-        mediatype: json["_mediatype"],
-        mediaurl: json["_mediaurl"],
-        question: json["_question"],
-        answer: json["_answer"],
-        selectedIndex: json["_selectedIndex"],
+        id: json["id"],
+        mediatype: json["mediatype"],
+        mediaurl: json["mediaurl"],
+        question: json["question"],
+        answer: json["answer"],
+        selectedIndex: json["selectedIndex"],
       );
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
-        "_mediatype": mediatype,
-        "_mediaurl": mediaurl,
-        "_question": question,
-        "_answer": answer,
-        "_selectedIndex": selectedIndex,
+        "id": id,
+        "mediatype": mediatype,
+        "mediaurl": mediaurl,
+        "question": question,
+        "answer": answer,
+        "selectedIndex": selectedIndex,
       };
 }

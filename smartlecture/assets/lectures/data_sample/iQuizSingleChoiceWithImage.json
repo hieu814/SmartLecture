@@ -5,62 +5,62 @@
             "question": {
                "answer": [
                   {
-                     "_id": "answer-0",
-                     "_type": "text",
-                     "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-1-0c1aea8c4000df3b6f70b79b5351a8c7.jpg",
-                     "_checked": "false"
+                     "id": "answer-0",
+                     "type": "text",
+                     "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-1-0c1aea8c4000df3b6f70b79b5351a8c7.jpg",
+                     "checked": "false"
                   },
                   {
-                     "_id": "answer-1",
-                     "_type": "text",
-                     "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-7-450d374a99dd72bbaef09f390ac3f732.jpg",
-                     "_checked": "true"
+                     "id": "answer-1",
+                     "type": "text",
+                     "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-7-450d374a99dd72bbaef09f390ac3f732.jpg",
+                     "checked": "true"
                   },
                   {
-                     "_id": "test",
-                     "_type": "text",
-                     "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-2-5a3954a9288fc1061a804cc57f3e5301.jpg",
-                     "_checked": "false"
+                     "id": "test",
+                     "type": "text",
+                     "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-2-5a3954a9288fc1061a804cc57f3e5301.jpg",
+                     "checked": "false"
                   },
                   {
-                     "_id": "test",
-                     "_type": "text",
-                     "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-8-291e7662bea0e2d864fad18ed7993077.jpg",
-                     "_checked": "false"
+                     "id": "test",
+                     "type": "text",
+                     "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-8-291e7662bea0e2d864fad18ed7993077.jpg",
+                     "checked": "false"
                   }
                ],
-               "_value": "Which image is true?",
-               "_selectedindex": "0",
-               "_mediatype": "audio",
-               "_mediaurl": "http://thuvien.bkt1.vn/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/02_02_Track_2.mp3"
+               "value": "Which image is true?",
+               "selectedindex": "0",
+               "mediatype": "audio",
+               "mediaurl": "http://thuvien.bkt1.vn/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/02_02_Track_2.mp3"
             },
-            "_font": "Arial",
-            "_size": "14",
-            "_color": "0x333333",
-            "_bold": "true",
-            "_underline": "false",
-            "_align": "false",
-            "_leading": "6"
+            "font": "Arial",
+            "size": "14",
+            "color": "0x333333",
+            "bold": "true",
+            "underline": "false",
+            "align": "false",
+            "leading": "6"
          }
       },
       "APPEAR": {
-         "_id": "NoID",
-         "_name": "None",
-         "_direction": "None",
-         "_start": "Auto",
-         "_speed": "0",
-         "_repeat": "false",
-         "_index": "0"
+         "id": "NoID",
+         "name": "None",
+         "direction": "None",
+         "start": "Auto",
+         "speed": "0",
+         "repeat": "false",
+         "index": "0"
       },
-      "_id": "0",
-      "_name": "iQuizSingleChoiceWithImage",
-      "_type": "component",
-      "_x": "29.0909246223053",
-      "_y": "32.5328883326381",
-      "_width": "411.463044126945",
-      "_height": "549.296898901404",
-      "_scaleX": "1",
-      "_scaleY": "1",
-      "_rotation": "0"
+      "id": "0",
+      "name": "iQuizSingleChoiceWithImage",
+      "type": "component",
+      "x": "29.0909246223053",
+      "y": "32.5328883326381",
+      "width": "411.463044126945",
+      "height": "549.296898901404",
+      "scaleX": "1",
+      "scaleY": "1",
+      "rotation": "0"
    }
 }

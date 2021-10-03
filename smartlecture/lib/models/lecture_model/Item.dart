@@ -35,48 +35,51 @@ class Item {
   double scaleY;
   double rotation;
 
-  factory Item.fromJson(Map<String, dynamic> json) => Item(
-        itemInfo: ItemInfo.fromJson(json["ITEM_INFO"]),
-        appear: Appear.fromJson(json["APPEAR"]),
-        speech: json["SPEECH"] == null ? null : Speech.fromJson(json["SPEECH"]),
-        audio: json["AUDIO"] == null ? null : Audio.fromJson(json["AUDIO"]),
-        id: json["_id"] is int ? json["_id"] : int.parse((json["_id"])),
-        name: json["_name"],
-        type: json["_type"],
-        x: json["_x"] is double ? json["_x"] : double.parse((json["_x"])),
-        y: json["_y"] is double ? json["_y"] : double.parse((json["_y"])),
-        width: json["_width"] is double
-            ? json["_width"]
-            : double.parse((json["_width"])),
-        height: json["_height"] is double
-            ? json["_height"]
-            : double.parse((json["_height"])),
-        scaleX: json["_scaleX"] is double
-            ? json["_scaleX"]
-            : double.parse((json["_scaleX"])),
-        scaleY: json["_scaleY"] is double
-            ? json["_scaleY"]
-            : double.parse((json["_scaleY"])),
-        rotation: json["_rotation"] is double
-            ? json["_rotation"]
-            : double.parse((json["_rotation"])),
-      );
+  factory Item.fromJson(Map<String, dynamic> json) {
+    print("-----item: " + json.toString());
+    return Item(
+      itemInfo: ItemInfo.fromJson(json["ITEM_INFO"]),
+      appear: Appear.fromJson(json["APPEAR"]),
+      speech: json["SPEECH"] == null ? null : Speech.fromJson(json["SPEECH"]),
+      audio: json["AUDIO"] == null ? null : Audio.fromJson(json["AUDIO"]),
+      id: json["id"] is int ? json["id"] : int.parse((json["id"])),
+      name: json["name"],
+      type: json["type"],
+      x: json["x"] is double ? json["x"] : double.parse((json["x"])),
+      y: json["y"] is double ? json["y"] : double.parse((json["y"])),
+      width: json["width"] is double
+          ? json["width"]
+          : double.parse((json["width"])),
+      height: json["height"] is double
+          ? json["height"]
+          : double.parse((json["height"])),
+      scaleX: json["scaleX"] is double
+          ? json["scaleX"]
+          : double.parse((json["scaleX"])),
+      scaleY: json["scaleY"] is double
+          ? json["scaleY"]
+          : double.parse((json["scaleY"])),
+      rotation: json["rotation"] is double
+          ? json["rotation"]
+          : double.parse((json["rotation"])),
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "ITEM_INFO": itemInfo.toJson(),
         "APPEAR": appear.toJson(),
         "SPEECH": speech == null ? null : speech.toJson(),
         "AUDIO": audio == null ? null : audio.toJson(),
-        "_id": id,
-        "_name": name,
-        "_type": type,
-        "_x": x,
-        "_y": y,
-        "_width": width,
-        "_height": height,
-        "_scaleX": scaleX,
-        "_scaleY": scaleY,
-        "_rotation": rotation,
+        "id": id,
+        "name": name,
+        "type": type,
+        "x": x,
+        "y": y,
+        "width": width,
+        "height": height,
+        "scaleX": scaleX,
+        "scaleY": scaleY,
+        "rotation": rotation,
       };
 }
 
@@ -86,16 +89,20 @@ class Speech {
     this.isMale,
   });
 
-  String value;
-  String isMale;
+  String value = "";
+  String isMale = "false";
 
-  factory Speech.fromJson(Map<String, dynamic> json) => Speech(
-        value: json["_Value"],
-        isMale: json["_IsMale"],
-      );
+  factory Speech.fromJson(Map<String, dynamic> json) {
+    return json == null
+        ? Speech()
+        : Speech(
+            value: json["Value"],
+            isMale: json["IsMale"],
+          );
+  }
 
   Map<String, dynamic> toJson() => {
-        "_Value": value,
-        "_IsMale": isMale,
+        "Value": value,
+        "IsMale": isMale,
       };
 }

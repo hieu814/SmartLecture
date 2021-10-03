@@ -24,20 +24,20 @@ class QuestionChooseAndCompleteInfo {
         extendDragChooseAndCompleteInfo: List<ExtendDragEInfo>.from(
             json["ExtendDragChooseAndCompleteInfo"]
                 .map((x) => ExtendDragEInfo.fromJson(x))),
-        value: json["_Value"],
-        selectIndex: json["_SelectIndex"],
-        mediaType: json["_MediaType"],
-        mediaUrl: json["_MediaUrl"],
+        value: json["Value"],
+        selectIndex: json["SelectIndex"],
+        mediaType: json["MediaType"],
+        mediaUrl: json["MediaUrl"],
       );
 
   Map<String, dynamic> toJson() => {
         "AnswerChooseAndCompleteInfo": answerChooseAndCompleteInfo.toJson(),
         "ExtendDragChooseAndCompleteInfo": List<dynamic>.from(
             extendDragChooseAndCompleteInfo.map((x) => x.toJson())),
-        "_Value": value,
-        "_SelectIndex": selectIndex,
-        "_MediaType": mediaType,
-        "_MediaUrl": mediaUrl,
+        "Value": value,
+        "SelectIndex": selectIndex,
+        "MediaType": mediaType,
+        "MediaUrl": mediaUrl,
       };
 }
 
@@ -50,10 +50,10 @@ class AnswerChooseAndCompleteInfo {
 
   factory AnswerChooseAndCompleteInfo.fromJson(Map<String, dynamic> json) =>
       AnswerChooseAndCompleteInfo(
-        answer: json["_Answer"],
+        answer: json["Answer"],
       );
 
   Map<String, dynamic> toJson() => {
-        "_Answer": answer,
+        "Answer": answer,
       };
 }

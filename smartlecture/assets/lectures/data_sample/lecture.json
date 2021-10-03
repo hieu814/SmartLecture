@@ -9,65 +9,65 @@
                         {
                            "ITEM_INFO": {
                               "TEXT": {
-                                 "_text": "Nhập văn bản vào đây!",
-                                 "_font": "Arial",
-                                 "_size": "36",
-                                 "_color": "-663885",
-                                 "_bold": "True",
-                                 "_align": "left",
-                                 "_leading": "0",
-                                 "_italic": "False",
-                                 "_underline": "False",
-                                 "_leftMargin": "0",
-                                 "_bullet": "False"
+                                 "text": "Nhập văn bản vào đây!",
+                                 "font": "Arial",
+                                 "size": "36",
+                                 "color": "-663885",
+                                 "bold": "True",
+                                 "align": "left",
+                                 "leading": "0",
+                                 "italic": "False",
+                                 "underline": "False",
+                                 "leftMargin": "0",
+                                 "bullet": "False"
                               }
                            },
                            "APPEAR": {
-                              "_id": "NoID",
-                              "_name": "None",
-                              "_direction": "None",
-                              "_start": "Auto",
-                              "_speed": "0",
-                              "_repeat": "false",
-                              "_index": "1"
+                              "id": "NoID",
+                              "name": "None",
+                              "direction": "None",
+                              "start": "Auto",
+                              "speed": "0",
+                              "repeat": "false",
+                              "index": "1"
                            },
                            "SPEECH": {
-                              "_Value": "",
-                              "_IsMale": "True"
+                              "Value": "",
+                              "IsMale": "True"
                            },
                            "AUDIO": {
-                              "_Url": ""
+                              "Url": ""
                            },
-                           "_id": "0",
-                           "_name": "iTextBlock",
-                           "_type": "component",
-                           "_x": "100",
-                           "_y": "30",
-                           "_width": "400",
-                           "_height": "60",
-                           "_scaleX": "1",
-                           "_scaleY": "1",
-                           "_rotation": "0"
+                           "id": "0",
+                           "name": "iTextBlock",
+                           "type": "component",
+                           "x": "100",
+                           "y": "30",
+                           "width": "400",
+                           "height": "60",
+                           "scaleX": "1",
+                           "scaleY": "1",
+                           "rotation": "0"
                         }
                      ]
                   },
-                  "_id": "0",
-                  "_title": "Trang bìa",
-                  "_backgroundImage": "http://thuvien.bkt1.vn/Library/Image/Trung-hoc-co-so/Lop-7/Tieng-Anh-7/Tieng-Anh-7-1.1/E7-NXBGD-Unit1-Lesson1-Nen2.jpg",
-                  "_backgroundColor": "0",
-                  "_backgroundAlpha": "0"
+                  "id": "0",
+                  "title": "Trang bìa",
+                  "backgroundImage": "http://thuvien.bkt1.vn/Library/Image/Trung-hoc-co-so/Lop-7/Tieng-Anh-7/Tieng-Anh-7-1.1/E7-NXBGD-Unit1-Lesson1-Nen2.jpg",
+                  "backgroundColor": "0",
+                  "backgroundAlpha": "0"
                }
             ],
-            "_id": "0",
-            "_title": "Trang bìa"
+            "id": "0",
+            "title": "Trang bìa"
          }
          
       ],
-      "_title": "New",
-      "_type": "0",
-      "_authorId": "0",
-      "_editorId": "0",
-      "_createdDate": "10:06:52 14-06-2020",
-      "_editedDate": "12:09:24 17-06-2020"
+      "title": "New",
+      "type": "0",
+      "authorId": "0",
+      "editorId": "0",
+      "createdDate": "10:06:52 14-06-2020",
+      "editedDate": "12:09:24 17-06-2020"
    }
 }

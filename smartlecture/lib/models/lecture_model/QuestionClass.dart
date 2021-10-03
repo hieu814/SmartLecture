@@ -16,19 +16,19 @@ class QuestionClass {
   factory QuestionClass.fromJson(Map<String, dynamic> json) => QuestionClass(
         answer:
             List<Answer>.from(json["answer"].map((x) => Answer.fromJson(x))),
-        value: json["_value"],
+        value: json["value"],
         selectedindex:
-            json["_selectedindex"] == null ? null : json["_selectedindex"],
-        mediatype: json["_mediatype"],
-        mediaurl: json["_mediaurl"],
+            json["selectedindex"] == null ? null : json["selectedindex"],
+        mediatype: json["mediatype"],
+        mediaurl: json["mediaurl"],
       );
 
   Map<String, dynamic> toJson() => {
         "answer": List<dynamic>.from(answer.map((x) => x.toJson())),
-        "_value": value,
-        "_selectedindex": selectedindex == null ? null : selectedindex,
-        "_mediatype": mediatype,
-        "_mediaurl": mediaurl,
+        "value": value,
+        "selectedindex": selectedindex == null ? null : selectedindex,
+        "mediatype": mediatype,
+        "mediaurl": mediaurl,
       };
 }
 
@@ -50,19 +50,19 @@ class Answer {
   Left right;
 
   factory Answer.fromJson(Map<String, dynamic> json) => Answer(
-        id: json["_id"],
-        type: json["_type"],
-        value: json["_value"] == null ? null : json["_value"],
-        checked: json["_checked"] == null ? null : json["_checked"],
+        id: json["id"] ?? "0",
+        type: json["type"],
+        value: json["value"] == null ? null : json["value"],
+        checked: json["checked"] == null ? null : json["checked"],
         left: json["left"] == null ? null : Left.fromJson(json["left"]),
         right: json["right"] == null ? null : Left.fromJson(json["right"]),
       );
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
-        "_type": type == null ? null : type,
-        "_value": value == null ? null : value,
-        "_checked": checked == null ? null : checked,
+        "id": id,
+        "type": type == null ? null : type,
+        "value": value == null ? null : value,
+        "checked": checked == null ? null : checked,
         "left": left == null ? null : left.toJson(),
         "right": right == null ? null : right.toJson(),
       };
@@ -82,16 +82,16 @@ class Left {
   String index;
 
   factory Left.fromJson(Map<String, dynamic> json) => Left(
-        id: json["_id"],
-        type: json["_type"],
-        value: json["_value"],
-        index: json["_index"],
+        id: json["id"] ?? "0",
+        type: json["type"],
+        value: json["value"],
+        index: json["index"],
       );
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
-        "_type": type,
-        "_value": value,
-        "_index": index,
+        "id": id,
+        "type": type,
+        "value": value,
+        "index": index,
       };
 }

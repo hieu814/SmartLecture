@@ -25,6 +25,10 @@ class _EditTextState extends State<EditText> {
     super.initState();
     if (widget.item != null) {
       temp = widget.item;
+      temp.itemInfo.text.text = temp.itemInfo.text.text
+          .replaceAll("\\r", "")
+          .replaceAll("\\n", "\n")
+          .replaceAll("\\", "");
       textController.text = temp.itemInfo.text.text;
     }
   }
@@ -145,7 +149,7 @@ class _EditTextState extends State<EditText> {
                             });
                           },
                           items: List.generate(
-                              40,
+                              100,
                               (index) => DropdownMenuItem<int>(
                                     value: index,
                                     child: Text(index.toString()),

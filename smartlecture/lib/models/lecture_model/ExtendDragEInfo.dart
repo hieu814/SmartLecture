@@ -7,10 +7,10 @@ class ExtendDragEInfo {
 
   factory ExtendDragEInfo.fromJson(Map<String, dynamic> json) =>
       ExtendDragEInfo(
-        data: json["_Data"],
+        data: json["Data"],
       );
 
   Map<String, dynamic> toJson() => {
-        "_Data": data,
+        "Data": data,
       };
 }

@@ -69,13 +69,16 @@ class SideMenu extends StatelessWidget {
               // Parse a simple XML string
               myTransformer.parse(data);
               // Transform to JSON using Badgerfish
-              var _json = myTransformer.toParkerWithAttrs();
+              var _json = myTransformer.toGData();
               print('Json');
               print('');
               print(_json);
               print('');
               try {
                 Lecture a = Lecture.fromJson(json.decode(_json)["LECTURE"]);
+                Navigator.pushNamed(context, RouteName.sectionPage,
+                    arguments: LectuteData(id: "", lecture: a));
+                print("-------- fromjson ok: ");
               } catch (e) {
                 print("fromjson err: " + e.toString());
               }

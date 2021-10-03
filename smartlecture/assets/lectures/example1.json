@@ -9,157 +9,157 @@
                          {
                             "ITEM_INFO": {
                                "TEXT": {
-                                  "_text": "asdasd\r\n",
-                                  "_font": "Segoe UI",
-                                  "_size": "36",
-                                  "_color": "-663885",
-                                  "_bold": "True",
-                                  "_align": "center",
-                                  "_leading": "0",
-                                  "_italic": "True",
-                                  "_underline": "True",
-                                  "_leftMargin": "0",
-                                  "_bullet": "False"
+                                  "text": "asdasd\r\n",
+                                  "font": "Segoe UI",
+                                  "size": "36",
+                                  "color": "-663885",
+                                  "bold": "True",
+                                  "align": "center",
+                                  "leading": "0",
+                                  "italic": "True",
+                                  "underline": "True",
+                                  "leftMargin": "0",
+                                  "bullet": "False"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "1"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "1"
                             },
                             "SPEECH": {
-                               "_Value": "",
-                               "_IsMale": "True"
+                               "Value": "",
+                               "IsMale": "True"
                             },
                             "AUDIO": {
-                               "_Url": ""
+                               "Url": ""
                             },
-                            "_id": "0",
-                            "_name": "iTextBlock",
-                            "_type": "component",
-                            "_x": "179.879387011202",
-                            "_y": "37.0543352601156",
-                            "_width": "400",
-                            "_height": "60",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "0",
+                            "name": "iTextBlock",
+                            "type": "component",
+                            "x": "179.879387011202",
+                            "y": "37.0543352601156",
+                            "width": "400",
+                            "height": "60",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
                                "TEXT": {
-                                  "_text": "Nhập văn bản vào đây!",
-                                  "_font": "Arial",
-                                  "_size": "36",
-                                  "_color": "-663885",
-                                  "_bold": "True",
-                                  "_align": "left",
-                                  "_leading": "0",
-                                  "_italic": "False",
-                                  "_underline": "False",
-                                  "_leftMargin": "0",
-                                  "_bullet": "False"
+                                  "text": "Nhập văn bản vào đây!",
+                                  "font": "Arial",
+                                  "size": "36",
+                                  "color": "-663885",
+                                  "bold": "True",
+                                  "align": "left",
+                                  "leading": "0",
+                                  "italic": "False",
+                                  "underline": "False",
+                                  "leftMargin": "0",
+                                  "bullet": "False"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "2"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "2"
                             },
                             "SPEECH": {
-                               "_Value": "",
-                               "_IsMale": "True"
+                               "Value": "",
+                               "IsMale": "True"
                             },
                             "AUDIO": {
-                               "_Url": ""
+                               "Url": ""
                             },
-                            "_id": "1",
-                            "_name": "iTextBlock",
-                            "_type": "component",
-                            "_x": "154.628905131777",
-                            "_y": "119.734104046243",
-                            "_width": "400",
-                            "_height": "60",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "1",
+                            "name": "iTextBlock",
+                            "type": "component",
+                            "x": "154.628905131777",
+                            "y": "119.734104046243",
+                            "width": "400",
+                            "height": "60",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
                                "IMAGE": {
-                                  "_url": "pack://application:,,,/Presentation;component/Icon/no-image.jpg"
+                                  "url": "pack://application:,,,/Presentation;component/Icon/no-image.jpg"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "3"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "3"
                             },
                             "SPEECH": {
-                               "_Value": "",
-                               "_IsMale": "True"
+                               "Value": "",
+                               "IsMale": "True"
                             },
                             "AUDIO": {
-                               "_Url": ""
+                               "Url": ""
                             },
-                            "_id": "2",
-                            "_name": "iImage",
-                            "_type": "component",
-                            "_x": "116.574721975592",
-                            "_y": "189.07249990555",
-                            "_width": "583.333333333334",
-                            "_height": "208.58098969007",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "2",
+                            "name": "iImage",
+                            "type": "component",
+                            "x": "116.574721975592",
+                            "y": "189.07249990555",
+                            "width": "583.333333333334",
+                            "height": "208.58098969007",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
                                "MEDIA": {
-                                  "_MediaUrl": "https://www.youtube.com/watch?v=efW4KRHpulk",
-                                  "_MediaType": "movie",
-                                  "_MediaSourceType": "Google"
+                                  "MediaUrl": "https://www.youtube.com/watch?v=efW4KRHpulk",
+                                  "MediaType": "movie",
+                                  "MediaSourceType": "Google"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "4"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "4"
                             },
-                            "_id": "3",
-                            "_name": "iMainMedia",
-                            "_type": "module",
-                            "_x": "81.2034327043777",
-                            "_y": "417.871185159998",
-                            "_width": "685.431440710466",
-                            "_height": "58.588290919205",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "3",
+                            "name": "iMainMedia",
+                            "type": "module",
+                            "x": "81.2034327043777",
+                            "y": "417.871185159998",
+                            "width": "685.431440710466",
+                            "height": "58.588290919205",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          }
                       ]
                    },
-                   "_id": "0",
-                   "_title": "Page1",
-                   "_backgroundImage": "pack://application:,,,/Presentation;component/Icon/bg/board.jpg",
-                   "_backgroundColor": "0",
-                   "_backgroundAlpha": "0"
+                   "id": "0",
+                   "title": "Page1",
+                   "backgroundImage": "pack://application:,,,/Presentation;component/Icon/bg/board.jpg",
+                   "backgroundColor": "0",
+                   "backgroundAlpha": "0"
                 },
                 {
                    "ITEMS": {
@@ -167,45 +167,45 @@
                          {
                             "ITEM_INFO": {
                                "TEXT": {
-                                  "_text": "Nhập văn bản vào đây!",
-                                  "_font": "Arial",
-                                  "_size": "36",
-                                  "_color": "-663885",
-                                  "_bold": "True",
-                                  "_align": "left",
-                                  "_leading": "0",
-                                  "_italic": "False",
-                                  "_underline": "False",
-                                  "_leftMargin": "0",
-                                  "_bullet": "False"
+                                  "text": "Nhập văn bản vào đây!",
+                                  "font": "Arial",
+                                  "size": "36",
+                                  "color": "-663885",
+                                  "bold": "True",
+                                  "align": "left",
+                                  "leading": "0",
+                                  "italic": "False",
+                                  "underline": "False",
+                                  "leftMargin": "0",
+                                  "bullet": "False"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "1"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "1"
                             },
                             "SPEECH": {
-                               "_Value": "",
-                               "_IsMale": "True"
+                               "Value": "",
+                               "IsMale": "True"
                             },
                             "AUDIO": {
-                               "_Url": ""
+                               "Url": ""
                             },
-                            "_id": "0",
-                            "_name": "iTextBlock",
-                            "_type": "component",
-                            "_x": "100",
-                            "_y": "30",
-                            "_width": "400",
-                            "_height": "60",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "0",
+                            "name": "iTextBlock",
+                            "type": "component",
+                            "x": "100",
+                            "y": "30",
+                            "width": "400",
+                            "height": "60",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
@@ -213,69 +213,69 @@
                                   "question": {
                                      "answer": [
                                         {
-                                           "_id": "answer-0",
-                                           "_type": "text",
-                                           "_value": "start",
-                                           "_checked": "true"
+                                           "id": "answer-0",
+                                           "type": "text",
+                                           "value": "start",
+                                           "checked": "true"
                                         },
                                         {
-                                           "_id": "answer-1",
-                                           "_type": "text",
-                                           "_value": "begin",
-                                           "_checked": "true"
+                                           "id": "answer-1",
+                                           "type": "text",
+                                           "value": "begin",
+                                           "checked": "true"
                                         },
                                         {
-                                           "_id": "answer-2",
-                                           "_type": "text",
-                                           "_value": "star",
-                                           "_checked": "false"
+                                           "id": "answer-2",
+                                           "type": "text",
+                                           "value": "star",
+                                           "checked": "false"
                                         },
                                         {
-                                           "_id": "test",
-                                           "_type": "text",
-                                           "_value": "hello",
-                                           "_checked": "false"
+                                           "id": "test",
+                                           "type": "text",
+                                           "value": "hello",
+                                           "checked": "false"
                                         },
                                         {
-                                           "_id": "test",
-                                           "_type": "text",
-                                           "_value": "name",
-                                           "_checked": "false"
+                                           "id": "test",
+                                           "type": "text",
+                                           "value": "name",
+                                           "checked": "false"
                                         }
                                      ],
-                                     "_value": "Find synonyms",
-                                     "_selectedindex": "0",
-                                     "_mediatype": "image",
-                                     "_mediaurl": ""
+                                     "value": "Find synonyms",
+                                     "selectedindex": "0",
+                                     "mediatype": "image",
+                                     "mediaurl": ""
                                   },
-                                  "_font": "Arial",
-                                  "_size": "14",
-                                  "_color": "0x333333",
-                                  "_bold": "true",
-                                  "_underline": "false",
-                                  "_align": "false",
-                                  "_leading": "6"
+                                  "font": "Arial",
+                                  "size": "14",
+                                  "color": "0x333333",
+                                  "bold": "true",
+                                  "underline": "false",
+                                  "align": "false",
+                                  "leading": "6"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "2"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "2"
                             },
-                            "_id": "1",
-                            "_name": "iQuizMultipleChoice",
-                            "_type": "module",
-                            "_x": "45.7704054313561",
-                            "_y": "96.2049871387432",
-                            "_width": "232.578418019473",
-                            "_height": "192.037787427731",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "1",
+                            "name": "iQuizMultipleChoice",
+                            "type": "module",
+                            "x": "45.7704054313561",
+                            "y": "96.2049871387432",
+                            "width": "232.578418019473",
+                            "height": "192.037787427731",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
@@ -283,63 +283,63 @@
                                   "question": {
                                      "answer": [
                                         {
-                                           "_id": "answer-0",
-                                           "_type": "text",
-                                           "_value": "1. Tom is going for a picnic with his family.",
-                                           "_checked": "false"
+                                           "id": "answer-0",
+                                           "type": "text",
+                                           "value": "1. Tom is going for a picnic with his family.",
+                                           "checked": "false"
                                         },
                                         {
-                                           "_id": "answer-1",
-                                           "_type": "text",
-                                           "_value": "2. They are going to take some food, fruit and drinks.",
-                                           "_checked": "true"
+                                           "id": "answer-1",
+                                           "type": "text",
+                                           "value": "2. They are going to take some food, fruit and drinks.",
+                                           "checked": "true"
                                         },
                                         {
-                                           "_id": "answer-2",
-                                           "_type": "text",
-                                           "_value": "3. They are going to play some sports and games.",
-                                           "_checked": "true"
+                                           "id": "answer-2",
+                                           "type": "text",
+                                           "value": "3. They are going to play some sports and games.",
+                                           "checked": "true"
                                         },
                                         {
-                                           "_id": "answer-3",
-                                           "_type": "text",
-                                           "_value": "4. Tom is going to take a radio.",
-                                           "_checked": "false"
+                                           "id": "answer-3",
+                                           "type": "text",
+                                           "value": "4. Tom is going to take a radio.",
+                                           "checked": "false"
                                         }
                                      ],
-                                     "_value": "True and false test:",
-                                     "_selectedindex": "0",
-                                     "_mediatype": "image",
-                                     "_mediaurl": ""
+                                     "value": "True and false test:",
+                                     "selectedindex": "0",
+                                     "mediatype": "image",
+                                     "mediaurl": ""
                                   },
-                                  "_font": "Arial",
-                                  "_size": "14",
-                                  "_color": "0x333333",
-                                  "_bold": "true",
-                                  "_underline": "false",
-                                  "_align": "false",
-                                  "_leading": "6"
+                                  "font": "Arial",
+                                  "size": "14",
+                                  "color": "0x333333",
+                                  "bold": "true",
+                                  "underline": "false",
+                                  "align": "false",
+                                  "leading": "6"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "3"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "3"
                             },
-                            "_id": "2",
-                            "_name": "iQuizTrueFalse",
-                            "_type": "module",
-                            "_x": "371.335002457107",
-                            "_y": "95.2002140624032",
-                            "_width": "235.325429993894",
-                            "_height": "199.313080735285",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "2",
+                            "name": "iQuizTrueFalse",
+                            "type": "module",
+                            "x": "371.335002457107",
+                            "y": "95.2002140624032",
+                            "width": "235.325429993894",
+                            "height": "199.313080735285",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
@@ -347,123 +347,123 @@
                                   "question": {
                                      "answer": [
                                         {
-                                           "_id": "answer-0",
-                                           "_type": "text",
-                                           "_value": "a. Between the school and the stadium.",
-                                           "_checked": "false"
+                                           "id": "answer-0",
+                                           "type": "text",
+                                           "value": "a. Between the school and the stadium.",
+                                           "checked": "false"
                                         },
                                         {
-                                           "_id": "answer-1",
-                                           "_type": "text",
-                                           "_value": "b. Between the museum and the stadium.",
-                                           "_checked": "true"
+                                           "id": "answer-1",
+                                           "type": "text",
+                                           "value": "b. Between the museum and the stadium.",
+                                           "checked": "true"
                                         },
                                         {
-                                           "_id": "test",
-                                           "_type": "text",
-                                           "_value": "c. Between the hospital and the stadium.",
-                                           "_checked": "false"
+                                           "id": "test",
+                                           "type": "text",
+                                           "value": "c. Between the hospital and the stadium.",
+                                           "checked": "false"
                                         }
                                      ],
-                                     "_value": "2. Where is the bookshop?",
-                                     "_selectedindex": "0",
-                                     "_mediatype": "image",
-                                     "_mediaurl": "https://file.hstatic.net/1000352962/file/3_64be8f8f2f9542938876c70cb74840fe_grande.jpeg"
+                                     "value": "2. Where is the bookshop?",
+                                     "selectedindex": "0",
+                                     "mediatype": "image",
+                                     "mediaurl": "https://file.hstatic.net/1000352962/file/3_64be8f8f2f9542938876c70cb74840fe_grande.jpeg"
                                   },
-                                  "_font": "Arial",
-                                  "_size": "14",
-                                  "_color": "0x333333",
-                                  "_bold": "true",
-                                  "_underline": "false",
-                                  "_align": "false",
-                                  "_leading": "6"
+                                  "font": "Arial",
+                                  "size": "14",
+                                  "color": "0x333333",
+                                  "bold": "true",
+                                  "underline": "false",
+                                  "align": "false",
+                                  "leading": "6"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "4"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "4"
                             },
-                            "_id": "3",
-                            "_name": "iQuizSingleChoice",
-                            "_type": "module",
-                            "_x": "98.8768841802272",
-                            "_y": "322.900223223795",
-                            "_width": "248.358750087602",
-                            "_height": "134.646597585453",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "3",
+                            "name": "iQuizSingleChoice",
+                            "type": "module",
+                            "x": "98.8768841802272",
+                            "y": "322.900223223795",
+                            "width": "248.358750087602",
+                            "height": "134.646597585453",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
                                "rootquest": {
                                   "WHICHWORD": {
                                      "DRAG_DROP": "Miss Hoa: Good morning, children\nChildren: Good morning, Miss Hoa\nMiss Hoa: How are you?\nChildren: We're fine, thank you. How are you?\nMiss Hoa: Fine thank. Good bye.\nChildren: Bye",
-                                     "_Title": "3. Fill in each blank with a suitable word",
-                                     "_Image": "",
-                                     "_Dapan": "24,32|62,66|78,81|114,123|161,169",
-                                     "_MediaType": "image",
-                                     "_MediaUrl": ""
+                                     "Title": "3. Fill in each blank with a suitable word",
+                                     "Image": "",
+                                     "Dapan": "24,32|62,66|78,81|114,123|161,169",
+                                     "MediaType": "image",
+                                     "MediaUrl": ""
                                   }
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "5"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "5"
                             },
-                            "_id": "4",
-                            "_name": "iAnHien",
-                            "_type": "module",
-                            "_x": "422.407820094672",
-                            "_y": "320.185698565082",
-                            "_width": "269.994706671106",
-                            "_height": "221.229330336652",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "4",
+                            "name": "iAnHien",
+                            "type": "module",
+                            "x": "422.407820094672",
+                            "y": "320.185698565082",
+                            "width": "269.994706671106",
+                            "height": "221.229330336652",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
                                "rootquest": {
                                   "WHICHWORD": {
                                      "DRAG_DROP": "a) My printer does not work because I have not turned it on yet\nb) The printer is still under guarantee. So the company will replace it.\nc) We have already taken the English exam.\nd) You can read this instruction how to repair it in the manual",
-                                     "_Title": "Suggested fill in the blank",
-                                     "_Image": "",
-                                     "_Dapan": "60,63|95,104|150,157|240,246",
-                                     "_MediaType": "image",
-                                     "_MediaUrl": ""
+                                     "Title": "Suggested fill in the blank",
+                                     "Image": "",
+                                     "Dapan": "60,63|95,104|150,157|240,246",
+                                     "MediaType": "image",
+                                     "MediaUrl": ""
                                   }
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "6"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "6"
                             },
-                            "_id": "5",
-                            "_name": "iDienKhuyet",
-                            "_type": "module",
-                            "_x": "132.810901663654",
-                            "_y": "82.6070102078465",
-                            "_width": "518.388509588844",
-                            "_height": "323.046808510638",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "5",
+                            "name": "iDienKhuyet",
+                            "type": "module",
+                            "x": "132.810901663654",
+                            "y": "82.6070102078465",
+                            "width": "518.388509588844",
+                            "height": "323.046808510638",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
@@ -472,87 +472,87 @@
                                      "DRAG_DROP": "Miss Hoa: Good morning, children\nChildren: Good morning, Miss Hoa\nMiss Hoa: How are you?\nChildren: We're fine, thank you. How are you?\nMiss Hoa: Fine thank. Good bye.\nChildren: Bye",
                                      "EXTEND_DRAG": [
                                         {
-                                           "_data": "boy"
+                                           "data": "boy"
                                         },
                                         {
-                                           "_data": "girl"
+                                           "data": "girl"
                                         },
                                         {
-                                           "_data": "hot"
+                                           "data": "hot"
                                         }
                                      ],
-                                     "_Title": "3. Select a suitable word",
-                                     "_Image": "",
-                                     "_Dapan": "24,32|62,66|78,81|114,123|161,169",
-                                     "_mediatype": "image",
-                                     "_mediaurl": ""
+                                     "Title": "3. Select a suitable word",
+                                     "Image": "",
+                                     "Dapan": "24,32|62,66|78,81|114,123|161,169",
+                                     "mediatype": "image",
+                                     "mediaurl": ""
                                   }
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "7"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "7"
                             },
-                            "_id": "6",
-                            "_name": "iDropList",
-                            "_type": "module",
-                            "_x": "204.324589794786",
-                            "_y": "138.466258770501",
-                            "_width": "363.495406770034",
-                            "_height": "250.104839495395",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "6",
+                            "name": "iDropList",
+                            "type": "module",
+                            "x": "204.324589794786",
+                            "y": "138.466258770501",
+                            "width": "363.495406770034",
+                            "height": "250.104839495395",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
                                "rootquest": {
                                   "WHICHWORD": {
                                      "DRAG_DROP": "Miss Hoa: Good morning, children\nChildren: Good morning, Miss Hoa\nMiss Hoa: How are you?\nChildren: We're fine, thank you. How are you?\nMiss Hoa: Fine thank. Good bye.\nChildren: Bye",
-                                     "_Title": "Fill in the blank.",
-                                     "_Image": "",
-                                     "_Dapan": "24,32|62,66|78,81|114,123|161,169",
-                                     "_MediaType": "image",
-                                     "_MediaUrl": ""
+                                     "Title": "Fill in the blank.",
+                                     "Image": "",
+                                     "Dapan": "24,32|62,66|78,81|114,123|161,169",
+                                     "MediaType": "image",
+                                     "MediaUrl": ""
                                   }
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "8"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "8"
                             },
-                            "_id": "7",
-                            "_name": "iKeoTha",
-                            "_type": "module",
-                            "_x": "42.4119633426332",
-                            "_y": "51.5191998162168",
-                            "_width": "613.815384663991",
-                            "_height": "496.599949119953",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "7",
+                            "name": "iKeoTha",
+                            "type": "module",
+                            "x": "42.4119633426332",
+                            "y": "51.5191998162168",
+                            "width": "613.815384663991",
+                            "height": "496.599949119953",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          }
                       ]
                    },
-                   "_id": "1",
-                   "_title": "Page2",
-                   "_backgroundImage": "pack://application:,,,/Presentation;component/Icon/bg/board.jpg",
-                   "_backgroundColor": "0",
-                   "_backgroundAlpha": "0"
+                   "id": "1",
+                   "title": "Page2",
+                   "backgroundImage": "pack://application:,,,/Presentation;component/Icon/bg/board.jpg",
+                   "backgroundColor": "0",
+                   "backgroundAlpha": "0"
                 }
              ],
-             "_id": "0",
-             "_title": "Section1"
+             "id": "0",
+             "title": "Section1"
           },
           {
              "PAGE": [
@@ -562,45 +562,45 @@
                          {
                             "ITEM_INFO": {
                                "TEXT": {
-                                  "_text": "Nhập văn bản vào đây!",
-                                  "_font": "Arial",
-                                  "_size": "36",
-                                  "_color": "-663885",
-                                  "_bold": "True",
-                                  "_align": "left",
-                                  "_leading": "0",
-                                  "_italic": "False",
-                                  "_underline": "False",
-                                  "_leftMargin": "0",
-                                  "_bullet": "False"
+                                  "text": "Nhập văn bản vào đây!",
+                                  "font": "Arial",
+                                  "size": "36",
+                                  "color": "-663885",
+                                  "bold": "True",
+                                  "align": "left",
+                                  "leading": "0",
+                                  "italic": "False",
+                                  "underline": "False",
+                                  "leftMargin": "0",
+                                  "bullet": "False"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "1"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "1"
                             },
                             "SPEECH": {
-                               "_Value": "",
-                               "_IsMale": "True"
+                               "Value": "",
+                               "IsMale": "True"
                             },
                             "AUDIO": {
-                               "_Url": ""
+                               "Url": ""
                             },
-                            "_id": "0",
-                            "_name": "iTextBlock",
-                            "_type": "component",
-                            "_x": "0",
-                            "_y": "10",
-                            "_width": "400",
-                            "_height": "60",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "0",
+                            "name": "iTextBlock",
+                            "type": "component",
+                            "x": "0",
+                            "y": "10",
+                            "width": "400",
+                            "height": "60",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
@@ -609,157 +609,157 @@
                                      "answer": [
                                         {
                                            "left": {
-                                              "_id": "left-0",
-                                              "_type": "text",
-                                              "_value": "What colour is it?",
-                                              "_index": "0"
+                                              "id": "left-0",
+                                              "type": "text",
+                                              "value": "What colour is it?",
+                                              "index": "0"
                                            },
                                            "right": {
-                                              "_id": "right-0",
-                                              "_type": "text",
-                                              "_value": "It’s white",
-                                              "_index": "0"
+                                              "id": "right-0",
+                                              "type": "text",
+                                              "value": "It’s white",
+                                              "index": "0"
                                            },
-                                           "_id": "answer-0"
+                                           "id": "answer-0"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-1",
-                                              "_type": "text",
-                                              "_value": "What time do you have lunch?",
-                                              "_index": "1"
+                                              "id": "left-1",
+                                              "type": "text",
+                                              "value": "What time do you have lunch?",
+                                              "index": "1"
                                            },
                                            "right": {
-                                              "_id": "right-1",
-                                              "_type": "text",
-                                              "_value": "At 11 0’clock",
-                                              "_index": "1"
+                                              "id": "right-1",
+                                              "type": "text",
+                                              "value": "At 11 0’clock",
+                                              "index": "1"
                                            },
-                                           "_id": "answer-1"
+                                           "id": "answer-1"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-2",
-                                              "_type": "text",
-                                              "_value": "What’s your favourite drink?",
-                                              "_index": "2"
+                                              "id": "left-2",
+                                              "type": "text",
+                                              "value": "What’s your favourite drink?",
+                                              "index": "2"
                                            },
                                            "right": {
-                                              "_id": "right-2",
-                                              "_type": "text",
-                                              "_value": "I like milk",
-                                              "_index": "2"
+                                              "id": "right-2",
+                                              "type": "text",
+                                              "value": "I like milk",
+                                              "index": "2"
                                            },
-                                           "_id": "answer-2"
+                                           "id": "answer-2"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-3",
-                                              "_type": "text",
-                                              "_value": "What is her job?",
-                                              "_index": "3"
+                                              "id": "left-3",
+                                              "type": "text",
+                                              "value": "What is her job?",
+                                              "index": "3"
                                            },
                                            "right": {
-                                              "_id": "right-3",
-                                              "_type": "text",
-                                              "_value": "She is a worker",
-                                              "_index": "3"
+                                              "id": "right-3",
+                                              "type": "text",
+                                              "value": "She is a worker",
+                                              "index": "3"
                                            },
-                                           "_id": "answer-3"
+                                           "id": "answer-3"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-4",
-                                              "_type": "text",
-                                              "_value": "Would you like some noodles?",
-                                              "_index": "4"
+                                              "id": "left-4",
+                                              "type": "text",
+                                              "value": "Would you like some noodles?",
+                                              "index": "4"
                                            },
                                            "right": {
-                                              "_id": "right-4",
-                                              "_type": "text",
-                                              "_value": "Yes, please",
-                                              "_index": "4"
+                                              "id": "right-4",
+                                              "type": "text",
+                                              "value": "Yes, please",
+                                              "index": "4"
                                            },
-                                           "_id": "answer-4"
+                                           "id": "answer-4"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-5",
-                                              "_type": "text",
-                                              "_value": "How much are they?",
-                                              "_index": "5"
+                                              "id": "left-5",
+                                              "type": "text",
+                                              "value": "How much are they?",
+                                              "index": "5"
                                            },
                                            "right": {
-                                              "_id": "right-5",
-                                              "_type": "text",
-                                              "_value": "They are 20.000 dong",
-                                              "_index": "5"
+                                              "id": "right-5",
+                                              "type": "text",
+                                              "value": "They are 20.000 dong",
+                                              "index": "5"
                                            },
-                                           "_id": "answer-5"
+                                           "id": "answer-5"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-6",
-                                              "_type": "text",
-                                              "_value": "Where are you from?",
-                                              "_index": "6"
+                                              "id": "left-6",
+                                              "type": "text",
+                                              "value": "Where are you from?",
+                                              "index": "6"
                                            },
                                            "right": {
-                                              "_id": "right-6",
-                                              "_type": "text",
-                                              "_value": "I am from England ",
-                                              "_index": "6"
+                                              "id": "right-6",
+                                              "type": "text",
+                                              "value": "I am from England ",
+                                              "index": "6"
                                            },
-                                           "_id": "answer-6"
+                                           "id": "answer-6"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-7",
-                                              "_type": "text",
-                                              "_value": "When is your birthday?",
-                                              "_index": "7"
+                                              "id": "left-7",
+                                              "type": "text",
+                                              "value": "When is your birthday?",
+                                              "index": "7"
                                            },
                                            "right": {
-                                              "_id": "right-7",
-                                              "_type": "text",
-                                              "_value": "It is in January",
-                                              "_index": "7"
+                                              "id": "right-7",
+                                              "type": "text",
+                                              "value": "It is in January",
+                                              "index": "7"
                                            },
-                                           "_id": "answer-7"
+                                           "id": "answer-7"
                                         }
                                      ],
-                                     "_value": "Ghép hai vế với nhau sao cho đúng.",
-                                     "_mediatype": "image",
-                                     "_mediaurl": ""
+                                     "value": "Ghép hai vế với nhau sao cho đúng.",
+                                     "mediatype": "image",
+                                     "mediaurl": ""
                                   },
-                                  "_font": "Arial",
-                                  "_size": "14",
-                                  "_color": "0x333333",
-                                  "_bold": "true",
-                                  "_underline": "false",
-                                  "_align": "false",
-                                  "_leading": "6"
+                                  "font": "Arial",
+                                  "size": "14",
+                                  "color": "0x333333",
+                                  "bold": "true",
+                                  "underline": "false",
+                                  "align": "false",
+                                  "leading": "6"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "2"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "2"
                             },
-                            "_id": "1",
-                            "_name": "iQuizJoin",
-                            "_type": "module",
-                            "_x": "35.0385144791332",
-                            "_y": "48.6340934332381",
-                            "_width": "483.68130841825",
-                            "_height": "267.826022173698",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "1",
+                            "name": "iQuizJoin",
+                            "type": "module",
+                            "x": "35.0385144791332",
+                            "y": "48.6340934332381",
+                            "width": "483.68130841825",
+                            "height": "267.826022173698",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
@@ -768,62 +768,62 @@
                                      "Answers": {
                                         "AnswerInfo": [
                                            {
-                                              "_Id": "0",
-                                              "_Type": "image",
-                                              "_Value": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L2-4-1-suhctnxsupygxxrp.jpg",
-                                              "_Answer": "3"
+                                              "Id": "0",
+                                              "Type": "image",
+                                              "Value": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L2-4-1-suhctnxsupygxxrp.jpg",
+                                              "Answer": "3"
                                            },
                                            {
-                                              "_Id": "0",
-                                              "_Type": "image",
-                                              "_Value": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L2-4-2-tzbbxkjjnerxchik.jpg",
-                                              "_Answer": "1"
+                                              "Id": "0",
+                                              "Type": "image",
+                                              "Value": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L2-4-2-tzbbxkjjnerxchik.jpg",
+                                              "Answer": "1"
                                            },
                                            {
-                                              "_Id": "0",
-                                              "_Type": "image",
-                                              "_Value": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L2-4-3-qcuhtvvmbexwzjgk.jpg",
-                                              "_Answer": "4"
+                                              "Id": "0",
+                                              "Type": "image",
+                                              "Value": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L2-4-3-qcuhtvvmbexwzjgk.jpg",
+                                              "Answer": "4"
                                            },
                                            {
-                                              "_Id": "0",
-                                              "_Type": "image",
-                                              "_Value": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L2-4-4-qgganmigdfwlvprc.jpg",
-                                              "_Answer": "2"
+                                              "Id": "0",
+                                              "Type": "image",
+                                              "Value": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L2-4-4-qgganmigdfwlvprc.jpg",
+                                              "Answer": "2"
                                            }
                                         ]
                                      },
-                                     "_Value": "Listen and number",
-                                     "_SelectIndex": "0",
-                                     "_MediaType": "audio",
-                                     "_MediaUrl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
+                                     "Value": "Listen and number",
+                                     "SelectIndex": "0",
+                                     "MediaType": "audio",
+                                     "MediaUrl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
                                   },
-                                  "_Size": "0",
-                                  "_Bold": "false",
-                                  "_Underline": "false",
-                                  "_Align": "false",
-                                  "_Leading": "0"
+                                  "Size": "0",
+                                  "Bold": "false",
+                                  "Underline": "false",
+                                  "Align": "false",
+                                  "Leading": "0"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "3"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "3"
                             },
-                            "_id": "2",
-                            "_name": "iListenAndNumber",
-                            "_type": "module",
-                            "_x": "30.7147801569699",
-                            "_y": "37.6329856765397",
-                            "_width": "667.90989881478",
-                            "_height": "430.664886663886",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "2",
+                            "name": "iListenAndNumber",
+                            "type": "module",
+                            "x": "30.7147801569699",
+                            "y": "37.6329856765397",
+                            "width": "667.90989881478",
+                            "height": "430.664886663886",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
@@ -834,96 +834,96 @@
                                            {
                                               "AnswerInfoDetail": [
                                                  {
-                                                    "_Id": "1a",
-                                                    "_ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-1-jpbbzmuhvdjuregh.jpg",
-                                                    "_AnswerCheck": "False"
+                                                    "Id": "1a",
+                                                    "ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-1-jpbbzmuhvdjuregh.jpg",
+                                                    "AnswerCheck": "False"
                                                  },
                                                  {
-                                                    "_Id": "1b",
-                                                    "_ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-2-ogetbagvdauhqbof.jpg",
-                                                    "_AnswerCheck": "True"
+                                                    "Id": "1b",
+                                                    "ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-2-ogetbagvdauhqbof.jpg",
+                                                    "AnswerCheck": "True"
                                                  },
                                                  {
-                                                    "_Id": "1c",
-                                                    "_ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-3-dsehctphoeyimupu.jpg",
-                                                    "_AnswerCheck": "False"
+                                                    "Id": "1c",
+                                                    "ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-3-dsehctphoeyimupu.jpg",
+                                                    "AnswerCheck": "False"
                                                  }
                                               ],
-                                              "_Id": "1"
+                                              "Id": "1"
                                            },
                                            {
                                               "AnswerInfoDetail": [
                                                  {
-                                                    "_Id": "2a",
-                                                    "_ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-4-tmtdpdcqtladquil.jpg",
-                                                    "_AnswerCheck": "True"
+                                                    "Id": "2a",
+                                                    "ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-4-tmtdpdcqtladquil.jpg",
+                                                    "AnswerCheck": "True"
                                                  },
                                                  {
-                                                    "_Id": "2b",
-                                                    "_ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-5-nxiepghqqhlsvjss.jpg",
-                                                    "_AnswerCheck": "False"
+                                                    "Id": "2b",
+                                                    "ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-5-nxiepghqqhlsvjss.jpg",
+                                                    "AnswerCheck": "False"
                                                  },
                                                  {
-                                                    "_Id": "2c",
-                                                    "_ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-6-gvnmohiwoyyynhae.jpg",
-                                                    "_AnswerCheck": "False"
+                                                    "Id": "2c",
+                                                    "ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-6-gvnmohiwoyyynhae.jpg",
+                                                    "AnswerCheck": "False"
                                                  }
                                               ],
-                                              "_Id": "2"
+                                              "Id": "2"
                                            },
                                            {
                                               "AnswerInfoDetail": [
                                                  {
-                                                    "_Id": "3a",
-                                                    "_ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-7-aabkivzimhxzbsdn.jpg",
-                                                    "_AnswerCheck": "True"
+                                                    "Id": "3a",
+                                                    "ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-7-aabkivzimhxzbsdn.jpg",
+                                                    "AnswerCheck": "True"
                                                  },
                                                  {
-                                                    "_Id": "3b",
-                                                    "_ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-8-rydvrzlzucehmfkv.jpg",
-                                                    "_AnswerCheck": "False"
+                                                    "Id": "3b",
+                                                    "ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-8-rydvrzlzucehmfkv.jpg",
+                                                    "AnswerCheck": "False"
                                                  },
                                                  {
-                                                    "_Id": "3c",
-                                                    "_ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-9-gksgfpdxwctorljt.jpg",
-                                                    "_AnswerCheck": "False"
+                                                    "Id": "3c",
+                                                    "ImageUrl": "https://s.sachmem.vn/public//images/TA4T1SHS/U1-L1-3-9-gksgfpdxwctorljt.jpg",
+                                                    "AnswerCheck": "False"
                                                  }
                                               ],
-                                              "_Id": "3"
+                                              "Id": "3"
                                            }
                                         ]
                                      },
-                                     "_Value": "Listen and number",
-                                     "_SelectIndex": "0",
-                                     "_MediaType": "audio",
-                                     "_MediaUrl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
+                                     "Value": "Listen and number",
+                                     "SelectIndex": "0",
+                                     "MediaType": "audio",
+                                     "MediaUrl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
                                   },
-                                  "_Size": "0",
-                                  "_Bold": "false",
-                                  "_Underline": "false",
-                                  "_Align": "false",
-                                  "_Leading": "0"
+                                  "Size": "0",
+                                  "Bold": "false",
+                                  "Underline": "false",
+                                  "Align": "false",
+                                  "Leading": "0"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "4"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "4"
                             },
-                            "_id": "3",
-                            "_name": "iListenAndTick",
-                            "_type": "module",
-                            "_x": "32.2734711553207",
-                            "_y": "48.6340934332381",
-                            "_width": "627.640601283054",
-                            "_height": "536.991438481656",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "3",
+                            "name": "iListenAndTick",
+                            "type": "module",
+                            "x": "32.2734711553207",
+                            "y": "48.6340934332381",
+                            "width": "627.640601283054",
+                            "height": "536.991438481656",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
@@ -932,97 +932,97 @@
                                      "answer": [
                                         {
                                            "left": {
-                                              "_id": "left-0",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-1-0c1aea8c4000df3b6f70b79b5351a8c7.jpg",
-                                              "_index": "0"
+                                              "id": "left-0",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-1-0c1aea8c4000df3b6f70b79b5351a8c7.jpg",
+                                              "index": "0"
                                            },
                                            "right": {
-                                              "_id": "right-0",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-7-450d374a99dd72bbaef09f390ac3f732.jpg",
-                                              "_index": "0"
+                                              "id": "right-0",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-7-450d374a99dd72bbaef09f390ac3f732.jpg",
+                                              "index": "0"
                                            },
-                                           "_id": "answer-0"
+                                           "id": "answer-0"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-1",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-2-5a3954a9288fc1061a804cc57f3e5301.jpg",
-                                              "_index": "1"
+                                              "id": "left-1",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-2-5a3954a9288fc1061a804cc57f3e5301.jpg",
+                                              "index": "1"
                                            },
                                            "right": {
-                                              "_id": "right-1",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-8-291e7662bea0e2d864fad18ed7993077.jpg",
-                                              "_index": "1"
+                                              "id": "right-1",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-8-291e7662bea0e2d864fad18ed7993077.jpg",
+                                              "index": "1"
                                            },
-                                           "_id": "answer-1"
+                                           "id": "answer-1"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-2",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-3-8c84fcdd6557917155cdd1aa01250d4b.jpg",
-                                              "_index": "2"
+                                              "id": "left-2",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-3-8c84fcdd6557917155cdd1aa01250d4b.jpg",
+                                              "index": "2"
                                            },
                                            "right": {
-                                              "_id": "right-2",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-6-b962b335027645d2b9cad0bb9fcbbea4.jpg",
-                                              "_index": "2"
+                                              "id": "right-2",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-6-b962b335027645d2b9cad0bb9fcbbea4.jpg",
+                                              "index": "2"
                                            },
-                                           "_id": "answer-2"
+                                           "id": "answer-2"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-3",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-4-2683f3d469fd7a2ce47ff82815a49d9e.jpg",
-                                              "_index": "3"
+                                              "id": "left-3",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-4-2683f3d469fd7a2ce47ff82815a49d9e.jpg",
+                                              "index": "3"
                                            },
                                            "right": {
-                                              "_id": "right-3",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-5-fadbe2b0501b72b3bcd13e911ed084bf.jpg",
-                                              "_index": "3"
+                                              "id": "right-3",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-5-fadbe2b0501b72b3bcd13e911ed084bf.jpg",
+                                              "index": "3"
                                            },
-                                           "_id": "answer-3"
+                                           "id": "answer-3"
                                         }
                                      ],
-                                     "_value": "Match the pictures with the customs and traditions.",
-                                     "_mediatype": "audio",
-                                     "_mediaurl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
+                                     "value": "Match the pictures with the customs and traditions.",
+                                     "mediatype": "audio",
+                                     "mediaurl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
                                   },
-                                  "_font": "Arial",
-                                  "_size": "14",
-                                  "_color": "0x333333",
-                                  "_bold": "true",
-                                  "_underline": "false",
-                                  "_align": "false",
-                                  "_leading": "6"
+                                  "font": "Arial",
+                                  "size": "14",
+                                  "color": "0x333333",
+                                  "bold": "true",
+                                  "underline": "false",
+                                  "align": "false",
+                                  "leading": "6"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "5"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "5"
                             },
-                            "_id": "4",
-                            "_name": "iQuizJoinImageImage",
-                            "_type": "module",
-                            "_x": "39.6469200188207",
-                            "_y": "39.0170721566423",
-                            "_width": "541.002577136929",
-                            "_height": "570.651012949741",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "4",
+                            "name": "iQuizJoinImageImage",
+                            "type": "module",
+                            "x": "39.6469200188207",
+                            "y": "39.0170721566423",
+                            "width": "541.002577136929",
+                            "height": "570.651012949741",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
@@ -1031,157 +1031,157 @@
                                      "answer": [
                                         {
                                            "left": {
-                                              "_id": "left-0",
-                                              "_type": "text",
-                                              "_value": "smiling to accept a compliment",
-                                              "_index": "0"
+                                              "id": "left-0",
+                                              "type": "text",
+                                              "value": "smiling to accept a compliment",
+                                              "index": "0"
                                            },
                                            "right": {
-                                              "_id": "right-0",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-8.jpg",
-                                              "_index": "0"
+                                              "id": "right-0",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-8.jpg",
+                                              "index": "0"
                                            },
-                                           "_id": "answer-0"
+                                           "id": "answer-0"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-1",
-                                              "_type": "text",
-                                              "_value": "worshipping ancestors",
-                                              "_index": "1"
+                                              "id": "left-1",
+                                              "type": "text",
+                                              "value": "worshipping ancestors",
+                                              "index": "1"
                                            },
                                            "right": {
-                                              "_id": "right-1",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-5.jpg",
-                                              "_index": "1"
+                                              "id": "right-1",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-5.jpg",
+                                              "index": "1"
                                            },
-                                           "_id": "answer-1"
+                                           "id": "answer-1"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-2",
-                                              "_type": "text",
-                                              "_value": "wrapping gifts in colourful paper",
-                                              "_index": "2"
+                                              "id": "left-2",
+                                              "type": "text",
+                                              "value": "wrapping gifts in colourful paper",
+                                              "index": "2"
                                            },
                                            "right": {
-                                              "_id": "right-2",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-6.jpg",
-                                              "_index": "2"
+                                              "id": "right-2",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-6.jpg",
+                                              "index": "2"
                                            },
-                                           "_id": "answer-2"
+                                           "id": "answer-2"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-3",
-                                              "_type": "text",
-                                              "_value": "having lunch together on the second day of Tet",
-                                              "_index": "3"
+                                              "id": "left-3",
+                                              "type": "text",
+                                              "value": "having lunch together on the second day of Tet",
+                                              "index": "3"
                                            },
                                            "right": {
-                                              "_id": "right-3",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-1.jpg",
-                                              "_index": "3"
+                                              "id": "right-3",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-1.jpg",
+                                              "index": "3"
                                            },
-                                           "_id": "answer-3"
+                                           "id": "answer-3"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-4",
-                                              "_type": "text",
-                                              "_value": "placing the chopsticks on top of the rice bowl when finishing a meal",
-                                              "_index": "4"
+                                              "id": "left-4",
+                                              "type": "text",
+                                              "value": "placing the chopsticks on top of the rice bowl when finishing a meal",
+                                              "index": "4"
                                            },
                                            "right": {
-                                              "_id": "right-4",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-3.jpg",
-                                              "_index": "4"
+                                              "id": "right-4",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-3.jpg",
+                                              "index": "4"
                                            },
-                                           "_id": "answer-4"
+                                           "id": "answer-4"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-5",
-                                              "_type": "text",
-                                              "_value": "children in the family standing in a row to greet guests",
-                                              "_index": "5"
+                                              "id": "left-5",
+                                              "type": "text",
+                                              "value": "children in the family standing in a row to greet guests",
+                                              "index": "5"
                                            },
                                            "right": {
-                                              "_id": "right-5",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-4.jpg",
-                                              "_index": "5"
+                                              "id": "right-5",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-4.jpg",
+                                              "index": "5"
                                            },
-                                           "_id": "answer-5"
+                                           "id": "answer-5"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-6",
-                                              "_type": "text",
-                                              "_value": "wearing ao dai on special ocassions",
-                                              "_index": "6"
+                                              "id": "left-6",
+                                              "type": "text",
+                                              "value": "wearing ao dai on special ocassions",
+                                              "index": "6"
                                            },
                                            "right": {
-                                              "_id": "right-6",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-2.jpg",
-                                              "_index": "6"
+                                              "id": "right-6",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-2.jpg",
+                                              "index": "6"
                                            },
-                                           "_id": "answer-6"
+                                           "id": "answer-6"
                                         },
                                         {
                                            "left": {
-                                              "_id": "left-7",
-                                              "_type": "text",
-                                              "_value": "giving children lucky money at Tet",
-                                              "_index": "7"
+                                              "id": "left-7",
+                                              "type": "text",
+                                              "value": "giving children lucky money at Tet",
+                                              "index": "7"
                                            },
                                            "right": {
-                                              "_id": "right-7",
-                                              "_type": "image",
-                                              "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-7.jpg",
-                                              "_index": "7"
+                                              "id": "right-7",
+                                              "type": "image",
+                                              "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-7.jpg",
+                                              "index": "7"
                                            },
-                                           "_id": "answer-7"
+                                           "id": "answer-7"
                                         }
                                      ],
-                                     "_value": "Match the pictures with the customs and traditions.",
-                                     "_mediatype": "audio",
-                                     "_mediaurl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
+                                     "value": "Match the pictures with the customs and traditions.",
+                                     "mediatype": "audio",
+                                     "mediaurl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
                                   },
-                                  "_font": "Arial",
-                                  "_size": "14",
-                                  "_color": "0x333333",
-                                  "_bold": "true",
-                                  "_underline": "false",
-                                  "_align": "false",
-                                  "_leading": "6"
+                                  "font": "Arial",
+                                  "size": "14",
+                                  "color": "0x333333",
+                                  "bold": "true",
+                                  "underline": "false",
+                                  "align": "false",
+                                  "leading": "6"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "6"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "6"
                             },
-                            "_id": "5",
-                            "_name": "iQuizJoinTextImage",
-                            "_type": "module",
-                            "_x": "32.2734711553207",
-                            "_y": "42.263829787234",
-                            "_width": "564.044604835366",
-                            "_height": "557.787234042553",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "5",
+                            "name": "iQuizJoinTextImage",
+                            "type": "module",
+                            "x": "32.2734711553207",
+                            "y": "42.263829787234",
+                            "width": "564.044604835366",
+                            "height": "557.787234042553",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
@@ -1190,132 +1190,132 @@
                                      "Answers": {
                                         "AnswerKeoThaImageContentInfo": [
                                            {
-                                              "_Id": "1",
-                                              "_Type": "image",
-                                              "_Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-1-wqidzcoasbulknvt.jpg",
-                                              "_Answer": "playing computer games"
+                                              "Id": "1",
+                                              "Type": "image",
+                                              "Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-1-wqidzcoasbulknvt.jpg",
+                                              "Answer": "playing computer games"
                                            },
                                            {
-                                              "_Id": "2",
-                                              "_Type": "image",
-                                              "_Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-2-peusmnrijczgxwyf.jpg",
-                                              "_Answer": "playing beach games"
+                                              "Id": "2",
+                                              "Type": "image",
+                                              "Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-2-peusmnrijczgxwyf.jpg",
+                                              "Answer": "playing beach games"
                                            },
                                            {
-                                              "_Id": "3",
-                                              "_Type": "image",
-                                              "_Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-3-xajelpicbvkfmstd.jpg",
-                                              "_Answer": "doing DIY"
+                                              "Id": "3",
+                                              "Type": "image",
+                                              "Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-3-xajelpicbvkfmstd.jpg",
+                                              "Answer": "doing DIY"
                                            },
                                            {
-                                              "_Id": "4",
-                                              "_Type": "image",
-                                              "_Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-4-hycxurvzbeaqskgf.jpg",
-                                              "_Answer": "texting"
+                                              "Id": "4",
+                                              "Type": "image",
+                                              "Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-4-hycxurvzbeaqskgf.jpg",
+                                              "Answer": "texting"
                                            },
                                            {
-                                              "_Id": "5",
-                                              "_Type": "image",
-                                              "_Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-5-jbktaqfnievrhwol.jpg",
-                                              "_Answer": "visiting museums"
+                                              "Id": "5",
+                                              "Type": "image",
+                                              "Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-5-jbktaqfnievrhwol.jpg",
+                                              "Answer": "visiting museums"
                                            },
                                            {
-                                              "_Id": "6",
-                                              "_Type": "image",
-                                              "_Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-6-wibeaxcvtpnqhgum.jpg",
-                                              "_Answer": "making crafts"
+                                              "Id": "6",
+                                              "Type": "image",
+                                              "Value": "https://s.sachmem.vn/public//images/TA8T1SHS/U1-L1-2-6-wibeaxcvtpnqhgum.jpg",
+                                              "Answer": "making crafts"
                                            }
                                         ]
                                      },
                                      "ExtendDragKeoThaImageInfo": [
                                         {
-                                           "_Data": "playing football"
+                                           "Data": "playing football"
                                         },
                                         {
-                                           "_Data": "sing"
+                                           "Data": "sing"
                                         }
                                      ],
-                                     "_Value": "Find words/ phrases in the box to describle the photos. Then listen to check your answer",
-                                     "_SelectIndex": "0",
-                                     "_MediaType": "audio",
-                                     "_MediaUrl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
+                                     "Value": "Find words/ phrases in the box to describle the photos. Then listen to check your answer",
+                                     "SelectIndex": "0",
+                                     "MediaType": "audio",
+                                     "MediaUrl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
                                   },
-                                  "_Size": "0",
-                                  "_Bold": "false",
-                                  "_Underline": "false",
-                                  "_Align": "false",
-                                  "_Leading": "0"
+                                  "Size": "0",
+                                  "Bold": "false",
+                                  "Underline": "false",
+                                  "Align": "false",
+                                  "Leading": "0"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "7"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "7"
                             },
-                            "_id": "6",
-                            "_name": "iKeoThaImageContent",
-                            "_type": "module",
-                            "_x": "25.9326113116727",
-                            "_y": "72.8104575163399",
-                            "_width": "760.709987966309",
-                            "_height": "497.908496732027",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "6",
+                            "name": "iKeoThaImageContent",
+                            "type": "module",
+                            "x": "25.9326113116727",
+                            "y": "72.8104575163399",
+                            "width": "760.709987966309",
+                            "height": "497.908496732027",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
                                "ChooseAndCompleteInfo": {
                                   "QuestionChooseAndCompleteInfo": {
                                      "AnswerChooseAndCompleteInfo": {
-                                        "_Answer": "The two men were standing near the tents"
+                                        "Answer": "The two men were standing near the tents"
                                      },
                                      "ExtendDragChooseAndCompleteInfo": [
                                         {
-                                           "_Data": "to"
+                                           "Data": "to"
                                         },
                                         {
-                                           "_Data": "too"
+                                           "Data": "too"
                                         },
                                         {
-                                           "_Data": "here"
+                                           "Data": "here"
                                         }
                                      ],
-                                     "_Value": "Find words/ phrases in the box to describle the photos. Then listen to check your answer",
-                                     "_SelectIndex": "0",
-                                     "_MediaType": "audio",
-                                     "_MediaUrl": "http://thuvien.bkt1.vn/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/02_02_Track_2.mp3"
+                                     "Value": "Find words/ phrases in the box to describle the photos. Then listen to check your answer",
+                                     "SelectIndex": "0",
+                                     "MediaType": "audio",
+                                     "MediaUrl": "http://thuvien.bkt1.vn/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/02_02_Track_2.mp3"
                                   },
-                                  "_Size": "0",
-                                  "_Bold": "false",
-                                  "_Underline": "false",
-                                  "_Align": "false",
-                                  "_Leading": "0"
+                                  "Size": "0",
+                                  "Bold": "false",
+                                  "Underline": "false",
+                                  "Align": "false",
+                                  "Leading": "0"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "8"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "8"
                             },
-                            "_id": "7",
-                            "_name": "iChooseAndComplete",
-                            "_type": "module",
-                            "_x": "25.1846935093449",
-                            "_y": "40.5180920595184",
-                            "_width": "528.736051516217",
-                            "_height": "497.984035600056",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "7",
+                            "name": "iChooseAndComplete",
+                            "type": "module",
+                            "x": "25.1846935093449",
+                            "y": "40.5180920595184",
+                            "width": "528.736051516217",
+                            "height": "497.984035600056",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
@@ -1323,181 +1323,181 @@
                                   "question": {
                                      "answer": [
                                         {
-                                           "_id": "answer-0",
-                                           "_type": "text",
-                                           "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-1-0c1aea8c4000df3b6f70b79b5351a8c7.jpg",
-                                           "_checked": "false"
+                                           "id": "answer-0",
+                                           "type": "text",
+                                           "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-1-0c1aea8c4000df3b6f70b79b5351a8c7.jpg",
+                                           "checked": "false"
                                         },
                                         {
-                                           "_id": "answer-1",
-                                           "_type": "text",
-                                           "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-7-450d374a99dd72bbaef09f390ac3f732.jpg",
-                                           "_checked": "true"
+                                           "id": "answer-1",
+                                           "type": "text",
+                                           "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-7-450d374a99dd72bbaef09f390ac3f732.jpg",
+                                           "checked": "true"
                                         },
                                         {
-                                           "_id": "test",
-                                           "_type": "text",
-                                           "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-2-5a3954a9288fc1061a804cc57f3e5301.jpg",
-                                           "_checked": "false"
+                                           "id": "test",
+                                           "type": "text",
+                                           "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-2-5a3954a9288fc1061a804cc57f3e5301.jpg",
+                                           "checked": "false"
                                         },
                                         {
-                                           "_id": "test",
-                                           "_type": "text",
-                                           "_value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-8-291e7662bea0e2d864fad18ed7993077.jpg",
-                                           "_checked": "false"
+                                           "id": "test",
+                                           "type": "text",
+                                           "value": "https://s.sachmem.vn/public//images/TA5T1SHS/U3-L1-4-8-291e7662bea0e2d864fad18ed7993077.jpg",
+                                           "checked": "false"
                                         }
                                      ],
-                                     "_value": "Which image is true?",
-                                     "_selectedindex": "0",
-                                     "_mediatype": "audio",
-                                     "_mediaurl": "http://thuvien.bkt1.vn/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/02_02_Track_2.mp3"
+                                     "value": "Which image is true?",
+                                     "selectedindex": "0",
+                                     "mediatype": "audio",
+                                     "mediaurl": "http://thuvien.bkt1.vn/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/02_02_Track_2.mp3"
                                   },
-                                  "_font": "Arial",
-                                  "_size": "14",
-                                  "_color": "0x333333",
-                                  "_bold": "true",
-                                  "_underline": "false",
-                                  "_align": "false",
-                                  "_leading": "6"
+                                  "font": "Arial",
+                                  "size": "14",
+                                  "color": "0x333333",
+                                  "bold": "true",
+                                  "underline": "false",
+                                  "align": "false",
+                                  "leading": "6"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "9"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "9"
                             },
-                            "_id": "8",
-                            "_name": "iQuizSingleChoiceWithImage",
-                            "_type": "module",
-                            "_x": "29.0909246223053",
-                            "_y": "32.5328883326381",
-                            "_width": "411.463044126945",
-                            "_height": "549.296898901404",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "8",
+                            "name": "iQuizSingleChoiceWithImage",
+                            "type": "module",
+                            "x": "29.0909246223053",
+                            "y": "32.5328883326381",
+                            "width": "411.463044126945",
+                            "height": "549.296898901404",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          },
                          {
                             "ITEM_INFO": {
                                "crossgame": {
                                   "item": [
                                      {
-                                        "_id": "answer-0",
-                                        "_mediatype": "image",
-                                        "_mediaurl": "",
-                                        "_question": "Hậu quả mà quân Nam Hán phải nhận khi sang xâm lược nước ta năm 938",
-                                        "_answer": "ThấtBại",
-                                        "_selectedIndex": "4"
+                                        "id": "answer-0",
+                                        "mediatype": "image",
+                                        "mediaurl": "",
+                                        "question": "Hậu quả mà quân Nam Hán phải nhận khi sang xâm lược nước ta năm 938",
+                                        "answer": "ThấtBại",
+                                        "selectedIndex": "4"
                                      },
                                      {
-                                        "_id": "answer-0",
-                                        "_mediatype": "image",
-                                        "_mediaurl": "",
-                                        "_question": "Nơi Ngô Quyền chọn làm kinh đô",
-                                        "_answer": "CổLoa",
-                                        "_selectedIndex": "4"
+                                        "id": "answer-0",
+                                        "mediatype": "image",
+                                        "mediaurl": "",
+                                        "question": "Nơi Ngô Quyền chọn làm kinh đô",
+                                        "answer": "CổLoa",
+                                        "selectedIndex": "4"
                                      },
                                      {
-                                        "_id": "answer-0",
-                                        "_mediatype": "image",
-                                        "_mediaurl": "",
-                                        "_question": "Vũ khí làm thủng thuyền của giặc",
-                                        "_answer": "  CọcGỗ",
-                                        "_selectedIndex": "4"
+                                        "id": "answer-0",
+                                        "mediatype": "image",
+                                        "mediaurl": "",
+                                        "question": "Vũ khí làm thủng thuyền của giặc",
+                                        "answer": "  CọcGỗ",
+                                        "selectedIndex": "4"
                                      },
                                      {
-                                        "_id": "answer-0",
-                                        "_mediatype": "image",
-                                        "_mediaurl": "",
-                                        "_question": "Ngô Quyền đã dựa vào hiện tượng thiên nhiên này để đánh giặc",
-                                        "_answer": "   ThủyTriều",
-                                        "_selectedIndex": "4"
+                                        "id": "answer-0",
+                                        "mediatype": "image",
+                                        "mediaurl": "",
+                                        "question": "Ngô Quyền đã dựa vào hiện tượng thiên nhiên này để đánh giặc",
+                                        "answer": "   ThủyTriều",
+                                        "selectedIndex": "4"
                                      },
                                      {
-                                        "_id": "answer-0",
-                                        "_mediatype": "image",
-                                        "_mediaurl": "",
-                                        "_question": "Quê của Ngô Quyền",
-                                        "_answer": "    ĐườngLâm",
-                                        "_selectedIndex": "4"
+                                        "id": "answer-0",
+                                        "mediatype": "image",
+                                        "mediaurl": "",
+                                        "question": "Quê của Ngô Quyền",
+                                        "answer": "    ĐườngLâm",
+                                        "selectedIndex": "4"
                                      },
                                      {
-                                        "_id": "answer-0",
-                                        "_mediatype": "image",
-                                        "_mediaurl": "",
-                                        "_question": "Quân Nam Hán đến từ phương này",
-                                        "_answer": "   Bắc",
-                                        "_selectedIndex": "4"
+                                        "id": "answer-0",
+                                        "mediatype": "image",
+                                        "mediaurl": "",
+                                        "question": "Quân Nam Hán đến từ phương này",
+                                        "answer": "   Bắc",
+                                        "selectedIndex": "4"
                                      },
                                      {
-                                        "_id": "answer-0",
-                                        "_mediatype": "image",
-                                        "_mediaurl": "",
-                                        "_question": "Người lãnh đạo trận Bạch Đằng",
-                                        "_answer": "    NgôQuyền",
-                                        "_selectedIndex": "4"
+                                        "id": "answer-0",
+                                        "mediatype": "image",
+                                        "mediaurl": "",
+                                        "question": "Người lãnh đạo trận Bạch Đằng",
+                                        "answer": "    NgôQuyền",
+                                        "selectedIndex": "4"
                                      },
                                      {
-                                        "_id": "answer-0",
-                                        "_mediatype": "image",
-                                        "_mediaurl": "",
-                                        "_question": "Tướng giặc tử trận ở Bạch Đằng",
-                                        "_answer": "HoàngTháo",
-                                        "_selectedIndex": "4"
+                                        "id": "answer-0",
+                                        "mediatype": "image",
+                                        "mediaurl": "",
+                                        "question": "Tướng giặc tử trận ở Bạch Đằng",
+                                        "answer": "HoàngTháo",
+                                        "selectedIndex": "4"
                                      }
                                   ],
-                                  "_font": "Arial",
-                                  "_size": "14",
-                                  "_color": "0x333333",
-                                  "_bold": "True",
-                                  "_underline": "False",
-                                  "_align": "False",
-                                  "_leading": "6",
-                                  "_question": "Trận đánh thắng quân Nam Hán"
+                                  "font": "Arial",
+                                  "size": "14",
+                                  "color": "0x333333",
+                                  "bold": "True",
+                                  "underline": "False",
+                                  "align": "False",
+                                  "leading": "6",
+                                  "question": "Trận đánh thắng quân Nam Hán"
                                }
                             },
                             "APPEAR": {
-                               "_id": "NoID",
-                               "_name": "None",
-                               "_direction": "None",
-                               "_start": "Auto",
-                               "_speed": "0",
-                               "_repeat": "false",
-                               "_index": "10"
+                               "id": "NoID",
+                               "name": "None",
+                               "direction": "None",
+                               "start": "Auto",
+                               "speed": "0",
+                               "repeat": "false",
+                               "index": "10"
                             },
-                            "_id": "9",
-                            "_name": "iCross",
-                            "_type": "module",
-                            "_x": "23.5608379746802",
-                            "_y": "31.5711862049786",
-                            "_width": "677.828884320882",
-                            "_height": "501.211792518426",
-                            "_scaleX": "1",
-                            "_scaleY": "1",
-                            "_rotation": "0"
+                            "id": "9",
+                            "name": "iCross",
+                            "type": "module",
+                            "x": "23.5608379746802",
+                            "y": "31.5711862049786",
+                            "width": "677.828884320882",
+                            "height": "501.211792518426",
+                            "scaleX": "1",
+                            "scaleY": "1",
+                            "rotation": "0"
                          }
                       ]
                    },
-                   "_id": "0",
-                   "_title": "Page1",
-                   "_backgroundImage": "pack://application:,,,/Presentation;component/Icon/bg/board.jpg",
-                   "_backgroundColor": "0",
-                   "_backgroundAlpha": "0"
+                   "id": "0",
+                   "title": "Page1",
+                   "backgroundImage": "pack://application:,,,/Presentation;component/Icon/bg/board.jpg",
+                   "backgroundColor": "0",
+                   "backgroundAlpha": "0"
                 }
              ],
-             "_id": "1",
-             "_title": "Section2"
+             "id": "1",
+             "title": "Section2"
           }
        ],
-       "_title": "all",
-       "_type": "0",
-       "_authorId": "0",
-       "_editorId": "0",
-       "_createdDate": "23:26:00 22-05-2021",
-       "_editedDate": "23:32:06 22-05-2021"
+       "title": "all",
+       "type": "0",
+       "authorId": "0",
+       "editorId": "0",
+       "createdDate": "23:26:00 22-05-2021",
+       "editedDate": "23:32:06 22-05-2021"
     }
  }

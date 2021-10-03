@@ -17,21 +17,23 @@ class Page {
   String backgroundColor;
   String backgroundAlpha;
 
-  factory Page.fromJson(Map<String, dynamic> json) => Page(
-        items: Items.fromJson(json["ITEMS"]),
-        id: json["_id"] is int ? json["_id"] : int.parse((json["_id"])),
-        title: json["_title"],
-        backgroundImage: json["_backgroundImage"],
-        backgroundColor: json["_backgroundColor"],
-        backgroundAlpha: json["_backgroundAlpha"],
-      );
+  factory Page.fromJson(Map<String, dynamic> json) {
+    return Page(
+      items: Items.fromJson(json["ITEMS"]),
+      id: json["id"] is int ? json["id"] : int.parse((json["id"])),
+      title: json["title"],
+      backgroundImage: json["backgroundImage"],
+      backgroundColor: json["backgroundColor"],
+      backgroundAlpha: json["backgroundAlpha"],
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "ITEMS": items.toJson(),
-        "_id": id,
-        "_title": title,
-        "_backgroundImage": backgroundImage,
-        "_backgroundColor": backgroundColor,
-        "_backgroundAlpha": backgroundAlpha,
+        "id": id,
+        "title": title,
+        "backgroundImage": backgroundImage,
+        "backgroundColor": backgroundColor,
+        "backgroundAlpha": backgroundAlpha,
       };
 }

@@ -6,160 +6,160 @@
                "answer": [
                   {
                      "left": {
-                        "_id": "left-0",
-                        "_type": "text",
-                        "_value": "smiling to accept a compliment",
-                        "_index": "0"
+                        "id": "left-0",
+                        "type": "text",
+                        "value": "smiling to accept a compliment",
+                        "index": "0"
                      },
                      "right": {
-                        "_id": "right-0",
-                        "_type": "image",
-                        "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-8.jpg",
-                        "_index": "0"
+                        "id": "right-0",
+                        "type": "image",
+                        "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-8.jpg",
+                        "index": "0"
                      },
-                     "_id": "answer-0"
+                     "id": "answer-0"
                   },
                   {
                      "left": {
-                        "_id": "left-1",
-                        "_type": "text",
-                        "_value": "worshipping ancestors",
-                        "_index": "1"
+                        "id": "left-1",
+                        "type": "text",
+                        "value": "worshipping ancestors",
+                        "index": "1"
                      },
                      "right": {
-                        "_id": "right-1",
-                        "_type": "image",
-                        "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-5.jpg",
-                        "_index": "1"
+                        "id": "right-1",
+                        "type": "image",
+                        "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-5.jpg",
+                        "index": "1"
                      },
-                     "_id": "answer-1"
+                     "id": "answer-1"
                   },
                   {
                      "left": {
-                        "_id": "left-2",
-                        "_type": "text",
-                        "_value": "wrapping gifts in colourful paper",
-                        "_index": "2"
+                        "id": "left-2",
+                        "type": "text",
+                        "value": "wrapping gifts in colourful paper",
+                        "index": "2"
                      },
                      "right": {
-                        "_id": "right-2",
-                        "_type": "image",
-                        "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-6.jpg",
-                        "_index": "2"
+                        "id": "right-2",
+                        "type": "image",
+                        "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-6.jpg",
+                        "index": "2"
                      },
-                     "_id": "answer-2"
+                     "id": "answer-2"
                   },
                   {
                      "left": {
-                        "_id": "left-3",
-                        "_type": "text",
-                        "_value": "having lunch together on the second day of Tet",
-                        "_index": "3"
+                        "id": "left-3",
+                        "type": "text",
+                        "value": "having lunch together on the second day of Tet",
+                        "index": "3"
                      },
                      "right": {
-                        "_id": "right-3",
-                        "_type": "image",
-                        "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-1.jpg",
-                        "_index": "3"
+                        "id": "right-3",
+                        "type": "image",
+                        "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-1.jpg",
+                        "index": "3"
                      },
-                     "_id": "answer-3"
+                     "id": "answer-3"
                   },
                   {
                      "left": {
-                        "_id": "left-4",
-                        "_type": "text",
-                        "_value": "placing the chopsticks on top of the rice bowl when finishing a meal",
-                        "_index": "4"
+                        "id": "left-4",
+                        "type": "text",
+                        "value": "placing the chopsticks on top of the rice bowl when finishing a meal",
+                        "index": "4"
                      },
                      "right": {
-                        "_id": "right-4",
-                        "_type": "image",
-                        "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-3.jpg",
-                        "_index": "4"
+                        "id": "right-4",
+                        "type": "image",
+                        "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-3.jpg",
+                        "index": "4"
                      },
-                     "_id": "answer-4"
+                     "id": "answer-4"
                   },
                   {
                      "left": {
-                        "_id": "left-5",
-                        "_type": "text",
-                        "_value": "children in the family standing in a row to greet guests",
-                        "_index": "5"
+                        "id": "left-5",
+                        "type": "text",
+                        "value": "children in the family standing in a row to greet guests",
+                        "index": "5"
                      },
                      "right": {
-                        "_id": "right-5",
-                        "_type": "image",
-                        "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-4.jpg",
-                        "_index": "5"
+                        "id": "right-5",
+                        "type": "image",
+                        "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-4.jpg",
+                        "index": "5"
                      },
-                     "_id": "answer-5"
+                     "id": "answer-5"
                   },
                   {
                      "left": {
-                        "_id": "left-6",
-                        "_type": "text",
-                        "_value": "wearing ao dai on special ocassions",
-                        "_index": "6"
+                        "id": "left-6",
+                        "type": "text",
+                        "value": "wearing ao dai on special ocassions",
+                        "index": "6"
                      },
                      "right": {
-                        "_id": "right-6",
-                        "_type": "image",
-                        "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-2.jpg",
-                        "_index": "6"
+                        "id": "right-6",
+                        "type": "image",
+                        "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-2.jpg",
+                        "index": "6"
                      },
-                     "_id": "answer-6"
+                     "id": "answer-6"
                   },
                   {
                      "left": {
-                        "_id": "left-7",
-                        "_type": "text",
-                        "_value": "giving children lucky money at Tet",
-                        "_index": "7"
+                        "id": "left-7",
+                        "type": "text",
+                        "value": "giving children lucky money at Tet",
+                        "index": "7"
                      },
                      "right": {
-                        "_id": "right-7",
-                        "_type": "image",
-                        "_value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-7.jpg",
-                        "_index": "7"
+                        "id": "right-7",
+                        "type": "image",
+                        "value": "https://s.sachmem.vn/public//images/TA8T1SHS/U4-L1-2a-7.jpg",
+                        "index": "7"
                      },
-                     "_id": "answer-7"
+                     "id": "answer-7"
                   }
                ],
-               "_value": "Match the pictures with the customs and traditions.",
-               "_mediatype": "audio",
-               "_mediaurl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
+               "value": "Match the pictures with the customs and traditions.",
+               "mediatype": "audio",
+               "mediaurl": "http://thuvien.cpit.com.vn/Portals/0/Library/Audios/Tieu-hoc/Lop-4/Tieng-Anh-4/03_03_Track_3.mp3"
             },
-            "_font": "Arial",
-            "_size": "14",
-            "_color": "0x333333",
-            "_bold": "true",
-            "_underline": "false",
-            "_align": "left",
-            "_leading": "6"
+            "font": "Arial",
+            "size": "14",
+            "color": "0x333333",
+            "bold": "true",
+            "underline": "false",
+            "align": "left",
+            "leading": "6"
          }
       },
       "APPEAR": {
-         "_id": "NoID",
-         "_name": "None",
-         "_direction": "None",
-         "_start": "Auto",
-         "_speed": "0",
-         "_repeat": "false",
-         "_index": "0"
+         "id": "NoID",
+         "name": "None",
+         "direction": "None",
+         "start": "Auto",
+         "speed": "0",
+         "repeat": "false",
+         "index": "0"
       },
       "LINK": {
-         "_type": "none",
-         "_href": ""
+         "type": "none",
+         "href": ""
       },
-      "_id": "B9E4D40E-8C0C-FF80-EAD7-38D7EAEE3C3D",
-      "_name": "iQuizJoinTextImage",
-      "_type": "module",
-      "_x": "32.2734711553207",
-      "_y": "42.263829787234",
-      "_width": "564.044604835366",
-      "_height": "557.787234042553",
-      "_scaleX": "1",
-      "_scaleY": "1",
-      "_rotation": "0"
+      "id": "B9E4D40E-8C0C-FF80-EAD7-38D7EAEE3C3D",
+      "name": "iQuizJoinTextImage",
+      "type": "module",
+      "x": "32.2734711553207",
+      "y": "42.263829787234",
+      "width": "564.044604835366",
+      "height": "557.787234042553",
+      "scaleX": "1",
+      "scaleY": "1",
+      "rotation": "0"
    }
 }

@@ -6,160 +6,160 @@
                "answer": [
                   {
                      "left": {
-                        "_id": "left-0",
-                        "_type": "text",
-                        "_value": "What colour is it?",
-                        "_index": "0"
+                        "id": "left-0",
+                        "type": "text",
+                        "value": "What colour is it?",
+                        "index": "0"
                      },
                      "right": {
-                        "_id": "right-0",
-                        "_type": "text",
-                        "_value": "It’s white",
-                        "_index": "0"
+                        "id": "right-0",
+                        "type": "text",
+                        "value": "It’s white",
+                        "index": "0"
                      },
-                     "_id": "answer-0"
+                     "id": "answer-0"
                   },
                   {
                      "left": {
-                        "_id": "left-1",
-                        "_type": "text",
-                        "_value": "What time do you have lunch?",
-                        "_index": "1"
+                        "id": "left-1",
+                        "type": "text",
+                        "value": "What time do you have lunch?",
+                        "index": "1"
                      },
                      "right": {
-                        "_id": "right-1",
-                        "_type": "text",
-                        "_value": "At 11 0’clock",
-                        "_index": "1"
+                        "id": "right-1",
+                        "type": "text",
+                        "value": "At 11 0’clock",
+                        "index": "1"
                      },
-                     "_id": "answer-1"
+                     "id": "answer-1"
                   },
                   {
                      "left": {
-                        "_id": "left-2",
-                        "_type": "text",
-                        "_value": "What’s your favourite drink?",
-                        "_index": "2"
+                        "id": "left-2",
+                        "type": "text",
+                        "value": "What’s your favourite drink?",
+                        "index": "2"
                      },
                      "right": {
-                        "_id": "right-2",
-                        "_type": "text",
-                        "_value": "I like milk",
-                        "_index": "2"
+                        "id": "right-2",
+                        "type": "text",
+                        "value": "I like milk",
+                        "index": "2"
                      },
-                     "_id": "answer-2"
+                     "id": "answer-2"
                   },
                   {
                      "left": {
-                        "_id": "left-3",
-                        "_type": "text",
-                        "_value": "What is her job?",
-                        "_index": "3"
+                        "id": "left-3",
+                        "type": "text",
+                        "value": "What is her job?",
+                        "index": "3"
                      },
                      "right": {
-                        "_id": "right-3",
-                        "_type": "text",
-                        "_value": "She is a worker",
-                        "_index": "3"
+                        "id": "right-3",
+                        "type": "text",
+                        "value": "She is a worker",
+                        "index": "3"
                      },
-                     "_id": "answer-3"
+                     "id": "answer-3"
                   },
                   {
                      "left": {
-                        "_id": "left-4",
-                        "_type": "text",
-                        "_value": "Would you like some noodles?",
-                        "_index": "4"
+                        "id": "left-4",
+                        "type": "text",
+                        "value": "Would you like some noodles?",
+                        "index": "4"
                      },
                      "right": {
-                        "_id": "right-4",
-                        "_type": "text",
-                        "_value": "Yes, please",
-                        "_index": "4"
+                        "id": "right-4",
+                        "type": "text",
+                        "value": "Yes, please",
+                        "index": "4"
                      },
-                     "_id": "answer-4"
+                     "id": "answer-4"
                   },
                   {
                      "left": {
-                        "_id": "left-5",
-                        "_type": "text",
-                        "_value": "How much are they?",
-                        "_index": "5"
+                        "id": "left-5",
+                        "type": "text",
+                        "value": "How much are they?",
+                        "index": "5"
                      },
                      "right": {
-                        "_id": "right-5",
-                        "_type": "text",
-                        "_value": "They are 20.000 dong",
-                        "_index": "5"
+                        "id": "right-5",
+                        "type": "text",
+                        "value": "They are 20.000 dong",
+                        "index": "5"
                      },
-                     "_id": "answer-5"
+                     "id": "answer-5"
                   },
                   {
                      "left": {
-                        "_id": "left-6",
-                        "_type": "text",
-                        "_value": "Where are you from?",
-                        "_index": "6"
+                        "id": "left-6",
+                        "type": "text",
+                        "value": "Where are you from?",
+                        "index": "6"
                      },
                      "right": {
-                        "_id": "right-6",
-                        "_type": "text",
-                        "_value": "I am from England ",
-                        "_index": "6"
+                        "id": "right-6",
+                        "type": "text",
+                        "value": "I am from England ",
+                        "index": "6"
                      },
-                     "_id": "answer-6"
+                     "id": "answer-6"
                   },
                   {
                      "left": {
-                        "_id": "left-7",
-                        "_type": "text",
-                        "_value": "When is your birthday?",
-                        "_index": "7"
+                        "id": "left-7",
+                        "type": "text",
+                        "value": "When is your birthday?",
+                        "index": "7"
                      },
                      "right": {
-                        "_id": "right-7",
-                        "_type": "text",
-                        "_value": "It is in January",
-                        "_index": "7"
+                        "id": "right-7",
+                        "type": "text",
+                        "value": "It is in January",
+                        "index": "7"
                      },
-                     "_id": "answer-7"
+                     "id": "answer-7"
                   }
                ],
-               "_value": "Ghép hai vế với nhau sao cho đúng.",
-               "_mediatype": "image",
-               "_mediaurl": ""
+               "value": "Ghép hai vế với nhau sao cho đúng.",
+               "mediatype": "image",
+               "mediaurl": ""
             },
-            "_font": "Arial",
-            "_size": "14",
-            "_color": "0x333333",
-            "_bold": "true",
-            "_underline": "false",
-            "_align": "left",
-            "_leading": "6"
+            "font": "Arial",
+            "size": "14",
+            "color": "0x333333",
+            "bold": "true",
+            "underline": "false",
+            "align": "left",
+            "leading": "6"
          }
       },
       "APPEAR": {
-         "_id": "NoID",
-         "_name": "None",
-         "_direction": "None",
-         "_start": "Auto",
-         "_speed": "0",
-         "_repeat": "false",
-         "_index": "0"
+         "id": "NoID",
+         "name": "None",
+         "direction": "None",
+         "start": "Auto",
+         "speed": "0",
+         "repeat": "false",
+         "index": "0"
       },
       "LINK": {
-         "_type": "none",
-         "_href": ""
+         "type": "none",
+         "href": ""
       },
-      "_id": "B9E4D40E-8C0C-FF80-EAD7-38D7EAEE3C3D",
-      "_name": "iQuizJoin",
-      "_type": "module",
-      "_x": "35.0385144791332",
-      "_y": "48.6340934332381",
-      "_width": "687.544841766357",
-      "_height": "479.289310822081",
-      "_scaleX": "1",
-      "_scaleY": "1",
-      "_rotation": "0"
+      "id": "B9E4D40E-8C0C-FF80-EAD7-38D7EAEE3C3D",
+      "name": "iQuizJoin",
+      "type": "module",
+      "x": "35.0385144791332",
+      "y": "48.6340934332381",
+      "width": "687.544841766357",
+      "height": "479.289310822081",
+      "scaleX": "1",
+      "scaleY": "1",
+      "rotation": "0"
    }
 }

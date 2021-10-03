@@ -26,32 +26,32 @@ class Text {
   String bullet;
 
   factory Text.fromJson(Map<String, dynamic> json) => Text(
-        text: json["_text"],
-        font: json["_font"],
-        size: json["_size"] is double
-            ? json["_size"]
-            : double.parse((json["_size"])),
-        color: json["_color"],
-        bold: json["_bold"],
-        align: json["_align"],
-        leading: json["_leading"],
-        italic: json["_italic"],
-        underline: json["_underline"],
-        leftMargin: json["_leftMargin"],
-        bullet: json["_bullet"],
+        text: json["text"],
+        font: json["font"],
+        size: json["size"] is double
+            ? json["size"]
+            : double.parse((json["size"])),
+        color: json["color"],
+        bold: json["bold"],
+        align: json["align"],
+        leading: json["leading"],
+        italic: json["italic"],
+        underline: json["underline"],
+        leftMargin: json["leftMargin"],
+        bullet: json["bullet"],
       );
 
   Map<String, dynamic> toJson() => {
-        "_text": text,
-        "_font": font,
-        "_size": size,
-        "_color": color,
-        "_bold": bold,
-        "_align": align,
-        "_leading": leading,
-        "_italic": italic,
-        "_underline": underline,
-        "_leftMargin": leftMargin,
-        "_bullet": bullet,
+        "text": text,
+        "font": font,
+        "size": size,
+        "color": color,
+        "bold": bold,
+        "align": align,
+        "leading": leading,
+        "italic": italic,
+        "underline": underline,
+        "leftMargin": leftMargin,
+        "bullet": bullet,
       };
 }

@@ -1,12 +1,12 @@
 class Appear {
   Appear({
-    this.id,
-    this.name,
-    this.direction,
-    this.start,
-    this.speed,
-    this.repeat,
-    this.index,
+    this.id = "NoId",
+    this.name = "None",
+    this.direction = "None",
+    this.start = "Auto",
+    this.speed = "0",
+    this.repeat = "false",
+    this.index = "0",
   });
 
   String id;
@@ -16,24 +16,29 @@ class Appear {
   String speed;
   String repeat;
   String index;
-
-  factory Appear.fromJson(Map<String, dynamic> json) => Appear(
-        id: json["_id"],
-        name: json["_name"],
-        direction: json["_direction"],
-        start: json["_start"],
-        speed: json["_speed"],
-        repeat: json["_repeat"],
-        index: json["_index"],
-      );
+//----
+  factory Appear.fromJson(Map<String, dynamic> json) {
+    print("------appear: " + json.toString());
+    return json == null
+        ? Appear()
+        : Appear(
+            id: json["id"] ?? "NoId",
+            name: json["name"],
+            direction: json["direction"],
+            start: json["start"],
+            speed: json["speed"],
+            repeat: json["repeat"],
+            index: json["index"],
+          );
+  }
 
   Map<String, dynamic> toJson() => {
-        "_id": id,
-        "_name": name,
-        "_direction": direction,
-        "_start": start,
-        "_speed": speed,
-        "_repeat": repeat,
-        "_index": index,
+        "id": id,
+        "name": name,
+        "direction": direction,
+        "start": start,
+        "speed": speed,
+        "repeat": repeat,
+        "index": index,
       };
 }

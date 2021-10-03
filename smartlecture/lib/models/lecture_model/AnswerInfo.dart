@@ -13,22 +13,26 @@ class AnswerInfo {
   String answer;
   List<AnswerInfoDetail> answerInfoDetail;
 
-  factory AnswerInfo.fromJson(Map<String, dynamic> json) => AnswerInfo(
-        id: json["_id"] is int ? json["_id"] : int.parse((json["_id"])),
-        type: json["_Type"] == null ? null : json["_Type"],
-        value: json["_Value"] == null ? null : json["_Value"],
-        answer: json["_Answer"] == null ? null : json["_Answer"],
-        answerInfoDetail: json["AnswerInfoDetail"] == null
-            ? null
-            : List<AnswerInfoDetail>.from(json["AnswerInfoDetail"]
-                .map((x) => AnswerInfoDetail.fromJson(x))),
-      );
+  factory AnswerInfo.fromJson(Map<String, dynamic> json) {
+    print("");
+    print("------AnswerInfo: " + json.toString());
+    return AnswerInfo(
+      id: json["Id"] is int ? json["Id"] : int.parse((json["Id"])),
+      type: json["Type"] == null ? null : json["Type"],
+      value: json["Value"] == null ? null : json["Value"],
+      answer: json["Answer"] == null ? null : json["Answer"],
+      answerInfoDetail: json["AnswerInfoDetail"] == null
+          ? null
+          : List<AnswerInfoDetail>.from(json["AnswerInfoDetail"]
+              .map((x) => AnswerInfoDetail.fromJson(x))),
+    );
+  }
 
   Map<String, dynamic> toJson() => {
-        "_Id": id,
-        "_Type": type == null ? null : type,
-        "_Value": value == null ? null : value,
-        "_Answer": answer == null ? null : answer,
+        "Id": id,
+        "Type": type == null ? null : type,
+        "Value": value == null ? null : value,
+        "Answer": answer == null ? null : answer,
         "AnswerInfoDetail": answerInfoDetail == null
             ? null
             : List<dynamic>.from(answerInfoDetail.map((x) => x.toJson())),
@@ -48,14 +52,14 @@ class AnswerInfoDetail {
 
   factory AnswerInfoDetail.fromJson(Map<String, dynamic> json) =>
       AnswerInfoDetail(
-        id: json["_id"] is int ? json["_id"] : int.parse((json["_id"])),
-        imageUrl: json["_ImageUrl"],
-        answerCheck: json["_AnswerCheck"],
+        id: json["id"] is int ? json["id"] : int.parse((json["id"])),
+        imageUrl: json["ImageUrl"],
+        answerCheck: json["AnswerCheck"],
       );
 
   Map<String, dynamic> toJson() => {
-        "_Id": id,
-        "_ImageUrl": imageUrl,
-        "_AnswerCheck": answerCheck,
+        "Id": id,
+        "ImageUrl": imageUrl,
+        "AnswerCheck": answerCheck,
       };
 }

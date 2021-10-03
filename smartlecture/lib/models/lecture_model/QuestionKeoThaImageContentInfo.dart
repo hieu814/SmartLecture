@@ -18,27 +18,28 @@ class QuestionKeoThaImageContentInfo {
   String mediaType;
   String mediaUrl;
 
-  factory QuestionKeoThaImageContentInfo.fromJson(Map<String, dynamic> json) =>
-      QuestionKeoThaImageContentInfo(
-        answers:
-            QuestionKeoThaImageContentInfoAnswers.fromJson(json["Answers"]),
-        extendDragKeoThaImageInfo: List<ExtendDragEInfo>.from(
-            json["ExtendDragKeoThaImageInfo"]
-                .map((x) => ExtendDragEInfo.fromJson(x))),
-        value: json["_Value"],
-        selectIndex: json["_SelectIndex"],
-        mediaType: json["_MediaType"],
-        mediaUrl: json["_MediaUrl"],
-      );
+  factory QuestionKeoThaImageContentInfo.fromJson(Map<String, dynamic> json) {
+    print("------QuestionKeoThaImageContentInfo: " + json.toString());
+    return QuestionKeoThaImageContentInfo(
+      answers: QuestionKeoThaImageContentInfoAnswers.fromJson(json["Answers"]),
+      extendDragKeoThaImageInfo: List<ExtendDragEInfo>.from(
+          json["ExtendDragKeoThaImageInfo"]
+              .map((x) => ExtendDragEInfo.fromJson(x))),
+      value: json["Value"],
+      selectIndex: json["SelectIndex"],
+      mediaType: json["MediaType"],
+      mediaUrl: json["MediaUrl"],
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "Answers": answers.toJson(),
         "ExtendDragKeoThaImageInfo": List<dynamic>.from(
             extendDragKeoThaImageInfo.map((x) => x.toJson())),
-        "_Value": value,
-        "_SelectIndex": selectIndex,
-        "_MediaType": mediaType,
-        "_MediaUrl": mediaUrl,
+        "Value": value,
+        "SelectIndex": selectIndex,
+        "MediaType": mediaType,
+        "MediaUrl": mediaUrl,
       };
 }
 
@@ -50,12 +51,15 @@ class QuestionKeoThaImageContentInfoAnswers {
   List<AnswerInfo> answerKeoThaImageContentInfo;
 
   factory QuestionKeoThaImageContentInfoAnswers.fromJson(
-          Map<String, dynamic> json) =>
-      QuestionKeoThaImageContentInfoAnswers(
-        answerKeoThaImageContentInfo: List<AnswerInfo>.from(
-            json["AnswerKeoThaImageContentInfo"]
-                .map((x) => AnswerInfo.fromJson(x))),
-      );
+      Map<String, dynamic> json) {
+    print("");
+    print("------QuestionKeoThaImageContentInfoAnswers: " + json.toString());
+    return QuestionKeoThaImageContentInfoAnswers(
+      answerKeoThaImageContentInfo: List<AnswerInfo>.from(
+          json["AnswerKeoThaImageContentInfo"]
+              .map((x) => AnswerInfo.fromJson(x))),
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "AnswerKeoThaImageContentInfo": List<dynamic>.from(

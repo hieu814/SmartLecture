@@ -2,27 +2,27 @@
    "ITEM": {
       "ITEM_INFO": {
          "MEDIA": {
-            "_url": "D:\\videoplayback.mp4"
+            "url": "D:\\videoplayback.mp4"
          }
       },
       "APPEAR": {
-         "_id": "NoID",
-         "_name": "None",
-         "_direction": "None",
-         "_start": "Auto",
-         "_speed": "0",
-         "_repeat": "false",
-         "_index": "0"
+         "id": "NoID",
+         "name": "None",
+         "direction": "None",
+         "start": "Auto",
+         "speed": "0",
+         "repeat": "false",
+         "index": "0"
       },
-      "_id": "0",
-      "_name": "iMedia",
-      "_type": "component",
-      "_x": "25.9326113116727",
-      "_y": "72.8104575163399",
-      "_width": "760.709987966309",
-      "_height": "497.908496732027",
-      "_scaleX": "1",
-      "_scaleY": "1",
-      "_rotation": "0"
+      "id": "0",
+      "name": "iMedia",
+      "type": "component",
+      "x": "25.9326113116727",
+      "y": "72.8104575163399",
+      "width": "760.709987966309",
+      "height": "497.908496732027",
+      "scaleX": "1",
+      "scaleY": "1",
+      "rotation": "0"
    }
 }

@@ -23,36 +23,38 @@ class Info {
   QuestionKeoThaImageContentInfo questionKeoThaImageContentInfo;
   Question question;
 
-  factory Info.fromJson(Map<String, dynamic> json) => Info(
-        questionChooseAndCompleteInfo:
-            json["QuestionChooseAndCompleteInfo"] == null
-                ? null
-                : QuestionChooseAndCompleteInfo.fromJson(
-                    json["QuestionChooseAndCompleteInfo"]),
-        size: json["_Size"],
-        bold: json["_Bold"],
-        underline: json["_Underline"],
-        align: json["_Align"],
-        leading: json["_Leading"],
-        questionKeoThaImageContentInfo:
-            json["QuestionKeoThaImageContentInfo"] == null
-                ? null
-                : QuestionKeoThaImageContentInfo.fromJson(
-                    json["QuestionKeoThaImageContentInfo"]),
-        question: json["Question"] == null
-            ? null
-            : Question.fromJson(json["Question"]),
-      );
+  factory Info.fromJson(Map<String, dynamic> json) {
+    print("------Info: " + json.toString());
+    return Info(
+      questionChooseAndCompleteInfo:
+          json["QuestionChooseAndCompleteInfo"] == null
+              ? null
+              : QuestionChooseAndCompleteInfo.fromJson(
+                  json["QuestionChooseAndCompleteInfo"]),
+      size: json["Size"],
+      bold: json["Bold"],
+      underline: json["Underline"],
+      align: json["Align"],
+      leading: json["Leading"],
+      questionKeoThaImageContentInfo:
+          json["QuestionKeoThaImageContentInfo"] == null
+              ? null
+              : QuestionKeoThaImageContentInfo.fromJson(
+                  json["QuestionKeoThaImageContentInfo"]),
+      question:
+          json["Question"] == null ? null : Question.fromJson(json["Question"]),
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "QuestionChooseAndCompleteInfo": questionChooseAndCompleteInfo == null
             ? null
             : questionChooseAndCompleteInfo.toJson(),
-        "_Size": size,
-        "_Bold": bold,
-        "_Underline": underline,
-        "_Align": align,
-        "_Leading": leading,
+        "Size": size,
+        "Bold": bold,
+        "Underline": underline,
+        "Align": align,
+        "Leading": leading,
         "QuestionKeoThaImageContentInfo": questionKeoThaImageContentInfo == null
             ? null
             : questionKeoThaImageContentInfo.toJson(),

@@ -23,7 +23,10 @@ class _ItextState extends State<Itext> {
   @override
   Widget build(BuildContext context) {
     return Text(
-      temp.text,
+      temp.text
+          .replaceAll("\\r", "")
+          .replaceAll("\\n", "\n")
+          .replaceAll("\\", ""),
       textAlign: getTextAlign(temp.align),
       style: TextStyle(
           fontStyle: toBool(temp.italic) ? FontStyle.italic : FontStyle.normal,
