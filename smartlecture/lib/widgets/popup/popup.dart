@@ -31,3 +31,19 @@ Future<bool> popupYesNo(BuildContext context) async {
     ),
   );
 }
+
+Future<bool> popupOK(BuildContext context, String title) async {
+  return await showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      content: Text(title),
+      actions: [
+        TextButton(
+            child: Text("OK", style: TextStyle(color: Colors.black)),
+            onPressed: () {
+              Navigator.pop(context, true);
+            }),
+      ],
+    ),
+  );
+}

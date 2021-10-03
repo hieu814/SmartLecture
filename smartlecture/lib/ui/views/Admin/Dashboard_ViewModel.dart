@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/models/admin_model/MyFiles.dart';
+import 'package:smartlecture/models/admin_model/SizeData.dart';
 import 'package:smartlecture/services/authenticate.dart';
 
 var _db = FireStoreUtils.firestore;
@@ -19,6 +20,8 @@ class MenuViewModel extends ChangeNotifier {
 }
 
 class AdminViewModel extends ChangeNotifier {
+  SizeData _size;
+  get sizeData => _size;
   Stream _streamQuery;
   get streamData => _streamQuery;
   String _collection;
@@ -40,6 +43,7 @@ class AdminViewModel extends ChangeNotifier {
     _collection = USERS;
   }
   Future<void> deleteItem(String jobId) {
+    notifyListeners();
     return _db
         .collection(_collection)
         .doc(jobId)
@@ -55,24 +59,44 @@ class AdminViewModel extends ChangeNotifier {
         .catchError((error) => print('Update failed: $error'));
   }
 
-  Future<void> getDataLength() async {
-    _db
-        .collection(USERS)
-        .get()
-        .then((value) => datas[3].numOfFiles = value.docs.length ?? 0);
-    _db
-        .collection(LECTUTES)
-        .get()
-        .then((value) => datas[2].numOfFiles = value.docs.length ?? 0);
-    _db
-        .collection(VIDEOS)
-        .get()
-        .then((value) => datas[0].numOfFiles = value.docs.length ?? 0);
-    _db
-        .collection(AUDIOS)
-        .get()
-        .then((value) => datas[1].numOfFiles = value.docs.length ?? 0);
+  Future loadSize() async {
+    await _db.collection(SIZE_DATA).doc(SIZE_DATA_ID).get().then((doc) {
+      if (doc != null && doc.exists) {
+        _size = SizeData.fromMap(doc.data());
+      } else {
+        _size = new SizeData();
+      }
+    }).catchError((error) => print('-------------------loadSize: $error'));
   }
 
-  notifyListeners();
+  setDataLength(int length) async {
+    if (_collection == USERS) {
+      _size.usersSize = length;
+    } else if (_collection == LECTUTES) {
+      _size.lectureSize = length;
+    } else if (_collection == VIDEOS) {
+      _size.videosSize = length;
+    } else if (_collection == AUDIOS) {
+      _size.audiosSize = length;
+    }
+    if (_collection == IMAGES) {
+      _size.imagesSize = length;
+    }
+    _db
+        .collection(SIZE_DATA)
+        .doc(SIZE_DATA_ID)
+        .set(_size.toMap())
+        .catchError((error) => print('-------------------add false: $error'));
+    notifyListeners();
+  }
+
+  Future<List<CloudStorageInfo>> getDataLength() async {
+    await loadSize().then((value) {
+      datas[0].numOfFiles = _size.videosSize ?? 0;
+      datas[1].numOfFiles = _size.audiosSize ?? 0;
+      datas[2].numOfFiles = _size.lectureSize ?? 0;
+      datas[3].numOfFiles = _size.usersSize ?? 0;
+    });
+    return datas;
+  }
 }

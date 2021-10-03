@@ -5,5 +5,7 @@ class RouteName {
   static const String signUpPage = '/signUpPage';
   static const String adminPage = '/adminPage';
   static const String dataDetailPage = '/dataDetailPage';
+  static const String userProfile = '/userProfile';
+  static const String changePass = '/changePass';
   static const String optimizationPage = '/OptimizationPage';
 }

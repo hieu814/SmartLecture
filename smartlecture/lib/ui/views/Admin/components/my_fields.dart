@@ -8,11 +8,16 @@ import '../Dashboard_ViewModel.dart';
 import 'file_info_card.dart';
 import 'package:provider/provider.dart';
 
-class MyFiles extends StatelessWidget {
+class MyFiles extends StatefulWidget {
   const MyFiles({
     Key key,
   }) : super(key: key);
 
+  @override
+  _MyFilesState createState() => _MyFilesState();
+}
+
+class _MyFilesState extends State<MyFiles> {
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
@@ -55,7 +60,7 @@ class MyFiles extends StatelessWidget {
   }
 }
 
-class FileInfoCardGridView extends StatelessWidget {
+class FileInfoCardGridView extends StatefulWidget {
   const FileInfoCardGridView({
     Key key,
     this.crossAxisCount = 4,
@@ -66,26 +71,36 @@ class FileInfoCardGridView extends StatelessWidget {
   final double childAspectRatio;
 
   @override
+  _FileInfoCardGridViewState createState() => _FileInfoCardGridViewState();
+}
+
+class _FileInfoCardGridViewState extends State<FileInfoCardGridView> {
+  @override
   Widget build(BuildContext context) {
-    context.read<AdminViewModel>().getDataLength();
-    return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: context.read<AdminViewModel>().datas.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        crossAxisSpacing: defaultPadding,
-        mainAxisSpacing: defaultPadding,
-        childAspectRatio: childAspectRatio,
-      ),
-      itemBuilder: (context, index) => FileInfoCard(
-        info: context.read<AdminViewModel>().datas[index],
-        onSelect: (s) {
-          print("ádsadasdsda  " + s);
-          context.read<AdminViewModel>().setCurrentCollection(s);
-          Navigator.pushNamed(context, RouteName.dataDetailPage);
-        },
-      ),
-    );
+    return FutureBuilder(
+        future: context.read<AdminViewModel>().getDataLength(),
+        builder: (context, snapshot) {
+          return GridView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: context.read<AdminViewModel>().datas.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: widget.crossAxisCount,
+              crossAxisSpacing: defaultPadding,
+              mainAxisSpacing: defaultPadding,
+              childAspectRatio: widget.childAspectRatio,
+            ),
+            itemBuilder: (context, index) => FileInfoCard(
+              info: context.read<AdminViewModel>().datas[index],
+              onSelect: (s) {
+                context.read<AdminViewModel>().setCurrentCollection(s);
+                Navigator.pushNamed(context, RouteName.dataDetailPage)
+                    .then((value) {
+                  setState(() {});
+                });
+              },
+            ),
+          );
+        });
   }
 }

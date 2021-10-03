@@ -166,6 +166,7 @@ class SectionViewModel with ChangeNotifier {
 
 //---------------- firebase
   updateMyLectures(String ltID) async {
+    currentUser = await locator<UserService>().getUser();
     DocumentSnapshot doc =
         await db.collection(USER_LECTUTES).doc(currentUser.userID).get();
     if (doc != null && doc.exists) {
@@ -177,18 +178,29 @@ class SectionViewModel with ChangeNotifier {
     db
         .collection(USER_LECTUTES)
         .doc(currentUser.userID)
-        .set(myLectures.toMap());
+        .set(myLectures.toMap())
+        .catchError((error) =>
+            print("-----------------updateMyLectures error: " + error));
   }
 
-  addLectures() async {
+  Future saveData() async {
+    if (uid == "") {
+      return addLectures();
+    } else {
+      return db.collection(LECTUTES).doc(uid).set(_lecture.toJson());
+    }
+  }
+
+  Future addLectures() async {
     try {
       DocumentReference docRef =
           await db.collection(LECTUTES).add(_lecture.toJson());
       if (docRef != null) {
+        uid = docRef.id;
         updateMyLectures(docRef.id);
       }
     } catch (ex) {
-      print("exception");
+      print("-----------------saveData exception");
       print(ex.toString());
     }
   }
@@ -233,14 +245,7 @@ class SectionViewModel with ChangeNotifier {
   }
 
   Future load() async {
-    UserService _userService = locator<UserService>();
-    currentUser = await _userService.getUser();
-    await getJson("lecture").then((value) {
-      example = Lecture.fromJson(json.decode(value)["LECTURE"]);
-    });
-    //setBusy(true);
-
-    //notifyListeners();
+    currentUser = await locator<UserService>().getUser();
   }
 
   void dispose() {

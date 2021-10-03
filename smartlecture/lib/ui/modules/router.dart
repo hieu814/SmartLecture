@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
 
@@ -8,6 +10,8 @@ import 'package:smartlecture/ui/views/Home/home_view.dart';
 import 'package:smartlecture/ui/views/Login/Login.dart';
 import 'package:smartlecture/ui/views/Login/SignUp_view.dart';
 import 'package:smartlecture/ui/views/Section/Section_view.dart';
+import 'package:smartlecture/ui/views/User/components/ChangePass_view.dart';
+import 'package:smartlecture/ui/views/User/profile_screen.dart';
 
 class MyRouter {
   static Route generateRoute(RouteSettings settings) {
@@ -23,10 +27,18 @@ class MyRouter {
         return MaterialPageRoute(builder: (context) => SignUpView());
       case RouteName.adminPage:
         return MaterialPageRoute(builder: (context) => DashboardView());
+      case RouteName.userProfile:
+        return MaterialPageRoute(builder: (context) => ProfileScreen());
+      case RouteName.changePass:
+        return MaterialPageRoute(builder: (context) => ChangePasswordScreen());
       case RouteName.dataDetailPage:
         return MaterialPageRoute(
             builder: (context) => DashboardViewDataDetail());
+      case '/':
+        // don't generate route on start-up
+        return null;
       default:
+        //exit(0);
         return MaterialPageRoute(builder: (_) {
           return Scaffold(
             body: Center(

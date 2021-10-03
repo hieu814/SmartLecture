@@ -22,6 +22,7 @@ class _IImageState extends State<IImage> {
 
   @override
   Widget build(BuildContext context) {
+    print("--------img URL: " + temp.url);
     return CachedNetworkImage(
       imageUrl: temp.url,
       placeholder: (context, url) => _getPlaceholder(),
@@ -32,7 +33,7 @@ class _IImageState extends State<IImage> {
 }
 
 Widget _getPlaceholder() => Image.asset(
-      'assets/images/placeholder.jpg',
+      'assets/images/no_image.png',
       fit: BoxFit.fill,
     );
 //mdColors

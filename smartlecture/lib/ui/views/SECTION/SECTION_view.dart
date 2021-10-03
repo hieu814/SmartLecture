@@ -52,9 +52,6 @@ class _SectionViewState extends State<SectionView> {
           create: (context) => SectionViewModel(
               init: widget.data.lecture, uid: widget.data.id ?? ""),
         ),
-        ChangeNotifierProvider(
-          create: (context) => MyAudio(),
-        ),
       ],
       builder: (context, child) {
         return Scaffold(
@@ -81,7 +78,12 @@ class _SectionViewState extends State<SectionView> {
                 ),
                 IconButton(
                   icon: const Icon(Icons.save),
-                  onPressed: () {},
+                  onPressed: () async {
+                    context
+                        .read<SectionViewModel>()
+                        .saveData()
+                        .then((value) => showInSnackBar(context, "đã lưu"));
+                  },
                 ),
               ],
             ),

@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:smartlecture/services/authenticate.dart';
+import 'package:smartlecture/ui/modules/UserService.dart';
+import 'package:smartlecture/ui/modules/injection.dart';
 
 import '../constants.dart';
 
@@ -45,6 +50,12 @@ String validateEmail(String value) {
     return null;
 }
 
+Future<bool> changePassword(String oldPw, String newPw) async {
+  UserService _userService = locator<UserService>();
+
+  return await _userService.validatePasswordService(oldPw, newPw);
+}
+
 String validateConfirmPassword(String password, String confirmPassword) {
   print("$password $confirmPassword");
   if (password != confirmPassword) {
@@ -53,6 +64,26 @@ String validateConfirmPassword(String password, String confirmPassword) {
     return 'Hãy nhập mật khẩu';
   } else {
     return null;
+  }
+}
+
+Future<String> readLecture() async {
+  try {
+    FilePickerResult result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['xml', 'json'],
+    );
+
+    if (result != null) {
+      File file = File(result.files.single.path);
+      String data = await file.readAsString();
+      print("------ data: " + data);
+      return data;
+    }
+    return "";
+  } catch (e) {
+    print('loi doc file $e');
+    return "";
   }
 }
 

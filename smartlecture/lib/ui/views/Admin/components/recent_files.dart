@@ -32,38 +32,38 @@ class _RecentFilesState extends State<RecentFiles> {
   @override
   Widget build(BuildContext context) {
     context.read<AdminViewModel>().setCurrentCollection(_typeData);
-    return Container(
-      padding: EdgeInsets.all(defaultPadding),
-      decoration: BoxDecoration(
-        color: secondaryColor,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Recent Files",
-            style: Theme.of(context).textTheme.subtitle1,
-          ),
-          Container(
-            width: 1000,
-            height: 500,
-            child: StreamBuilder(
-                stream: context.read<AdminViewModel>().streamData,
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
-                    return CircularProgressIndicator();
-                  }
-                  return Container(
-                    child: ListView(
-                      children: _createRows(snapshot.data),
+    return StreamBuilder<Object>(
+        stream: context.read<AdminViewModel>().streamData,
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return CircularProgressIndicator();
+          } else
+            return Container(
+              padding: EdgeInsets.all(defaultPadding),
+              decoration: BoxDecoration(
+                color: secondaryColor,
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Recent Files",
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                  Container(
+                    width: 1000,
+                    height: 500,
+                    child: Container(
+                      child: ListView(
+                        children: _createRows(snapshot.data),
+                      ),
                     ),
-                  );
-                }),
-          ),
-        ],
-      ),
-    );
+                  ),
+                ],
+              ),
+            );
+        });
   }
 
   void moveManageData() async {
@@ -75,21 +75,22 @@ class _RecentFilesState extends State<RecentFiles> {
       if (value == null) return;
     });
   }
-}
 
-List<Widget> _createRows(QuerySnapshot snapshot) {
-  List<Widget> newList = [];
-  if (_typeData == USERS) {
-    newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
-      return UserDelegate(doc: documentSnapshot);
-    }).toList();
-  } else if (_typeData == LECTUTES) {
-    newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
-      return LectureDataDelegate(doc: documentSnapshot);
-    }).toList();
+  List<Widget> _createRows(QuerySnapshot snapshot) {
+    context.read<AdminViewModel>().setDataLength(snapshot.docs.length);
+    List<Widget> newList = [];
+    if (_typeData == USERS) {
+      newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
+        return UserDelegate(doc: documentSnapshot);
+      }).toList();
+    } else if (_typeData == LECTUTES) {
+      newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
+        return LectureDataDelegate(doc: documentSnapshot);
+      }).toList();
+    }
+
+    return newList;
   }
-
-  return newList;
 }
 
 _createDelegate(DocumentSnapshot documentSnapshot) {

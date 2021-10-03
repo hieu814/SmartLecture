@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/widgets.dart';
 import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/models/user_model/user.dart';
 import 'package:smartlecture/services/authenticate.dart';
@@ -9,7 +10,9 @@ import 'package:smartlecture/ui/views/Home/Home_view.dart';
 import 'package:stacked/stacked.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
-class LoginViewModel extends BaseViewModel {
+class LoginViewModel extends ChangeNotifier {
+  User _user;
+  User get currentUser => _user;
   Future<void> loginWithUserNameAndPassword(
       context, String email, String pass) async {
     print("taikhoan: email" + email + "  pass:  " + pass);
@@ -27,7 +30,7 @@ class LoginViewModel extends BaseViewModel {
         user.active = true;
         await FireStoreUtils.updateCurrentUser(user);
         hideProgress();
-        //MyApp.currentUser = user;
+        _user = user;
       }
       pushAndRemoveUntil(context, HomeView(), false);
     } on auth.FirebaseAuthException catch (exception) {
@@ -59,6 +62,14 @@ class LoginViewModel extends BaseViewModel {
       print(e.toString());
       return false;
     }
+  }
+
+  logout() async {
+    // _user.active = false;
+    // user.lastOnlineTimestamp = Timestamp.now();
+    //FireStoreUtils.updateCurrentUser(_user);
+    await auth.FirebaseAuth.instance.signOut();
+    _user = User();
   }
 
   Future<void> signUp(context, User user, String password, File image) async {

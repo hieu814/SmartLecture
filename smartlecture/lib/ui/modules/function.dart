@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/models/lecture_model/Item.dart';
 import 'package:smartlecture/models/lecture_model/Text.dart' as iText;
-import 'package:smartlecture/ui/views/Admin/Dashboard_ViewModel.dart';
+import 'package:smartlecture/models/lecture_model/Image.dart' as iImage;
 import 'package:smartlecture/widgets/dataViewModel/IImage.dart';
 import 'package:smartlecture/widgets/dataViewModel/Itext.dart';
 import 'package:smartlecture/widgets/manage/FormEditMedia.dart';
@@ -40,10 +40,10 @@ Widget fromItem(Item item) {
     return Itext(
       text: data,
     );
-  } else if (typeName.map[item.name] == Type.IMAGE) {
-    iText.Text data = item.itemInfo.text;
-    return Itext(
-      text: data,
+  } else if (typeName.map[item.name] == Type.IIMAGE) {
+    iImage.Image data = item.itemInfo.image;
+    return IImage(
+      image: data,
     );
   }
   return IImage();
@@ -57,6 +57,7 @@ Future<String> editMedia(BuildContext context, String url, bool isVideo) async {
         builder: (context) => FormEditMedia(
               isVideo: isVideo,
               url: url,
+              returnData: (_) => {},
             )),
   );
 }

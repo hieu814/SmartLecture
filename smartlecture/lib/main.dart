@@ -2,24 +2,33 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smartlecture/constants.dart';
+import 'package:smartlecture/media/myAudio.dart';
+import 'package:smartlecture/models/user_model/user.dart';
 import 'package:smartlecture/ui/modules/UserService.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/ui/modules/router.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Admin/Dashboard_ViewModel.dart';
 import 'package:smartlecture/ui/views/Home/home_viewmodel.dart';
+import 'package:smartlecture/ui/views/Login/Login_viewmodel.dart';
 
 bool _islog = false;
 bool _isAdmin;
+User _user;
 void main() async {
   await configureDependencies();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   UserService _userService = locator<UserService>();
-  _islog = await _userService.isLogged();
-  await _userService.getUser().then((value) {
-    _isAdmin = value.role == USER_ROLE_ADMIN;
+  await _userService.getUser().then((user) {
+    if (user != null) {
+      _islog = true;
+      _isAdmin = user.role == USER_ROLE_ADMIN;
+    } else {
+      _islog = false;
+    }
   });
+
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider<MenuViewModel>(
@@ -30,6 +39,12 @@ void main() async {
       ),
       ChangeNotifierProvider<AdminViewModel>(
         create: (context) => AdminViewModel(),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => MyAudio(),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => LoginViewModel(),
       ),
     ],
     child: MyApp(),

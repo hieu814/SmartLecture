@@ -342,14 +342,14 @@ class _SignUpState extends State<SignUpView> {
   _sendToServer() async {
     if (_key.currentState.validate()) {
       _key.currentState.save();
-      showProgress(context, 'Creating new account, Please wait...', false);
+      showProgress(context, 'Đang tạo tài khoản...', false);
       var profilePicUrl = '';
       try {
         auth.UserCredential result = await auth.FirebaseAuth.instance
             .createUserWithEmailAndPassword(
                 email: email.trim(), password: password.trim());
         if (_image != null) {
-          updateProgress('Uploading image, Please wait...');
+          updateProgress('Đang update hình ảnh...');
           profilePicUrl = await FireStoreUtils()
               .uploadUserImageToFireStorage(_image, result.user.uid);
         }
@@ -360,6 +360,7 @@ class _SignUpState extends State<SignUpView> {
             userID: result.user.uid,
             active: true,
             lastName: lastName,
+            role: USER_ROLE_USER,
             profilePictureURL: profilePicUrl);
         await FireStoreUtils.firestore
             .collection(USERS)
@@ -373,16 +374,16 @@ class _SignUpState extends State<SignUpView> {
         String message = 'Couldn\'t sign up';
         switch (error.code) {
           case 'email-already-in-use':
-            message = 'Email address already in use';
+            message = 'Email đã được sử dụng';
             break;
           case 'invalid-email':
-            message = 'validEmail';
+            message = 'Email không đúng';
             break;
           case 'operation-not-allowed':
             message = 'Email/password accounts are not enabled';
             break;
           case 'weak-password':
-            message = 'password is too weak.';
+            message = 'password quá yếu.';
             break;
           case 'too-many-requests':
             message = 'Too many requests, '
@@ -394,7 +395,7 @@ class _SignUpState extends State<SignUpView> {
       } catch (e) {
         print('_SignUpState._sendToServer $e');
         hideProgress();
-        showAlertDialog(context, 'Failed', 'Couldn\'t sign up');
+        showAlertDialog(context, 'Failed', 'Không thể đăng kí');
       }
     } else {
       setState(() {

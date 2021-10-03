@@ -1,10 +1,14 @@
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smartlecture/ui/views/Admin/Dashboard_ViewModel.dart';
 import 'package:smartlecture/ui/views/Admin/components/recent_files.dart';
 import 'package:smartlecture/ui/views/Admin/components/storage_details.dart';
+import 'package:smartlecture/widgets/components/AudioPlay.dart';
 import 'package:smartlecture/widgets/layout/header.dart';
 import 'package:smartlecture/widgets/layout/side_menu.dart';
+import 'package:smartlecture/widgets/manage/MyForm.dart';
 import '../../../../constants.dart';
 import '../../../../responsive.dart';
 import 'my_fields.dart';
@@ -35,6 +39,7 @@ class DashboardViewDataDetail extends StatelessWidget {
 class DashboardData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print("----------------DashboardData build");
     return SafeArea(
       child: SingleChildScrollView(
         padding: EdgeInsets.all(defaultPadding),
@@ -55,7 +60,7 @@ class DashboardData extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "My Files",
+                            "My Filess",
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                           ElevatedButton.icon(
@@ -66,7 +71,14 @@ class DashboardData extends StatelessWidget {
                                     (Responsive.isMobile(context) ? 2 : 1),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                    fullscreenDialog: true,
+                                    builder: (context) => PlayerControls()),
+                              );
+                            },
                             icon: Icon(Icons.add),
                             label: Text("Add New"),
                           ),

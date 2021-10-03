@@ -27,6 +27,7 @@ class _FormEditMediaState extends State<FormEditMedia> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
         appBar: AppBar(
           title: Text(""),
@@ -57,15 +58,29 @@ class _FormEditMediaState extends State<FormEditMedia> {
                       ),
                     ),
                   )),
+              SizedBox(
+                height: 100,
+              ),
               Expanded(
                 flex: 2,
-                child: TextField(
-                  keyboardType: TextInputType.url,
-                  controller: textController,
-                  maxLines: null,
-                  onChanged: (s) {
-                    temp = s;
-                  },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Đường dẫn",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    TextFormField(
+                      controller: textController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                      ),
+                      onChanged: (s) {
+                        temp = s;
+                        widget.returnData(temp);
+                      },
+                    ),
+                  ],
                 ),
               ),
             ],

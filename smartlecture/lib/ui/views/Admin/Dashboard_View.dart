@@ -9,7 +9,12 @@ import 'components/my_fields.dart';
 import 'components/recent_files.dart';
 import 'components/storage_details.dart';
 
-class DashboardView extends StatelessWidget {
+class DashboardView extends StatefulWidget {
+  @override
+  _DashboardViewState createState() => _DashboardViewState();
+}
+
+class _DashboardViewState extends State<DashboardView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +39,12 @@ class DashboardView extends StatelessWidget {
   }
 }
 
-class DashboardScreen extends StatelessWidget {
+class DashboardScreen extends StatefulWidget {
+  @override
+  _DashboardScreenState createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
