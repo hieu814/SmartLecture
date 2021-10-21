@@ -65,6 +65,7 @@ class UserService {
           .collection(USERS)
           .doc(user.userID)
           .set(user.toJson());
+      _currentUser = user;
       return true;
     } on auth.FirebaseAuthException catch (error) {
       String message = 'Couldn\'t sign up';

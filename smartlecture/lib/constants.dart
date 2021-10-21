@@ -15,6 +15,9 @@ const USER_ROLE_USER = 'user';
 const USER_ROLE_ADMIN = 'admin';
 const USERS = 'users';
 const LECTUTES = 'lectures';
+const LIBRARY = 'library';
+const FOLDER = 'folder';
+const CONTRIBUTE = 'contribute';
 const USER_LECTUTES = 'user_lectures';
 const AUDIOS = 'audios';
 const IMAGES = 'images';
@@ -23,6 +26,8 @@ const SIZE_DATA = 'size';
 const SIZE_DATA_ID = 'iurjhdusf';
 const NO_IMAGE = "assets/images/no_image.png";
 const NO_BACKGROUND = "assets/images/transparent.jpg";
+String syncSetting = 'isSync';
+String notificationsSetting = 'notificationsEnabled';
 const double BASE_WIDTH = 800.0; //x
 const double BASE_HEIGHT = 600.0; //411
 enum DataTypes { LECTURES, AUDIOS, VIDEOS, IMAGES, USERS }
@@ -49,7 +54,12 @@ enum Type {
   ICHOOSEANDCOMPLETE,
   ICROSS
 }
-
+enum TypeFolder {
+  FOLDER_IMAGE,
+  FOLDER_CONTRIBUTE,
+  FOLDER_VIDEO,
+  FOLDER_LECTURE
+}
 final typeName = EnumValues({
   "image": Type.IMAGE,
   "text": Type.TEXT,

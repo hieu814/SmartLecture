@@ -11,11 +11,11 @@ Future<String> popupString(
           ));
 }
 
-Future<bool> popupYesNo(BuildContext context) async {
+Future<bool> popupYesNo(BuildContext context, {String title}) async {
   return await showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      content: Text("Bạn có chăc không?"),
+      content: Text(title ?? "Bạn có chăc không?"),
       actions: [
         TextButton(
             child: Text("Không", style: TextStyle(color: Colors.grey)),

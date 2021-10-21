@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:smartlecture/services/authenticate.dart';
 import 'package:smartlecture/ui/modules/UserService.dart';
@@ -76,8 +77,9 @@ Future<String> readLecture() async {
 
     if (result != null) {
       File file = File(result.files.single.path);
+      print("readLecture " + result.files.single.path);
       String data = await file.readAsString();
-      print("------ data: " + data);
+      //print("------ data: " + data);
       return data;
     }
     return "";
@@ -106,14 +108,18 @@ showProgress(BuildContext context, String message, bool isDismissible) async {
       insetAnimCurve: Curves.easeInOut,
       messageTextStyle: TextStyle(
           color: Colors.white, fontSize: 19.0, fontWeight: FontWeight.w600));
-  await progressDialog.show();
+  await progressDialog.show().then((value) {
+    Future.delayed(const Duration(milliseconds: 6000), () {
+      hideProgress();
+    });
+  });
 }
 
 updateProgress(String message) {
   progressDialog.update(message: message);
 }
 
-hideProgress() async {
+Future<void> hideProgress() async {
   await progressDialog.hide();
 }
 
@@ -209,3 +215,20 @@ Widget _getPlaceholderOrErrorImage(double size, hasBorder) => Container(
         width: size,
       )),
     );
+Future<String> createFolderInAppDocDir(String folderName) async {
+  //Get this App Document Directory
+  final Directory _appDocDir = await getApplicationDocumentsDirectory();
+  //App Document Directory + folder name
+  final Directory _appDocDirFolder =
+      Directory('${_appDocDir.path}/$folderName/');
+
+  if (await _appDocDirFolder.exists()) {
+    //if folder already exists return path
+    return _appDocDirFolder.path;
+  } else {
+    //if folder not exists create folder and then return its path
+    final Directory _appDocDirNewFolder =
+        await _appDocDirFolder.create(recursive: true);
+    return _appDocDirNewFolder.path;
+  }
+}

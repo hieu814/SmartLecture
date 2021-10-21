@@ -2,9 +2,12 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smartlecture/models/lecture_model/LectuteData.dart';
+import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Admin/Dashboard_ViewModel.dart';
 import 'package:smartlecture/ui/views/Admin/components/recent_files.dart';
 import 'package:smartlecture/ui/views/Admin/components/storage_details.dart';
+import 'package:smartlecture/ui/views/Home/home_viewmodel.dart';
 import 'package:smartlecture/widgets/components/AudioPlay.dart';
 import 'package:smartlecture/widgets/layout/header.dart';
 import 'package:smartlecture/widgets/layout/side_menu.dart';
@@ -71,13 +74,18 @@ class DashboardData extends StatelessWidget {
                                     (Responsive.isMobile(context) ? 2 : 1),
                               ),
                             ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                CupertinoPageRoute(
-                                    fullscreenDialog: true,
-                                    builder: (context) => PlayerControls()),
-                              );
+                            onPressed: () async {
+                              await context
+                                  .read<HomeViewModel>()
+                                  .addNewLecture()
+                                  .then((value) => {
+                                        Navigator.pushNamed(
+                                            context, RouteName.sectionPage,
+                                            arguments: LectuteData(
+                                                isSaveToServer: true,
+                                                id: "",
+                                                lecture: value))
+                                      });
                             },
                             icon: Icon(Icons.add),
                             label: Text("Add New"),

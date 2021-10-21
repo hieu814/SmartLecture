@@ -7,5 +7,12 @@ class RouteName {
   static const String dataDetailPage = '/dataDetailPage';
   static const String userProfile = '/userProfile';
   static const String changePass = '/changePass';
-  static const String optimizationPage = '/OptimizationPage';
+  static const String presentation = '/presentationPage';
+  static const String editUser = '/editUser';
+  static const String Library = '/Library';
+  static const String setting = '/setting';
+  static const String contribute = '/contribute';
+  static const String libraryTree = '/libraryTree';
+  static const String myLectures = '/myLectures';
+  static const String listLectures = '/listLectures';
 }

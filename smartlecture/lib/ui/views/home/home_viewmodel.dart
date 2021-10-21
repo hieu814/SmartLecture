@@ -1,8 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/models/lecture_model/Lecture.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
@@ -26,19 +29,12 @@ class HomeViewModel extends ChangeNotifier {
   HomeViewModel() {
     _user = new User();
   }
-  Future<void> more() async {
-    String js = '["asd","asdasd","asdads"]';
-
-    List<String> a = ["asd", "asdasd", "asdads"];
-    String jsonUser = jsonEncode(a);
-    print(jsonUser.toString());
-  }
 
   logout() async {
     // _user.active = false;
     // user.lastOnlineTimestamp = Timestamp.now();
     //FireStoreUtils.updateCurrentUser(_user);
-    await auth.FirebaseAuth.instance.signOut();
+    //await auth.FirebaseAuth.instance.signOut();
   }
 
   Future<void> loadAll() async {
@@ -57,9 +53,16 @@ class HomeViewModel extends ChangeNotifier {
     return rootBundle.loadString('assets/lectures/data_sample/$name.json');
   }
 
-  Future<Lecture> addNewLecture() {
+  Future<Lecture> addNewLecture() async {
+    UserService _userService = locator<UserService>();
+    _user = await _userService.getUser();
     return getJson("lecture").then((value) {
       Lecture example = Lecture.fromJson(json.decode(value)["LECTURE"]);
+      example.authorId = _user.email;
+      var curentTime = DateTime.now();
+      example.createdDate =
+          DateFormat('hh:mm:ss MM-dd-yyyy').format(curentTime);
+      print("addNewLecture current time: ${example.createdDate}");
       return example;
     });
   }
@@ -75,6 +78,40 @@ class HomeViewModel extends ChangeNotifier {
     return null;
   }
 
+  Future<List<String>> loadAllLecture() async {
+    final dir = await getApplicationDocumentsDirectory();
+    final imagesDirectory = Directory(dir.path + "/lectures/");
+
+    print("loadAllLecture");
+    print("");
+    final _lecturesFile =
+        imagesDirectory.listSync(followLinks: false, recursive: true);
+    _lecturesFile.forEach((entity) async {
+      if (entity is File) {
+        File _file = (entity as File);
+        String data = _file.readAsStringSync();
+        var pdfText = await json.decode(json.encode(data));
+        try {
+          // var a = json.decode(pdfText.toString().trim());
+          Lecture a = Lecture.fromJson(json.decode(pdfText)["LECTURE"]);
+          _listMylecture.add(LectuteData(
+              id: "",
+              lecture: Lecture.fromJson(json.decode(pdfText)["LECTURE"])));
+          notifyListeners();
+        } catch (e) {
+          _file.delete();
+          print("fromjson err: " + e.toString());
+        }
+      }
+      // print("dir: " + p.toString());
+      // final file = File(p.toString());
+      // String data = await file.readAsString();
+      //print("da);
+    });
+
+    print("");
+  }
+
   Future load() async {
     //setBusy(true);
     UserService _userService = locator<UserService>();
@@ -84,7 +121,8 @@ class HomeViewModel extends ChangeNotifier {
     if (doc != null && doc.exists) {
       _myLectures = UserLecture.fromMap(doc.data());
     } else {}
-    await loadAll();
+    _listMylecture.clear();
+    await loadAllLecture();
     notifyListeners();
   }
 }

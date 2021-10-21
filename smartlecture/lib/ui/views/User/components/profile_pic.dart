@@ -138,7 +138,7 @@ class _ProfilePicState extends State<ProfilePic> {
           User user = _userService.currentUser;
           user.profilePictureURL = profilePictureURL;
           _userService.updateUser(user).then((value) {
-            showInSnackBar(context, "đã lưu");
+            //showInSnackBar(context, "đã lưu");
             hideProgress();
           });
         });

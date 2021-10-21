@@ -2,6 +2,8 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
+import 'package:smartlecture/ui/modules/Setting.dart';
+import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/widgets/components/Page.dart';
 
@@ -17,6 +19,7 @@ class LectureDelegate extends StatelessWidget {
     return Card(
       child: GestureDetector(
         onTap: () {
+          item.isSaveToServer = locator<MySetting>().isSync;
           Navigator.pushNamed(context, RouteName.sectionPage, arguments: item);
         },
         child: Column(

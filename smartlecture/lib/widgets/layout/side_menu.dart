@@ -53,13 +53,13 @@ class SideMenu extends StatelessWidget {
           //     Navigator.pushNamed(context, RouteName.userProfile);
           //   },
           // ),
-          // DrawerListTile(
-          //   title: "Home",
-          //   svgSrc: "assets/icons/menu_task.svg",
-          //   press: () {
-          //     Navigator.pushNamed(context, RouteName.homePage);
-          //   },
-          // ),
+          DrawerListTile(
+            title: "Đóng góp bài giảng",
+            svgSrc: "assets/icons/menu_task.svg",
+            press: () {
+              Navigator.pushNamed(context, RouteName.contribute);
+            },
+          ),
           DrawerListTile(
             title: "Mở bài giảng",
             svgSrc: "assets/icons/menu_doc.svg",
@@ -89,11 +89,15 @@ class SideMenu extends StatelessWidget {
               //     arguments: LectuteData(id: "", lecture: a));
             },
           ),
-          // DrawerListTile(
-          //   title: "Store",
-          //   svgSrc: "assets/icons/menu_store.svg",
-          //   press: () {},
-          // ),
+          DrawerListTile(
+            title: "Thư viện",
+            svgSrc: "assets/icons/menu_store.svg",
+            press: () async {
+              final value =
+                  await Navigator.pushNamed(context, RouteName.libraryTree);
+              print("------------------path : $value");
+            },
+          ),
           DrawerListTile(
             title: "Thông báo",
             svgSrc: "assets/icons/menu_notification.svg",
@@ -109,7 +113,9 @@ class SideMenu extends StatelessWidget {
           DrawerListTile(
             title: "Cài đặt",
             svgSrc: "assets/icons/menu_setting.svg",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, RouteName.setting);
+            },
           ),
         ],
       ),

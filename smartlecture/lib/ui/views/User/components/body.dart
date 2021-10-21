@@ -10,7 +10,12 @@ import 'profile_menu.dart';
 import 'profile_pic.dart';
 import 'package:provider/provider.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     UserService _userService = locator<UserService>();
@@ -24,7 +29,11 @@ class Body extends StatelessWidget {
           ProfileMenu(
             text: "Sửa thông tin",
             icon: "assets/icons/User Icon.svg",
-            press: () => {},
+            press: () {
+              Navigator.pushNamed(context, RouteName.editUser).then((value) {
+                setState(() {});
+              });
+            },
           ),
           ProfileMenu(
             text: "Thông báo",
@@ -34,7 +43,9 @@ class Body extends StatelessWidget {
           ProfileMenu(
             text: "Cài đặt",
             icon: "assets/icons/Settings.svg",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, RouteName.setting);
+            },
           ),
           ProfileMenu(
             text: "Đổi mật khẩu",
@@ -60,17 +71,20 @@ class Body extends StatelessWidget {
     );
   }
 
-  Widget buildName(User user) => Column(
-        children: [
-          Text(
-            user.fullName(),
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            user.email,
-            style: TextStyle(color: Colors.grey),
-          )
-        ],
-      );
+  Widget buildName(User user) {
+    print("-------- buildName");
+    return Column(
+      children: [
+        Text(
+          user.fullName(),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          user.email,
+          style: TextStyle(color: Colors.grey),
+        )
+      ],
+    );
+  }
 }

@@ -2,6 +2,7 @@ import 'package:smartlecture/models/lecture_model/Section.dart';
 
 class Lecture {
   Lecture({
+    this.id,
     this.section,
     this.title,
     this.type,
@@ -12,14 +13,19 @@ class Lecture {
   });
 
   List<Section> section;
-  String title;
-  String type;
-  String authorId;
-  String editorId;
-  String createdDate;
-  String editedDate;
+  String id = "";
+  String title = "";
+  String type = "";
+  String authorId = "";
+  String editorId = "";
+  String createdDate = "";
+  String editedDate = "";
 
-  factory Lecture.fromJson(Map<String, dynamic> json) => Lecture(
+  factory Lecture.fromJson(Map<String, dynamic> json) {
+    Lecture a;
+    try {
+      a = Lecture(
+        id: json["id"] ?? "",
         section:
             List<Section>.from(json["SECTION"].map((x) => Section.fromJson(x))),
         title: json["title"],
@@ -29,6 +35,11 @@ class Lecture {
         createdDate: json["createdDate"],
         editedDate: json["editedDate"],
       );
+    } on Exception catch (e) {
+      a = Lecture();
+    }
+    return a;
+  }
 
   Map<String, dynamic> toJson() => {
         "SECTION": List<dynamic>.from(section.map((x) => x.toJson())),
@@ -38,5 +49,6 @@ class Lecture {
         "editorId": editorId,
         "createdDate": createdDate,
         "editedDate": editedDate,
+        "id": id
       };
 }

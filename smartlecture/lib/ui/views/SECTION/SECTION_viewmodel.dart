@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:ffi';
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,6 +15,9 @@ import 'package:smartlecture/models/user_model/UserLectures.dart';
 import 'package:smartlecture/models/common/SectionIndex..dart';
 import 'package:smartlecture/models/user_model/user.dart';
 import 'package:smartlecture/services/authenticate.dart';
+import 'package:smartlecture/services/helper.dart';
+import 'package:smartlecture/ui/modules/Setting.dart';
+
 import 'package:smartlecture/ui/modules/UserService.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/models/lecture_model/Page.dart' as p;
@@ -29,6 +33,7 @@ class SectionViewModel with ChangeNotifier {
   String uid;
   bool _isBusy;
   UserLecture myLectures;
+  bool _isSaveToserver = false;
   get loadData => _loading;
   get currentIndex => _currentIndex;
   get lecture => _lecture;
@@ -36,16 +41,11 @@ class SectionViewModel with ChangeNotifier {
   get currentSection => _currentIndex.currentSectionIndex;
   get currentPage => _currentIndex.currentPageIndex;
   get currentItem => _currentIndex.currentItemIndex;
-  SectionViewModel({Lecture init, String uid}) {
+  SectionViewModel({LectuteData data}) {
     _isBusy = false;
     _loading = false;
-
-    this.uid = uid;
-    if (uid != "") {
-      _lecture = init;
-    } else {
-      _lecture = init;
-    }
+    _lecture = data.lecture;
+    _isSaveToserver = data.isSaveToServer;
     myLectures = new UserLecture(lectures: []);
     _currentIndex = new SectionIndex(
         currentPageIndex: 0, currentSectionIndex: 0, currentItemIndex: 0);
@@ -95,7 +95,7 @@ class SectionViewModel with ChangeNotifier {
   }
   setLecture(LectuteData data) {
     _lecture = data.lecture;
-    uid = data.id;
+    uid = data.id ?? "";
   }
 
   Future<String> getJson(String name) async {
@@ -184,23 +184,41 @@ class SectionViewModel with ChangeNotifier {
   }
 
   Future saveData() async {
-    if (uid == "") {
-      return addLectures();
-    } else {
-      return db.collection(LECTUTES).doc(uid).set(_lecture.toJson());
+    try {
+      String dir = await createFolderInAppDocDir("lectures");
+      String path = dir + _lecture.title + ".json";
+      await locator<MySetting>().load();
+      if (locator<MySetting>().isSync) {
+        if (_lecture.id == "" || _lecture.id == null) {
+          await addLectures();
+        } else {
+          print("update data to server id: $uid");
+          await db.collection(LECTUTES).doc(uid).set(_lecture.toJson());
+        }
+      }
+      File _file = File(path);
+      _file.writeAsString(json.encode(toJson()));
+    } catch (ex) {
+      print("-----------------saveData exception");
+      print(ex.toString());
     }
   }
 
+  Map<String, dynamic> toJson() => {
+        "LECTURE": _lecture.toJson(),
+      };
+
   Future addLectures() async {
     try {
+      print("-----------------addLectures");
       DocumentReference docRef =
           await db.collection(LECTUTES).add(_lecture.toJson());
       if (docRef != null) {
         uid = docRef.id;
+        _lecture.id = uid;
         updateMyLectures(docRef.id);
       }
     } catch (ex) {
-      print("-----------------saveData exception");
       print(ex.toString());
     }
   }

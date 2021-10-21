@@ -8,6 +8,7 @@ import 'package:smartlecture/models/common/SectionIndex..dart';
 import 'package:smartlecture/ui/modules/Navi.dart';
 import 'package:smartlecture/ui/modules/function.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
+import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Section/SECTION_viewmodel.dart';
 import 'package:smartlecture/widgets/components/ListSection.dart';
 import 'package:smartlecture/widgets/components/Page.dart';
@@ -49,8 +50,7 @@ class _SectionViewState extends State<SectionView> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => SectionViewModel(
-              init: widget.data.lecture, uid: widget.data.id ?? ""),
+          create: (context) => SectionViewModel(data: widget.data),
         ),
       ],
       builder: (context, child) {
@@ -74,6 +74,13 @@ class _SectionViewState extends State<SectionView> {
                                       value == "" ? "Bài giảng mới" : value, 0)
                                 }
                             });
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.play_arrow),
+                  onPressed: () async {
+                    Navigator.pushNamed(context, RouteName.presentation,
+                        arguments: context.read<SectionViewModel>().lecture);
                   },
                 ),
                 IconButton(
@@ -385,26 +392,26 @@ class _SectionViewState extends State<SectionView> {
                         //play();
                         context.read<MyAudio>().playAudio();
                       }),
-                  IconButton(
-                      icon: Icon(Icons.format_align_left_sharp),
-                      onPressed: () {}),
-                  IconButton(
-                      icon: Icon(Icons.format_align_right_sharp),
-                      onPressed: () {}),
-                  IconButton(
-                      icon: Icon(Icons.format_bold_sharp), onPressed: () {}),
-                  IconButton(
-                      icon: Icon(Icons.format_color_fill), onPressed: () {}),
-                  IconButton(
-                      icon: Icon(Icons.format_italic_sharp), onPressed: () {}),
-                  IconButton(
-                      icon: Icon(Icons.format_shapes_sharp), onPressed: () {}),
-                  IconButton(
-                      icon: Icon(Icons.format_underline_sharp),
-                      onPressed: () {}),
-                  IconButton(
-                      icon: Icon(Icons.format_indent_decrease_sharp),
-                      onPressed: () {}),
+                  // IconButton(
+                  //     icon: Icon(Icons.format_align_left_sharp),
+                  //     onPressed: () {}),
+                  // IconButton(
+                  //     icon: Icon(Icons.format_align_right_sharp),
+                  //     onPressed: () {}),
+                  // IconButton(
+                  //     icon: Icon(Icons.format_bold_sharp), onPressed: () {}),
+                  // IconButton(
+                  //     icon: Icon(Icons.format_color_fill), onPressed: () {}),
+                  // IconButton(
+                  //     icon: Icon(Icons.format_italic_sharp), onPressed: () {}),
+                  // IconButton(
+                  //     icon: Icon(Icons.format_shapes_sharp), onPressed: () {}),
+                  // IconButton(
+                  //     icon: Icon(Icons.format_underline_sharp),
+                  //     onPressed: () {}),
+                  // IconButton(
+                  //     icon: Icon(Icons.format_indent_decrease_sharp),
+                  //     onPressed: () {}),
                 ],
               ),
               //decoration:

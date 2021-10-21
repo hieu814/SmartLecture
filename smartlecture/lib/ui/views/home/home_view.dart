@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smartlecture/models/lecture_model/Lecture.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
-import 'package:smartlecture/services/helper.dart';
+import 'package:smartlecture/ui/modules/Setting.dart';
+import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Section/components/LectureWidget.dart';
-import 'package:smartlecture/widgets/components/Page.dart';
 import 'package:provider/provider.dart';
 import 'package:smartlecture/widgets/layout/side_menu.dart';
 import 'home_viewmodel.dart';
@@ -49,7 +48,8 @@ class _HomeViewState extends State<HomeView> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.add), label: "Add"),
-          BottomNavigationBarItem(icon: Icon(Icons.mail), label: "Email"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.drive_file_move_outlined), label: "Library"),
         ],
         onTap: (int id) async {
           if (id == 0) {
@@ -62,10 +62,14 @@ class _HomeViewState extends State<HomeView> {
                 .addNewLecture()
                 .then((value) => {
                       Navigator.pushNamed(context, RouteName.sectionPage,
-                          arguments: LectuteData(id: "", lecture: value))
+                          arguments: LectuteData(
+                              id: "",
+                              lecture: value,
+                              isSaveToServer: locator<MySetting>().isSync))
                     });
           } else if (id == 2) {
-            Navigator.pushNamed(context, RouteName.userProfile);
+            //final a = await context.read<HomeViewModel>().loadAllLecture();
+            Navigator.pushNamed(context, RouteName.Library);
           }
         },
       ),

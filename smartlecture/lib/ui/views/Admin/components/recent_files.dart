@@ -48,7 +48,7 @@ class _RecentFilesState extends State<RecentFiles> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Recent Files",
+                    _typeData == LECTUTES ? "Bài giảng" : "Tài khoản",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                   Container(
@@ -79,14 +79,18 @@ class _RecentFilesState extends State<RecentFiles> {
   List<Widget> _createRows(QuerySnapshot snapshot) {
     context.read<AdminViewModel>().setDataLength(snapshot.docs.length);
     List<Widget> newList = [];
-    if (_typeData == USERS) {
-      newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
-        return UserDelegate(doc: documentSnapshot);
-      }).toList();
-    } else if (_typeData == LECTUTES) {
-      newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
-        return LectureDataDelegate(doc: documentSnapshot);
-      }).toList();
+    try {
+      if (_typeData == USERS) {
+        newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
+          return UserDelegate(doc: documentSnapshot);
+        }).toList();
+      } else if (_typeData == LECTUTES) {
+        newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
+          return LectureDataDelegate(doc: documentSnapshot);
+        }).toList();
+      }
+    } on Exception catch (e) {
+      print("_createRows eror $e");
     }
 
     return newList;

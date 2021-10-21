@@ -25,8 +25,12 @@ class LectureDataDelegate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    User user = User.fromJson(doc.data());
-    Lecture item = Lecture.fromJson(doc.data());
+    Lecture item;
+    try {
+      item = Lecture.fromJson(doc.data());
+    } on Exception catch (e) {
+      context.read<AdminViewModel>().deleteItem(doc.id);
+    }
     print("delegate odcstring" + doc.data().toString());
     return Card(
       child: Row(
