@@ -58,6 +58,7 @@ class _FormEditState extends State<FormEdit> {
         isVideo: false,
         url: temp.itemInfo.image.url,
         returnData: (a) {
+          print("---------return data: $a");
           temp.itemInfo.image.url = a;
         },
       );

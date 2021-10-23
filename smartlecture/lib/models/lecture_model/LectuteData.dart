@@ -2,7 +2,14 @@ import 'package:smartlecture/models/lecture_model/Lecture.dart';
 
 class LectuteData {
   String id;
+  String idMyLectures;
   Lecture lecture;
   bool isSaveToServer = false;
-  LectuteData({this.id, this.lecture, this.isSaveToServer});
+  String path;
+  LectuteData(
+      {this.id,
+      this.idMyLectures,
+      this.lecture,
+      this.isSaveToServer,
+      this.path});
 }

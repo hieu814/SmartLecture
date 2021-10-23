@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -58,7 +59,7 @@ class HomeViewModel extends ChangeNotifier {
     _user = await _userService.getUser();
     return getJson("lecture").then((value) {
       Lecture example = Lecture.fromJson(json.decode(value)["LECTURE"]);
-      example.authorId = _user.email;
+      example.authorId = _user.userID;
       var curentTime = DateTime.now();
       example.createdDate =
           DateFormat('hh:mm:ss MM-dd-yyyy').format(curentTime);
@@ -78,6 +79,13 @@ class HomeViewModel extends ChangeNotifier {
     return null;
   }
 
+  Future<Void> feleteFileLecture(String path) async {
+    File _file = File(path);
+    if (await _file.exists()) _file.delete();
+    load();
+    notifyListeners();
+  }
+
   Future<List<String>> loadAllLecture() async {
     final dir = await getApplicationDocumentsDirectory();
     final imagesDirectory = Directory(dir.path + "/lectures/");
@@ -92,10 +100,12 @@ class HomeViewModel extends ChangeNotifier {
         String data = _file.readAsStringSync();
         var pdfText = await json.decode(json.encode(data));
         try {
-          // var a = json.decode(pdfText.toString().trim());
+          var lectueId = _file.path.split("/").last.split("_").first;
+          //print("loadAllLecture file name: $ss");
           Lecture a = Lecture.fromJson(json.decode(pdfText)["LECTURE"]);
           _listMylecture.add(LectuteData(
-              id: "",
+              id: lectueId ?? "",
+              path: _file.path,
               lecture: Lecture.fromJson(json.decode(pdfText)["LECTURE"])));
           notifyListeners();
         } catch (e) {

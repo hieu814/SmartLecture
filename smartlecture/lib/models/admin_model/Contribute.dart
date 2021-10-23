@@ -15,7 +15,7 @@ class Contribute {
       this.status = false,
       this.date,
       this.path,
-      this.lectureName});
+      this.lectureName = ""});
 
   Map<String, dynamic> toJson() {
     return {

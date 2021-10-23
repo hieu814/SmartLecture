@@ -1,13 +1,17 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
 import 'package:smartlecture/ui/modules/Setting.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
+import 'package:smartlecture/ui/views/Home/home_viewmodel.dart';
+import 'package:smartlecture/ui/views/contribute/Contribute_view.dart';
 import 'package:smartlecture/widgets/components/Page.dart';
+import 'package:smartlecture/widgets/popup/popup.dart';
 
-class LectureDelegate extends StatelessWidget {
+class LectureDelegate extends StatefulWidget {
   final LectuteData item;
   final double width;
   final double heigth;
@@ -15,12 +19,37 @@ class LectureDelegate extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<LectureDelegate> createState() => _LectureDelegateState();
+}
+
+class _LectureDelegateState extends State<LectureDelegate> {
+  @override
   Widget build(BuildContext context) {
     return Card(
       child: GestureDetector(
         onTap: () {
-          item.isSaveToServer = locator<MySetting>().isSync;
-          Navigator.pushNamed(context, RouteName.sectionPage, arguments: item);
+          widget.item.isSaveToServer = locator<MySetting>().isSync;
+          Navigator.pushNamed(context, RouteName.sectionPage,
+              arguments: widget.item);
+        },
+        onLongPress: () async {
+          bool a = await showMenu<bool>(
+            context: context,
+            position: RelativeRect.fromLTRB(100, 100, 100, 100),
+            items: [
+              PopupMenuItem<bool>(child: const Text('Xóa'), value: true),
+            ],
+            elevation: 8.0,
+          );
+          if (a) {
+            popupYesNo(context).then((value) {
+              if (value)
+                context
+                    .read<HomeViewModel>()
+                    .feleteFileLecture(widget.item.path);
+            });
+            // context.read<HomeViewModel>().feleteFileLecture(widget.item.path);
+          }
         },
         child: Column(
           children: <Widget>[
@@ -28,9 +57,9 @@ class LectureDelegate extends StatelessWidget {
               flex: 5,
               child: Container(
                 child: IPage(
-                  width: width,
-                  height: heigth,
-                  page: item.lecture.section[0].page[0],
+                  width: widget.width,
+                  height: widget.heigth,
+                  page: widget.item.lecture.section[0].page[0],
                   isPresentation: true,
                 ),
               ),
@@ -46,7 +75,7 @@ class LectureDelegate extends StatelessWidget {
                   children: <Widget>[
                     const SizedBox(height: 8),
                     Text(
-                      item.lecture.title,
+                      widget.item.lecture.title,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.red,
@@ -62,6 +91,17 @@ class LectureDelegate extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void _showPopupMenu() async {
+    await showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(100, 100, 100, 100),
+      items: [
+        PopupMenuItem<bool>(child: const Text('Xóa'), value: true),
+      ],
+      elevation: 8.0,
     );
   }
 }

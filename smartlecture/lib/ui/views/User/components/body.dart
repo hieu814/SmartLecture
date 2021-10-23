@@ -36,10 +36,17 @@ class _BodyState extends State<Body> {
             },
           ),
           ProfileMenu(
-            text: "Thông báo",
-            icon: "assets/icons/Bell.svg",
-            press: () {},
+            text: "Bài giảng của bạn",
+            icon: "assets/icons/Documents.svg",
+            press: () {
+              Navigator.pushNamed(context, RouteName.myLectures);
+            },
           ),
+          // ProfileMenu(
+          //   text: "Thông báo",
+          //   icon: "assets/icons/Bell.svg",
+          //   press: () {},
+          // ),
           ProfileMenu(
             text: "Cài đặt",
             icon: "assets/icons/Settings.svg",

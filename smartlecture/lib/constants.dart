@@ -13,6 +13,7 @@ const defaultPadding = 16.0;
 
 const USER_ROLE_USER = 'user';
 const USER_ROLE_ADMIN = 'admin';
+const USER_ROLE_TEACHER = 'teacher';
 const USERS = 'users';
 const LECTUTES = 'lectures';
 const LIBRARY = 'library';
@@ -55,6 +56,7 @@ enum Type {
   ICROSS
 }
 enum TypeFolder {
+  FOLDER_NULL,
   FOLDER_IMAGE,
   FOLDER_CONTRIBUTE,
   FOLDER_VIDEO,

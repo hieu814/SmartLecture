@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/models/lecture_model/Item.dart';
 import 'package:smartlecture/ui/modules/Scale.dart';
 import 'package:smartlecture/ui/modules/function.dart';
@@ -67,16 +68,25 @@ class _ComponentState extends State<Component> {
   }
 
   void moveManageData() async {
-    await Navigator.push(
-      context,
-      CupertinoPageRoute(
-          fullscreenDialog: true,
-          builder: (context) => FormEdit(
-                item: temp,
-              )),
-    ).then((value) {
-      if (value == null) return;
-      savedata(value);
-    });
+    if (typeName.map[temp.name] == Type.IIMAGE) {
+      await editMedia(context, temp.itemInfo.image.url, false).then((value) {
+        if (value != null || value != "") {
+          temp.itemInfo.image.url = value;
+          savedata(temp);
+        }
+      });
+    } else {
+      await Navigator.push(
+        context,
+        CupertinoPageRoute(
+            fullscreenDialog: true,
+            builder: (context) => FormEdit(
+                  item: temp,
+                )),
+      ).then((value) {
+        if (value == null) return;
+        savedata(value);
+      });
+    }
   }
 }

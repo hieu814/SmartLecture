@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:smartlecture/models/lecture_model/Lecture.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
+import 'package:smartlecture/ui/views/Admin/components/LectureDetail.dart';
 import 'package:smartlecture/ui/views/Home/home_viewmodel.dart';
 import 'package:smartlecture/widgets/components/Page.dart';
 
@@ -36,15 +37,31 @@ class LectureDataDelegate extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 100,
-            height: 100,
-            child: IPage(
-              width: 800,
-              height: 600,
-              page: item.section[0].page[0],
-              isPresentation: true,
-            ),
+          Column(
+            children: [
+              GestureDetector(
+                onTap: () async {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => LectureDetail(
+                              id: doc.id,
+                              lecture: item,
+                            )),
+                  );
+                },
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  child: IPage(
+                    width: 800,
+                    height: 600,
+                    page: item.section[0].page[0],
+                    isPresentation: true,
+                  ),
+                ),
+              ),
+            ],
           ),
           SizedBox(
             width: 10,

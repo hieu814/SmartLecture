@@ -23,7 +23,10 @@ import 'package:smartlecture/widgets/popup/popup.dart';
 var db = FireStoreUtils.firestore;
 
 class LibraryViewModel extends ChangeNotifier {
+  String currentPath;
   UserLecture _myLectures;
+  Stream _streamQuery;
+  get streamData => _streamQuery;
   List<LectuteData> _listMylecture = <LectuteData>[];
   List<Contribute> _listLybrary = <Contribute>[];
   User _user;
@@ -34,27 +37,81 @@ class LibraryViewModel extends ChangeNotifier {
   LibraryViewModel() {
     _user = new User();
   }
-  Future<void> getdataLybrary(String path) async {
-    print("getdataLybrary path $path");
-    List<LectureDataStore> list = [];
-    QuerySnapshot querySnapshot =
-        await db.collection(FOLDER).doc(path).collection(CONTRIBUTE).get();
-    if (true) {
-      list = querySnapshot.docs.map((DocumentSnapshot doc) {
-        LectureDataStore data = LectureDataStore.fromMap(doc.data());
-        return LectureDataStore.fromMap(doc.data());
-      }).toList();
-      _listLybrary.clear();
+  void setPath(String path) {
+    currentPath = path;
+  }
 
-      list.forEach((element) async {
-        Contribute a;
-        a = await loadLibraryData(element.contributeId);
-        if (a != null) {
-          _listLybrary.add(a);
-          notifyListeners();
-        }
-      });
+  Future<User> getAuthor(String id) async {
+    try {
+      User user = User();
+      DocumentSnapshot documentSnapshot =
+          await FireStoreUtils.firestore.collection(USERS).doc(id).get();
+      if (documentSnapshot != null && documentSnapshot.exists) {
+        user = User.fromJson(documentSnapshot.data());
+      }
+    } catch (e) {
+      print(e.toString());
     }
+    return user;
+  }
+
+  Future<Lecture> getLecture(String id) async {
+    Lecture data = Lecture();
+    try {
+      DocumentSnapshot documentSnapshot =
+          await FireStoreUtils.firestore.collection(LECTUTES).doc(id).get();
+      if (documentSnapshot != null && documentSnapshot.exists) {
+        data = Lecture.fromJson(documentSnapshot.data());
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+    return data;
+  }
+
+  setStreamContribute(bool isAdmin) {}
+  Future<void> getdataLybrary(String path, bool isDuyet) async {
+    String role = await locator<UserService>().currentUser.role;
+    bool isAdmin = role == USER_ROLE_ADMIN || role == USER_ROLE_TEACHER;
+    print("getdataLybrary path $path");
+    if (path == "")
+      path = currentPath;
+    else
+      currentPath = path;
+    _streamQuery = db
+        .collection(CONTRIBUTE)
+        .where('status', isEqualTo: !isDuyet)
+        .where('path', isEqualTo: currentPath)
+        .snapshots();
+    // List<LectureDataStore> list = [];
+    // QuerySnapshot querySnapshot =
+    //     await db.collection(FOLDER).doc(path).collection(CONTRIBUTE).get();
+    // if (true) {
+    //   list = querySnapshot.docs.map((DocumentSnapshot doc) {
+    //     LectureDataStore data = LectureDataStore.fromMap(doc.data());
+    //     return LectureDataStore.fromMap(doc.data());
+    //   }).toList();
+    //   _listLybrary.clear();
+    //   list.forEach((element) async {
+    //     Contribute a;
+    //     a = await loadLibraryData(element.contributeId);
+    //     if (a != null) {
+    //       _listLybrary.add(a);
+    //     }
+    //   });
+    //   print("--------- list  lybrary len " + _listLybrary.length.toString());
+    // }
+    //notifyListeners();
+  }
+
+  Future<void> deleteFoderLectureDataStore(String id) {
+    return db
+        .collection(FOLDER)
+        .doc(currentPath)
+        .collection(CONTRIBUTE)
+        .doc(id)
+        .delete()
+        .catchError((error) => print('Delete failed: $error'));
   }
 
   Future<Contribute> loadLibraryData(String id) async {
@@ -73,16 +130,16 @@ class LibraryViewModel extends ChangeNotifier {
   Future<void> loadAll() async {
     _listMylecture.clear();
     _myLectures.lectures.forEach((element) async {
-      Lecture a;
+      LectuteData a;
       a = await loadLecture(element);
       if (a != null) {
-        _listMylecture.add(LectuteData(id: element, lecture: a));
+        _listMylecture.add(a);
         notifyListeners();
       }
     });
   }
 
-  Future<Lecture> loadLecture(String id) async {
+  Future<LectuteData> loadLecture(String id) async {
     Lecture a;
     DocumentSnapshot documentSnapshot =
         await FireStoreUtils.firestore.collection(LECTUTES).doc(id).get();
@@ -94,7 +151,7 @@ class LibraryViewModel extends ChangeNotifier {
         return null;
       }
 
-      return a;
+      return LectuteData(id: documentSnapshot.id, lecture: a);
     }
     return null;
   }
@@ -102,7 +159,11 @@ class LibraryViewModel extends ChangeNotifier {
   Future<void> download(BuildContext context, int index) async {
     print("download");
     String dir = await createFolderInAppDocDir("lectures");
-    String path = dir + _listMylecture[index].lecture.title + ".json";
+    String path = dir +
+        _listMylecture[index].id +
+        "_" +
+        _listMylecture[index].lecture.title +
+        ".json";
     File _file = File(path);
     if (await _file.exists()) {
       popupYesNo(context, title: "File đã tồn tại \nGhi đè?").then((value) {
@@ -113,6 +174,24 @@ class LibraryViewModel extends ChangeNotifier {
       });
     } else {
       _file.writeAsString(json.encode(toJson(_listMylecture[index].lecture)));
+    }
+  }
+
+  Future<void> downloadFromLybrary(
+      BuildContext context, Lecture lecture, String id) async {
+    print("download");
+    String dir = await createFolderInAppDocDir("lectures");
+    String path = dir + id + "_" + lecture.title + ".json";
+    File _file = File(path);
+    if (await _file.exists()) {
+      return popupYesNo(context, title: "File đã tồn tại \nGhi đè?")
+          .then((value) {
+        if (value) {
+          _file.writeAsString(json.encode(toJson(lecture)));
+        }
+      });
+    } else {
+      _file.writeAsString(json.encode(toJson(lecture)));
     }
   }
 

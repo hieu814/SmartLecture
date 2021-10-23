@@ -32,6 +32,33 @@ Future<bool> popupYesNo(BuildContext context, {String title}) async {
   );
 }
 
+Future<bool> popup2Option(BuildContext context,
+    {String title, String op1, String op2}) async {
+  return await showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      content: Text(title ?? ""),
+      actions: [
+        TextButton(
+            child: Text(op1, style: TextStyle(color: Colors.blue)),
+            onPressed: () {
+              Navigator.pop(context, false);
+            }),
+        TextButton(
+            child: Text(op2, style: TextStyle(color: Colors.blue)),
+            onPressed: () {
+              Navigator.pop(context, true);
+            }),
+        TextButton(
+            child: Text("Hủy", style: TextStyle(color: Colors.grey)),
+            onPressed: () {
+              Navigator.pop(context, null);
+            }),
+      ],
+    ),
+  );
+}
+
 Future<bool> popupOK(BuildContext context, String title) async {
   return await showDialog(
     context: context,

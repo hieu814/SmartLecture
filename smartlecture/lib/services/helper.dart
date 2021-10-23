@@ -4,8 +4,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:progress_dialog/progress_dialog.dart';
+import 'package:smartlecture/models/admin_model/ImageStore.dart';
 import 'package:smartlecture/services/authenticate.dart';
 import 'package:smartlecture/ui/modules/UserService.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
@@ -89,6 +91,8 @@ Future<String> readLecture() async {
   }
 }
 
+uploadImageToserver({String path, String url}) async {}
+
 //helper method to show progress
 ProgressDialog progressDialog;
 
@@ -109,7 +113,7 @@ showProgress(BuildContext context, String message, bool isDismissible) async {
       messageTextStyle: TextStyle(
           color: Colors.white, fontSize: 19.0, fontWeight: FontWeight.w600));
   await progressDialog.show().then((value) {
-    Future.delayed(const Duration(milliseconds: 6000), () {
+    Future.delayed(const Duration(milliseconds: 3000), () {
       hideProgress();
     });
   });

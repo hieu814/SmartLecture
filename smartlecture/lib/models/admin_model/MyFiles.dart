@@ -21,16 +21,16 @@ class CloudStorageInfo {
 
 List<CloudStorageInfo> demoMyFiles = [
   CloudStorageInfo(
-    title: "Video",
+    title: "Hình ảnh",
     numOfFiles: 0,
     type: VIDEOS,
-    icon: FontAwesomeIcons.youtube,
+    icon: FontAwesomeIcons.image,
     color: primaryColor,
   ),
   CloudStorageInfo(
-    title: "Audio",
+    title: "Bài giảng đóng góp",
     numOfFiles: 0,
-    icon: FontAwesomeIcons.fileAudio,
+    icon: FontAwesomeIcons.bookOpen,
     type: AUDIOS,
     color: Color(0xFFFFA113),
     percentage: 35,

@@ -54,6 +54,7 @@ class _HomeViewState extends State<HomeView> {
         onTap: (int id) async {
           if (id == 0) {
             setState(() {});
+            //await context.read<HomeViewModel>().load();
             // Navigator.pushNamedAndRemoveUntil(
             //     context, RouteName.homePage, ModalRoute.withName('/'));
           } else if (id == 1) {
@@ -62,14 +63,18 @@ class _HomeViewState extends State<HomeView> {
                 .addNewLecture()
                 .then((value) => {
                       Navigator.pushNamed(context, RouteName.sectionPage,
-                          arguments: LectuteData(
-                              id: "",
-                              lecture: value,
-                              isSaveToServer: locator<MySetting>().isSync))
+                              arguments: LectuteData(
+                                  id: "",
+                                  lecture: value,
+                                  isSaveToServer: locator<MySetting>().isSync))
+                          .then((value) {
+                        setState(() {});
+                      })
                     });
           } else if (id == 2) {
             //final a = await context.read<HomeViewModel>().loadAllLecture();
-            Navigator.pushNamed(context, RouteName.Library);
+            Navigator.pushNamed(context, RouteName.Library)
+                .then((value) => setState(() {}));
           }
         },
       ),

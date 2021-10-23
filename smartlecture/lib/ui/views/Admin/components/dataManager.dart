@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Admin/Dashboard_ViewModel.dart';
+import 'package:smartlecture/ui/views/Admin/components/Filter.dart';
 import 'package:smartlecture/ui/views/Admin/components/recent_files.dart';
 import 'package:smartlecture/ui/views/Admin/components/storage_details.dart';
 import 'package:smartlecture/ui/views/Home/home_viewmodel.dart';
@@ -16,7 +17,13 @@ import '../../../../constants.dart';
 import '../../../../responsive.dart';
 import 'my_fields.dart';
 
-class DashboardViewDataDetail extends StatelessWidget {
+class DashboardViewDataDetail extends StatefulWidget {
+  @override
+  State<DashboardViewDataDetail> createState() =>
+      _DashboardViewDataDetailState();
+}
+
+class _DashboardViewDataDetailState extends State<DashboardViewDataDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,10 +69,18 @@ class DashboardData extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            "My Filess",
-                            style: Theme.of(context).textTheme.subtitle1,
-                          ),
+                          if (context.read<AdminViewModel>().collection !=
+                              CONTRIBUTE)
+                            Expanded(
+                              child:
+                                  SizedBox(height: 50, child: FilterWidget()),
+                            ),
+                          if (context.read<AdminViewModel>().collection ==
+                              USERS)
+                            Text(
+                              "Danh sách",
+                              style: Theme.of(context).textTheme.subtitle1,
+                            ),
                           ElevatedButton.icon(
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.symmetric(

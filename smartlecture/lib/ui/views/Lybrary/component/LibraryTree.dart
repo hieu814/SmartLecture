@@ -159,9 +159,19 @@ class FileWidget extends StatelessWidget {
     checkAndOpenFolder(String path) async {
       if (_type == TypeFolder.FOLDER_LECTURE) {
         print("   path $path");
-        context.read<LibraryViewModel>().getdataLybrary(path);
-        await Navigator.pushNamed(context, RouteName.listLectures);
+        context
+            .read<LibraryViewModel>()
+            .getdataLybrary(path, false)
+            .then((value) {
+          Navigator.pushNamed(context, RouteName.listLectures);
+        });
       } else if (_type == TypeFolder.FOLDER_CONTRIBUTE) {
+        context
+            .read<LibraryViewModel>()
+            .getdataLybrary(path, true)
+            .then((value) {
+          Navigator.pushNamed(context, RouteName.listLectures);
+        });
       } else
         Navigator.pop(context, "$path");
     }

@@ -136,7 +136,8 @@ class _ContributeState extends State<ContributeScreen> {
                   splashColor: Color(COLOR_PRIMARY),
                   onPressed: () async {
                     final value = await Navigator.pushNamed(
-                        context, RouteName.libraryTree);
+                        context, RouteName.libraryTree,
+                        arguments: TypeFolder.FOLDER_NULL);
                     print("------------------path : $value");
                     path = value;
                     setState(() {});

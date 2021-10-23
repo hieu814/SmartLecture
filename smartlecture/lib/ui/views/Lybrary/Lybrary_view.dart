@@ -85,23 +85,7 @@ class _LibraryState extends State<LibraryScreen> {
           new Align(
               alignment: Alignment.topLeft,
               child: Text(
-                'Bài giảng của bạn',
-                style: TextStyle(
-                    color: Color(COLOR_PRIMARY),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25.0),
-              )),
-          ProfileMenu(
-            text: "Xem tất cả",
-            icon: "assets/icons/Documents.svg",
-            press: () {
-              Navigator.pushNamed(context, RouteName.myLectures);
-            },
-          ),
-          Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Thư viện bài giảng',
+                'Thư viện bài giảng BKT',
                 style: TextStyle(
                     color: Color(COLOR_PRIMARY),
                     fontWeight: FontWeight.bold,

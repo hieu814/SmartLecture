@@ -6,7 +6,9 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:smartlecture/constants.dart';
+import 'package:smartlecture/models/admin_model/ImageStore.dart';
 import 'package:smartlecture/models/lecture_model/Item.dart';
 import 'package:smartlecture/models/lecture_model/Lecture.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
@@ -30,7 +32,7 @@ class SectionViewModel with ChangeNotifier {
   SectionIndex _currentIndex;
   bool _loading;
   User currentUser;
-  String uid;
+  String uid = "";
   bool _isBusy;
   UserLecture myLectures;
   bool _isSaveToserver = false;
@@ -46,7 +48,9 @@ class SectionViewModel with ChangeNotifier {
     _loading = false;
     _lecture = data.lecture;
     _isSaveToserver = data.isSaveToServer;
+    uid = data.id;
     myLectures = new UserLecture(lectures: []);
+    load();
     _currentIndex = new SectionIndex(
         currentPageIndex: 0, currentSectionIndex: 0, currentItemIndex: 0);
   }
@@ -171,9 +175,9 @@ class SectionViewModel with ChangeNotifier {
         await db.collection(USER_LECTUTES).doc(currentUser.userID).get();
     if (doc != null && doc.exists) {
       myLectures = UserLecture.fromMap(doc.data());
-      myLectures.lectures.add(ltID);
+      if (!myLectures.lectures.contains(uid)) myLectures.lectures.add(ltID);
     } else {
-      myLectures.lectures.add(ltID);
+      if (!myLectures.lectures.contains(uid)) myLectures.lectures.add(ltID);
     }
     db
         .collection(USER_LECTUTES)
@@ -187,15 +191,24 @@ class SectionViewModel with ChangeNotifier {
     try {
       String dir = await createFolderInAppDocDir("lectures");
       String path = dir + _lecture.title + ".json";
+
       await locator<MySetting>().load();
+      bool isNull = uid == null || uid == "";
+      print("update data to server is null $isNull");
       if (locator<MySetting>().isSync) {
-        if (_lecture.id == "" || _lecture.id == null) {
-          await addLectures();
+        if (isNull) {
+          String idlt = await addLectures();
+          uid = idlt;
+
+          path = dir + idlt + "_" + _lecture.title + ".json";
+          print("update data to server  new path " + path);
         } else {
-          print("update data to server id: $uid");
+          print("save data id: $uid");
           await db.collection(LECTUTES).doc(uid).set(_lecture.toJson());
+          updateMyLectures(uid);
         }
       }
+      path = dir + uid + "_" + _lecture.title + ".json";
       File _file = File(path);
       _file.writeAsString(json.encode(toJson()));
     } catch (ex) {
@@ -204,11 +217,22 @@ class SectionViewModel with ChangeNotifier {
     }
   }
 
+  uploadImage(String path, String url) async {
+    try {
+      ImageStore data = ImageStore();
+      currentUser = await locator<UserService>().getUser();
+      data.userID = currentUser.userID;
+      data.createDate =
+          DateFormat('hh:mm:ss MM-dd-yyyy').format(DateTime.now());
+      db.collection(FOLDER).doc(path).collection(IMAGES).add(data.toMap());
+    } catch (e) {}
+  }
+
   Map<String, dynamic> toJson() => {
         "LECTURE": _lecture.toJson(),
       };
 
-  Future addLectures() async {
+  Future<String> addLectures() async {
     try {
       print("-----------------addLectures");
       DocumentReference docRef =
@@ -217,6 +241,7 @@ class SectionViewModel with ChangeNotifier {
         uid = docRef.id;
         _lecture.id = uid;
         updateMyLectures(docRef.id);
+        return uid;
       }
     } catch (ex) {
       print(ex.toString());
@@ -264,6 +289,14 @@ class SectionViewModel with ChangeNotifier {
 
   Future load() async {
     currentUser = await locator<UserService>().getUser();
+    DocumentSnapshot doc =
+        await db.collection(USER_LECTUTES).doc(currentUser.userID).get();
+    if (doc != null && doc.exists) {
+      myLectures = UserLecture.fromMap(doc.data());
+    } else {
+      myLectures = new UserLecture(lectures: []);
+    }
+    if (myLectures.lectures == null) myLectures.lectures = [];
   }
 
   void dispose() {

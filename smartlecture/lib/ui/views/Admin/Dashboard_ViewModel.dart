@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:smartlecture/constants.dart';
+import 'package:smartlecture/models/admin_model/Contribute.dart';
 import 'package:smartlecture/models/admin_model/MyFiles.dart';
 import 'package:smartlecture/models/admin_model/SizeData.dart';
+import 'package:smartlecture/models/lecture_model/Lecture.dart';
+import 'package:smartlecture/models/user_model/UserLectures.dart';
 import 'package:smartlecture/services/authenticate.dart';
 
 var _db = FireStoreUtils.firestore;
@@ -23,7 +26,9 @@ class AdminViewModel extends ChangeNotifier {
   SizeData _size;
   get sizeData => _size;
   Stream _streamQuery;
+  Stream _streamQueryImage;
   get streamData => _streamQuery;
+  get streamDataImage => _streamQueryImage;
   String _collection;
   get collection => _collection;
   List<CloudStorageInfo> datas = demoMyFiles;
@@ -39,14 +44,76 @@ class AdminViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  setFilterCollection(String collection) {
+    _streamQuery =
+        FirebaseFirestore.instance.collection(_collection).snapshots();
+    _collection = collection;
+    notifyListeners();
+  }
+
+  setFilterImage(String path) {
+    _streamQuery = FirebaseFirestore.instance
+        .collection(IMAGES)
+        .where('path', isEqualTo: path)
+        .snapshots();
+    _collection = collection;
+    notifyListeners();
+  }
+
   AdminViewModel() {
     _collection = USERS;
   }
+  updateMyLectures({String userID, String ltID, bool isDelete}) async {
+    UserLecture myLectures = UserLecture();
+    DocumentSnapshot doc =
+        await _db.collection(USER_LECTUTES).doc(userID).get();
+    if (doc != null && doc.exists) {
+      myLectures = UserLecture.fromMap(doc.data());
+      if (isDelete) {
+        myLectures.lectures.remove(ltID);
+      }
+      _db
+          .collection(USER_LECTUTES)
+          .doc(userID)
+          .set(myLectures.toMap())
+          .catchError((error) =>
+              print("-----------------updateMyLectures error: " + error));
+    }
+  }
+
   Future<void> deleteItem(String jobId) {
     notifyListeners();
     return _db
         .collection(_collection)
         .doc(jobId)
+        .delete()
+        .catchError((error) => print('Delete failed: $error'));
+  }
+
+  Future<Lecture> getLectureFromId(String id) async {
+    DocumentSnapshot documentSnapshot =
+        await FireStoreUtils.firestore.collection(LECTUTES).doc(id).get();
+    if (documentSnapshot != null && documentSnapshot.exists) {
+      return Lecture.fromJson(documentSnapshot.data());
+    }
+    return null;
+  }
+
+  Future<void> approveContribute(String id, Contribute data) {
+    notifyListeners();
+    data.status = true;
+    return _db
+        .collection(CONTRIBUTE)
+        .doc(id)
+        .set(data.toJson())
+        .catchError((error) => print('approveContribute failed: $error'));
+  }
+
+  Future<void> rejecteContribute(String id) {
+    notifyListeners();
+    return _db
+        .collection(CONTRIBUTE)
+        .doc(id)
         .delete()
         .catchError((error) => print('Delete failed: $error'));
   }

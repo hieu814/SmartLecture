@@ -4,17 +4,16 @@ class LectureDataStore {
   String images = "";
   String contributeId = "";
   String video = "";
-  LectureDataStore({
-    this.images,
-    this.contributeId,
-    this.video,
-  });
+  bool status = false;
+  LectureDataStore(
+      {this.images, this.contributeId, this.video, this.status = false});
 
   Map<String, dynamic> toMap() {
     return {
       'images': images,
       'contributeId': contributeId,
       'video': video,
+      'status': status,
     };
   }
 
@@ -23,6 +22,7 @@ class LectureDataStore {
       images: map['images'] ?? "",
       contributeId: map['contributeId'] ?? "",
       video: map['video'] ?? "",
+      status: map['status'] ?? false,
     );
   }
 
