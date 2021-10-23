@@ -50,7 +50,7 @@ class MyRouter {
       case RouteName.Library:
         return MaterialPageRoute(builder: (context) => LibraryScreen());
       case RouteName.myLectures:
-        return MaterialPageRoute(builder: (context) => MyLectures());
+        return MaterialPageRoute(builder: (context) => My_Lectures());
       case RouteName.listLectures:
         return MaterialPageRoute(builder: (context) => ListLectures());
       case RouteName.editUser:

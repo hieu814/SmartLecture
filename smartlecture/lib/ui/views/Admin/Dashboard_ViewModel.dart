@@ -64,11 +64,11 @@ class AdminViewModel extends ChangeNotifier {
     _collection = USERS;
   }
   updateMyLectures({String userID, String ltID, bool isDelete}) async {
-    UserLecture myLectures = UserLecture();
+    MyLectures myLectures = MyLectures();
     DocumentSnapshot doc =
         await _db.collection(USER_LECTUTES).doc(userID).get();
     if (doc != null && doc.exists) {
-      myLectures = UserLecture.fromMap(doc.data());
+      myLectures = MyLectures.fromMap(doc.data());
       if (isDelete) {
         myLectures.lectures.remove(ltID);
       }

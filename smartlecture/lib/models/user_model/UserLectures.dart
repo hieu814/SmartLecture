@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-class UserLecture {
+class MyLectures {
   List<String> lectures;
-  UserLecture({
+  MyLectures({
     this.lectures,
   });
 
@@ -12,14 +12,14 @@ class UserLecture {
     };
   }
 
-  factory UserLecture.fromMap(Map<String, dynamic> map) {
-    return UserLecture(
+  factory MyLectures.fromMap(Map<String, dynamic> map) {
+    return MyLectures(
       lectures: List<String>.from(map['lectures']),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory UserLecture.fromJson(String source) =>
-      UserLecture.fromMap(json.decode(source));
+  factory MyLectures.fromJson(String source) =>
+      MyLectures.fromMap(json.decode(source));
 }

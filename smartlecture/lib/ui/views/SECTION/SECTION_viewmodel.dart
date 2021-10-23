@@ -34,7 +34,7 @@ class SectionViewModel with ChangeNotifier {
   User currentUser;
   String uid = "";
   bool _isBusy;
-  UserLecture myLectures;
+  MyLectures myLectures;
   bool _isSaveToserver = false;
   get loadData => _loading;
   get currentIndex => _currentIndex;
@@ -49,7 +49,7 @@ class SectionViewModel with ChangeNotifier {
     _lecture = data.lecture;
     _isSaveToserver = data.isSaveToServer;
     uid = data.id;
-    myLectures = new UserLecture(lectures: []);
+    myLectures = new MyLectures(lectures: []);
     load();
     _currentIndex = new SectionIndex(
         currentPageIndex: 0, currentSectionIndex: 0, currentItemIndex: 0);
@@ -174,7 +174,7 @@ class SectionViewModel with ChangeNotifier {
     DocumentSnapshot doc =
         await db.collection(USER_LECTUTES).doc(currentUser.userID).get();
     if (doc != null && doc.exists) {
-      myLectures = UserLecture.fromMap(doc.data());
+      myLectures = MyLectures.fromMap(doc.data());
       if (!myLectures.lectures.contains(uid)) myLectures.lectures.add(ltID);
     } else {
       if (!myLectures.lectures.contains(uid)) myLectures.lectures.add(ltID);
@@ -292,9 +292,9 @@ class SectionViewModel with ChangeNotifier {
     DocumentSnapshot doc =
         await db.collection(USER_LECTUTES).doc(currentUser.userID).get();
     if (doc != null && doc.exists) {
-      myLectures = UserLecture.fromMap(doc.data());
+      myLectures = MyLectures.fromMap(doc.data());
     } else {
-      myLectures = new UserLecture(lectures: []);
+      myLectures = new MyLectures(lectures: []);
     }
     if (myLectures.lectures == null) myLectures.lectures = [];
   }

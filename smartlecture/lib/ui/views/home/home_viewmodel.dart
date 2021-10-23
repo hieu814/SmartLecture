@@ -21,11 +21,11 @@ import 'package:firebase_auth/firebase_auth.dart' as auth;
 var db = FireStoreUtils.firestore;
 
 class HomeViewModel extends ChangeNotifier {
-  UserLecture _myLectures;
+  MyLectures _myLectures;
   List<LectuteData> _listMylecture = <LectuteData>[];
   User _user;
   User get user => _user;
-  UserLecture get mylectutes => _myLectures;
+  MyLectures get mylectutes => _myLectures;
   List<LectuteData> get items => _listMylecture;
   HomeViewModel() {
     _user = new User();
@@ -129,7 +129,7 @@ class HomeViewModel extends ChangeNotifier {
     DocumentSnapshot doc =
         await db.collection(USER_LECTUTES).doc(_user.userID).get();
     if (doc != null && doc.exists) {
-      _myLectures = UserLecture.fromMap(doc.data());
+      _myLectures = MyLectures.fromMap(doc.data());
     } else {}
     _listMylecture.clear();
     await loadAllLecture();

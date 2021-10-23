@@ -24,14 +24,14 @@ var db = FireStoreUtils.firestore;
 
 class LibraryViewModel extends ChangeNotifier {
   String currentPath;
-  UserLecture _myLectures;
+  MyLectures _myLectures;
   Stream _streamQuery;
   get streamData => _streamQuery;
   List<LectuteData> _listMylecture = <LectuteData>[];
   List<Contribute> _listLybrary = <Contribute>[];
   User _user;
   User get user => _user;
-  UserLecture get mylectutes => _myLectures;
+  MyLectures get mylectutes => _myLectures;
   List<LectuteData> get items => _listMylecture;
   List<Contribute> get itemsLybrary => _listLybrary;
   LibraryViewModel() {
@@ -207,7 +207,7 @@ class LibraryViewModel extends ChangeNotifier {
       DocumentSnapshot doc =
           await db.collection(USER_LECTUTES).doc(_user.userID).get();
       if (doc != null && doc.exists) {
-        _myLectures = UserLecture.fromMap(doc.data());
+        _myLectures = MyLectures.fromMap(doc.data());
       } else {}
       _listMylecture.clear();
       await loadAll();

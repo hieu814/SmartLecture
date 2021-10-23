@@ -20,12 +20,12 @@ import 'package:smartlecture/widgets/popup/popup.dart';
 
 int _value;
 
-class MyLectures extends StatefulWidget {
+class My_Lectures extends StatefulWidget {
   @override
-  State<MyLectures> createState() => _MyLecturesState();
+  State<My_Lectures> createState() => _My_LecturesState();
 }
 
-class _MyLecturesState extends State<MyLectures> {
+class _My_LecturesState extends State<My_Lectures> {
   bool isinit = false;
   @override
   void initState() {

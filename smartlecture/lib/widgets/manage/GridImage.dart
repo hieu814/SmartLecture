@@ -24,10 +24,8 @@ bool isenabletext = true;
 
 class ImageFromServer extends StatefulWidget {
   final String url;
-  final bool isVideo;
   final Function(String) returnData;
-  const ImageFromServer({Key key, this.url, this.returnData, this.isVideo})
-      : super(key: key);
+  const ImageFromServer({Key key, this.url, this.returnData}) : super(key: key);
 
   @override
   _ImageFromServerState createState() => _ImageFromServerState();

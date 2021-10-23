@@ -105,11 +105,11 @@ class ContributeViewModel extends ChangeNotifier {
 
   updateMyLectures(String ltID) async {
     var currentUser = await locator<UserService>().getUser();
-    UserLecture myLectures;
+    MyLectures myLectures;
     DocumentSnapshot doc =
         await db.collection(USER_LECTUTES).doc(currentUser.userID).get();
     if (doc != null && doc.exists) {
-      myLectures = UserLecture.fromMap(doc.data());
+      myLectures = MyLectures.fromMap(doc.data());
       myLectures.lectures.add(ltID);
     } else {
       myLectures.lectures.add(ltID);

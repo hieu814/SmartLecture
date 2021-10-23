@@ -27,7 +27,7 @@ class PresentationViewModel with ChangeNotifier {
   User currentUser;
   String uid;
 
-  UserLecture myLectures;
+  MyLectures myLectures;
   get currentIndex => _currentIndex;
   get lecture => _lecture;
 
