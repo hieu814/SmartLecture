@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:ffi';
+
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -79,7 +79,7 @@ class HomeViewModel extends ChangeNotifier {
     return null;
   }
 
-  Future<Void> feleteFileLecture(String path) async {
+  Future feleteFileLecture(String path) async {
     File _file = File(path);
     if (await _file.exists()) _file.delete();
     load();
@@ -90,10 +90,11 @@ class HomeViewModel extends ChangeNotifier {
     final dir = await getApplicationDocumentsDirectory();
     final imagesDirectory = Directory(dir.path + "/lectures/");
 
-    print("loadAllLecture");
+    print("loadAllLecture " + imagesDirectory.toString());
     print("");
     final _lecturesFile =
         imagesDirectory.listSync(followLinks: false, recursive: true);
+    print("loadAllLecture imagesDirectory");
     _lecturesFile.forEach((entity) async {
       if (entity is File) {
         File _file = (entity as File);

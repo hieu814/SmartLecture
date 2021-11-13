@@ -205,34 +205,36 @@ class _ContributeDetailState extends State<ContributeDetail> {
                 temp.message,
                 style: TextStyle(fontSize: 20.0),
               )),
-          Padding(
-            padding: const EdgeInsets.only(right: 40.0, left: 40.0, top: 40.0),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(minWidth: double.infinity),
-              child: RaisedButton(
-                color: Color(COLOR_PRIMARY),
-                child: Text(
-                  'Duyệt',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          if (temp.status == false)
+            Padding(
+              padding:
+                  const EdgeInsets.only(right: 40.0, left: 40.0, top: 40.0),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minWidth: double.infinity),
+                child: RaisedButton(
+                  color: Color(COLOR_PRIMARY),
+                  child: Text(
+                    'Duyệt',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  textColor: Colors.white,
+                  splashColor: Color(COLOR_PRIMARY),
+                  onPressed: () async {
+                    await context
+                        .read<AdminViewModel>()
+                        .approveContribute(widget.id, temp)
+                        .then((_) async {
+                      await popupOK(context, "Đã duyệt")
+                          .then((value) => Navigator.pop(context));
+                    });
+                  },
+                  padding: EdgeInsets.only(top: 12, bottom: 12),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                      side: BorderSide(color: Color(COLOR_PRIMARY))),
                 ),
-                textColor: Colors.white,
-                splashColor: Color(COLOR_PRIMARY),
-                onPressed: () async {
-                  await context
-                      .read<AdminViewModel>()
-                      .approveContribute(widget.id, temp)
-                      .then((_) async {
-                    await popupOK(context, "Đã duyệt")
-                        .then((value) => Navigator.pop(context));
-                  });
-                },
-                padding: EdgeInsets.only(top: 12, bottom: 12),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                    side: BorderSide(color: Color(COLOR_PRIMARY))),
               ),
             ),
-          ),
           Padding(
             padding: const EdgeInsets.only(right: 40.0, left: 40.0, top: 40.0),
             child: ConstrainedBox(

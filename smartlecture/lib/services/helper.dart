@@ -4,13 +4,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:smartlecture/models/admin_model/ImageStore.dart';
+import 'package:smartlecture/models/lecture_model/Lecture.dart';
 import 'package:smartlecture/services/authenticate.dart';
 import 'package:smartlecture/ui/modules/UserService.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
+import 'package:xml/xml.dart';
 
 import '../constants.dart';
 
@@ -219,12 +222,13 @@ Widget _getPlaceholderOrErrorImage(double size, hasBorder) => Container(
         width: size,
       )),
     );
-Future<String> createFolderInAppDocDir(String folderName) async {
+Future<String> createFolderInAppDocDir2(String folderName) async {
   //Get this App Document Directory
-  final Directory _appDocDir = await getApplicationDocumentsDirectory();
+
+  final Directory _appDocDir = await getExternalStorageDirectory();
   //App Document Directory + folder name
   final Directory _appDocDirFolder =
-      Directory('${_appDocDir.path}/$folderName/');
+      Directory('${_appDocDir.absolute.path}/$folderName/');
 
   if (await _appDocDirFolder.exists()) {
     //if folder already exists return path
@@ -235,4 +239,111 @@ Future<String> createFolderInAppDocDir(String folderName) async {
         await _appDocDirFolder.create(recursive: true);
     return _appDocDirNewFolder.path;
   }
+}
+
+Future<String> createFolderInAppDocDir(String folderName) async {
+  //Get this App Document Directory
+
+  final Directory _appDocDir = await getApplicationDocumentsDirectory();
+  //App Document Directory + folder name
+  final Directory _appDocDirFolder =
+      Directory('${_appDocDir.absolute.path}/$folderName/');
+
+  if (await _appDocDirFolder.exists()) {
+    //if folder already exists return path
+    return _appDocDirFolder.path;
+  } else {
+    //if folder not exists create folder and then return its path
+    final Directory _appDocDirNewFolder =
+        await _appDocDirFolder.create(recursive: true);
+    return _appDocDirNewFolder.path;
+  }
+}
+
+String toXML(Lecture a) {
+  final builder = XmlBuilder();
+  buildBook(builder, {"LECTURE": a.toJson()});
+  final bookshelfXml = builder.buildDocument();
+  print(bookshelfXml.toString());
+  return bookshelfXml.toString();
+}
+
+void buildBook(XmlBuilder builder, Map<String, dynamic> data) {
+  print("");
+  print("--------- key : " + data.keys.single);
+  print("---------: " + data.toString());
+  if (data == null) return;
+
+  builder.element(data.keys.single, nest: () {
+    print("");
+    print("value: " + data.values.single.toString());
+    print("");
+    Map<String, dynamic> valuess = data.values.single;
+
+    valuess.forEach((k, v) {
+      if (v is String || v is int || v is double)
+        addAttribute(builder, k, v.toString());
+      else if (v is List<Map<String, String>>) {
+        print("");
+        print("data List<Map<String, String>> : " + v.toString());
+        print("");
+        for (var item in v) {
+          addElement(builder, k, item.keys.single, item.values.single);
+        }
+      } else if (v is List<dynamic>) {
+        print("");
+        print("data list Dynamic : " + k);
+        print("");
+        addListElement(builder, k, v);
+      } else if (v == null) {
+        //addAttribute(builder, k, "null");
+      } else {
+        print("");
+        print("data else : " + v.toString());
+        print("");
+        buildBook(builder, {
+          k: v,
+        });
+      }
+    });
+  });
+  print("");
+}
+
+void addAttribute(XmlBuilder builder, String key, String valued) {
+  builder.attribute(key, valued);
+}
+
+void addElement(XmlBuilder builder, String key, String valKey, String value) {
+  builder.element(key, nest: () {
+    builder.attribute(valKey, value);
+  });
+}
+
+void addListElement(XmlBuilder builder, String key, List<dynamic> data) {
+  print("addListElement key: " + key);
+
+  for (Map<String, dynamic> item in data) {
+    print("addListElement each: " + item.toString());
+    buildBook(builder, {key: item});
+  }
+}
+
+Future<void> sendEmailContribute(String path, String message) async {
+  final Email email = Email(
+    subject: "[BKT Smart English Mobile] đóng góp bài giảng",
+    body: message,
+    recipients: ["hieuvu81198@gmail.com"],
+    attachmentPaths: [path],
+  );
+
+  String platformResponse;
+
+  try {
+    await FlutterEmailSender.send(email);
+    platformResponse = 'success';
+  } catch (error) {
+    platformResponse = error.toString();
+  }
+  print("sendEmailContribute result: $platformResponse");
 }

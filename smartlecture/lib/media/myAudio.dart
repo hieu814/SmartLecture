@@ -3,15 +3,17 @@ import 'package:flutter/material.dart';
 
 class MyAudio extends ChangeNotifier {
   Duration totalDuration;
+  AudioPlayer audioPlayer;
+  AudioCache _audioCache;
   Duration position;
   String audioState;
   String url;
 
   MyAudio() {
+    audioPlayer = AudioPlayer();
+    _audioCache = AudioCache(fixedPlayer: audioPlayer);
     initAudio();
   }
-
-  AudioPlayer audioPlayer = AudioPlayer();
 
   initAudio() {
     audioPlayer.onDurationChanged.listen((updatedDuration) {
@@ -33,16 +35,16 @@ class MyAudio extends ChangeNotifier {
     });
   }
 
-  playAudio() {
+  playAudio() async {
     audioPlayer.play(url);
   }
 
-  pauseAudio() {
-    audioPlayer.pause();
+  stopAudio() async {
+    int result = await audioPlayer.stop();
   }
 
-  stopAudio() {
-    audioPlayer.stop();
+  pauseAudio() async {
+    int result = await audioPlayer.pause();
   }
 
   seekAudio(Duration durationToSeek) {

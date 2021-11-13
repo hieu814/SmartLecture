@@ -42,12 +42,14 @@ class LibraryViewModel extends ChangeNotifier {
   }
 
   Future<User> getAuthor(String id) async {
+    User user = User();
     try {
-      User user = User();
       DocumentSnapshot documentSnapshot =
           await FireStoreUtils.firestore.collection(USERS).doc(id).get();
       if (documentSnapshot != null && documentSnapshot.exists) {
         user = User.fromJson(documentSnapshot.data());
+        print("get User : " + user.toJson().toString());
+        return user;
       }
     } catch (e) {
       print(e.toString());
@@ -69,7 +71,7 @@ class LibraryViewModel extends ChangeNotifier {
     return data;
   }
 
-  setStreamContribute(bool isAdmin) {}
+  setStreamContribute(bool isAdmin, {String pat}) {}
   Future<void> getdataLybrary(String path, bool isDuyet) async {
     String role = await locator<UserService>().currentUser.role;
     bool isAdmin = role == USER_ROLE_ADMIN || role == USER_ROLE_TEACHER;

@@ -16,6 +16,8 @@ import 'package:smartlecture/models/lecture_model/Page.dart' as p;
 import 'package:smartlecture/constants.dart' as cst;
 import 'package:provider/provider.dart';
 
+AudioPlayer audioPlayer = AudioPlayer();
+
 class PresentationView extends StatefulWidget {
   final Lecture data;
   PresentationView(this.data);
@@ -129,16 +131,26 @@ class _PresentationViewState extends State<PresentationView> {
                               decoration: BoxDecoration(
                                   border:
                                       Border.all(width: 1, color: Colors.red)),
-                              child: IPage(
-                                width: MediaQuery.of(context).size.width,
-                                height: 6 * width / 8,
-                                isPresentation: true,
-                                curentItem: model.currentIndex.currentItemIndex,
-                                page: model
-                                    .lecture
-                                    .section[
-                                        model.currentIndex.currentSectionIndex]
-                                    .page[model.currentIndex.currentPageIndex],
+                              child: GestureDetector(
+                                onTap: () {
+                                  locator<MyAudio>().url =
+                                      "https://aredir.nixcdn.com/NhacCuaTui220/MyLady-Yanbi-MrT-Bueno-TMT_3znvk.mp3?st=sQRIMCC8TcAiq7I0deCB6Q&e=1624533949";
+
+                                  // locator<MyAudio>().stopAudio();
+                                },
+                                child: IPage(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 6 * width / 8,
+                                  isPresentation: true,
+                                  curentItem:
+                                      model.currentIndex.currentItemIndex,
+                                  page: model
+                                          .lecture
+                                          .section[model
+                                              .currentIndex.currentSectionIndex]
+                                          .page[
+                                      model.currentIndex.currentPageIndex],
+                                ),
                               ),
                             )),
                             Positioned(
@@ -150,7 +162,8 @@ class _PresentationViewState extends State<PresentationView> {
                                       child: FloatingActionButton(
                                         heroTag: "btn2",
                                         child: Icon(Icons.arrow_back_ios),
-                                        onPressed: () {
+                                        onPressed: () async {
+                                          locator<MyAudio>().stopAudio();
                                           model.decreasePageIndex();
                                         },
                                       ),
@@ -165,7 +178,8 @@ class _PresentationViewState extends State<PresentationView> {
                                       child: FloatingActionButton(
                                         heroTag: "btn1",
                                         child: Icon(Icons.arrow_forward_ios),
-                                        onPressed: () {
+                                        onPressed: () async {
+                                          locator<MyAudio>().stopAudio();
                                           model.increasePageIndex();
                                         },
                                       ),

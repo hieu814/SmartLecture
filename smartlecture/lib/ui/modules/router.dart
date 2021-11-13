@@ -8,6 +8,7 @@ import 'package:smartlecture/models/lecture_model/LectuteData.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Admin/Dashboard_View.dart';
 import 'package:smartlecture/ui/views/Admin/components/dataManager.dart';
+import 'package:smartlecture/ui/views/Admin/components/delegate/ImageManager.dart';
 import 'package:smartlecture/ui/views/Home/home_view.dart';
 import 'package:smartlecture/ui/views/Login/Login.dart';
 import 'package:smartlecture/ui/views/Login/SignUp_view.dart';
@@ -65,6 +66,8 @@ class MyRouter {
         return MaterialPageRoute(builder: (context) => SettingsScreen());
       case RouteName.contribute:
         return MaterialPageRoute(builder: (context) => ContributeScreen());
+      case RouteName.imageManager:
+        return MaterialPageRoute(builder: (context) => ImageManager());
       case '/':
         // don't generate route on start-up
         return null;

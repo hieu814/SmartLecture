@@ -15,6 +15,7 @@ import 'package:smartlecture/services/helper.dart';
 import 'package:smartlecture/ui/modules/UserService.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/ui/views/Admin/components/Filter.dart';
+import 'package:smartlecture/ui/views/Admin/components/delegate/ImageGrid.dart';
 import 'package:smartlecture/widgets/manage/EditMedia.dart';
 import 'package:smartlecture/widgets/popup/popup.dart';
 
@@ -41,11 +42,13 @@ class _FormEditMediaState extends State<FormEditMedia> {
   TextEditingController textController = new TextEditingController();
   String temp;
   String path = "";
+  bool isAdmin = false;
   @override
   void initState() {
     super.initState();
     temp = widget.url ?? "";
     textController.text = temp;
+    isAdmin = widget.isVideo ?? false;
   }
 
   @override
@@ -106,41 +109,53 @@ class _FormEditMediaState extends State<FormEditMedia> {
               SizedBox(
                 height: 10,
               ),
-              Text(
-                "Mục",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 7,
-                    child: FilterWidget(
-                      width: double.infinity,
-                      height: 50,
-                      returnData: (a) {
-                        print("path: $a");
-                        path = a;
-                      },
-                    ),
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: ElevatedButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: defaultPadding * 1.5,
-                          vertical: defaultPadding /
-                              (Responsive.isMobile(context) ? 2 : 1),
-                        ),
+              if (!isAdmin)
+                Text(
+                  "Mục",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              if (!isAdmin)
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 7,
+                      child: FilterWidget(
+                        width: double.infinity,
+                        height: 50,
+                        returnData: (a) {
+                          print("path: $a");
+                          path = a;
+                        },
                       ),
-                      onPressed: () async {
-                        _onCameraClick();
-                      },
-                      child: Text("Chọn Ảnh"),
                     ),
-                  ),
-                ],
-              ),
+                    Expanded(
+                      flex: 3,
+                      child: ElevatedButton(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: defaultPadding * 1.5,
+                            vertical: defaultPadding /
+                                (Responsive.isMobile(context) ? 2 : 1),
+                          ),
+                        ),
+                        onPressed: () async {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ImageGrid()),
+                          ).then((url) {
+                            print("----- pop url: $url");
+
+                            textController.text = url ?? "";
+                            temp = url ?? "";
+                            setState(() {});
+                          });
+                        },
+                        child: Text("Chọn Ảnh"),
+                      ),
+                    ),
+                  ],
+                ),
               SizedBox(
                 height: 10,
               ),
@@ -214,6 +229,7 @@ class _FormEditMediaState extends State<FormEditMedia> {
       var currentUser = await locator<UserService>().getUser();
       data.userID = currentUser.userID;
       data.url = profilePictureURL;
+      data.path = path;
       data.createDate =
           DateFormat('hh:mm:ss MM-dd-yyyy').format(DateTime.now());
       await db.collection(IMAGES).add(data.toMap()).whenComplete(() {

@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:smartlecture/constants.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
+import 'package:smartlecture/services/helper.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/contribute/Contribute_view.dart';
 import 'package:smartlecture/widgets/components/Page.dart';
@@ -153,7 +154,7 @@ class _ContributeState extends State<ContributeScreen> {
           ConstrainedBox(
               constraints: BoxConstraints(minWidth: double.infinity),
               child: Container(
-                height: 300,
+                height: 200,
                 child: Padding(
                     padding:
                         const EdgeInsets.only(top: 16.0, right: 8.0, left: 8.0),
@@ -205,6 +206,47 @@ class _ContributeState extends State<ContributeScreen> {
                       .then((_) async {
                     await popupOK(context, "Cảm ơn bạn đã đóng góp")
                         .then((value) => Navigator.pop(context));
+                  });
+                },
+                padding: EdgeInsets.only(top: 12, bottom: 12),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                    side: BorderSide(color: Color(COLOR_PRIMARY))),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 40.0, left: 40.0, top: 40.0),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minWidth: double.infinity),
+              child: RaisedButton(
+                color: Color(COLOR_PRIMARY),
+                child: Text(
+                  'Đóng góp qua mail',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                textColor: Colors.white,
+                splashColor: Colors.red,
+                onPressed: () async {
+                  if (context.read<ContributeViewModel>().myLecture.length <
+                      1) {
+                    popupOK(context, "Vui lòng chọn một bài giảng");
+                    return;
+                  }
+                  if (path == "") {
+                    popupOK(context, "Vui lòng chọn một mục");
+                    return;
+                  }
+                  await context
+                      .read<ContributeViewModel>()
+                      .contributeSendGamil(index, message, path)
+                      .then((path) async {
+                    if (path != "")
+                      await sendEmailContribute(path, message).then((_) async {
+                        print("dong gop ok");
+                        await popupOK(context, "Cảm ơn bạn đã đóng góp")
+                            .then((value) => Navigator.pop(context));
+                      });
                   });
                 },
                 padding: EdgeInsets.only(top: 12, bottom: 12),

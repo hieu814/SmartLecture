@@ -15,4 +15,5 @@ class RouteName {
   static const String libraryTree = '/libraryTree';
   static const String myLectures = '/myLectures';
   static const String listLectures = '/listLectures';
+  static const String imageManager = '/imageManager';
 }

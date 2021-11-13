@@ -12,6 +12,7 @@ class ResizebleWidget extends StatefulWidget {
   final void Function(double height, double width) onSizeChange;
   final VoidCallback onDoubleTap;
   final VoidCallback onTap;
+  final VoidCallback onHold;
   final bool isSelect;
   final double width;
   final double height;
@@ -30,7 +31,8 @@ class ResizebleWidget extends StatefulWidget {
       this.onDoubleTap,
       this.scale,
       this.isSelect,
-      this.onTap});
+      this.onTap,
+      this.onHold});
 
   @override
   _ResizebleWidgetState createState() => _ResizebleWidgetState();
@@ -77,6 +79,7 @@ class _ResizebleWidgetState extends State<ResizebleWidget> {
                 });
               },
               onDoubleTap: widget.onDoubleTap,
+              onHold: widget.onHold,
               onTap: widget.onTap,
               onDragEnd: () {
                 widget.onPositionChange(left, top);

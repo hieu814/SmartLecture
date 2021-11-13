@@ -1,11 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
+import 'package:smartlecture/models/lecture_model/Lecture.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
+import 'package:smartlecture/services/helper.dart';
 import 'package:smartlecture/ui/modules/Setting.dart';
 import 'package:smartlecture/ui/modules/injection.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Section/components/LectureWidget.dart';
 import 'package:provider/provider.dart';
 import 'package:smartlecture/widgets/layout/side_menu.dart';
+import 'package:xml/xml.dart';
 import 'home_viewmodel.dart';
 
 class HomeView extends StatefulWidget {
@@ -61,16 +66,19 @@ class _HomeViewState extends State<HomeView> {
             await context
                 .read<HomeViewModel>()
                 .addNewLecture()
-                .then((value) => {
-                      Navigator.pushNamed(context, RouteName.sectionPage,
-                              arguments: LectuteData(
-                                  id: "",
-                                  lecture: value,
-                                  isSaveToServer: locator<MySetting>().isSync))
-                          .then((value) {
-                        setState(() {});
-                      })
-                    });
+                .then((value) async {
+              FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+              await firestore.collection("test").add({"data": toXML(value)});
+              // Navigator.pushNamed(context, RouteName.sectionPage,
+              //         arguments: LectuteData(
+              //             id: "",
+              //             lecture: value,
+              //             isSaveToServer: locator<MySetting>().isSync))
+              //     .then((value) {
+              //   setState(() {});
+              // })
+            });
           } else if (id == 2) {
             //final a = await context.read<HomeViewModel>().loadAllLecture();
             Navigator.pushNamed(context, RouteName.Library)

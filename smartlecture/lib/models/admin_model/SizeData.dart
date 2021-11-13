@@ -3,13 +3,13 @@ import 'dart:convert';
 class SizeData {
   int lectureSize;
   int usersSize;
-  int videosSize;
+  int contributeSize;
   int audiosSize;
   int imagesSize;
   SizeData({
     this.lectureSize = 0,
     this.usersSize = 0,
-    this.videosSize = 0,
+    this.contributeSize = 0,
     this.audiosSize = 0,
     this.imagesSize = 0,
   });
@@ -18,7 +18,7 @@ class SizeData {
     return {
       'lectureSize': lectureSize,
       'usersSize': usersSize,
-      'videosSize': videosSize,
+      'contributeSize': contributeSize,
       'audiosSize': audiosSize,
       'imagesSize': imagesSize,
     };
@@ -28,7 +28,7 @@ class SizeData {
     return SizeData(
       lectureSize: map['lectureSize'],
       usersSize: map['usersSize'],
-      videosSize: map['videosSize'],
+      contributeSize: map['contributeSize'],
       audiosSize: map['audiosSize'],
       imagesSize: map['imagesSize'],
     );

@@ -5,11 +5,14 @@ import 'package:smartlecture/constants.dart';
 import 'package:smartlecture/models/lecture_model/Item.dart';
 import 'package:smartlecture/models/lecture_model/Text.dart' as iText;
 import 'package:smartlecture/models/lecture_model/Image.dart' as iImage;
+import 'package:smartlecture/widgets/components/YoutubePlayer.dart';
 import 'package:smartlecture/widgets/dataViewModel/IImage.dart';
 import 'package:smartlecture/widgets/dataViewModel/Itext.dart';
+import 'package:smartlecture/widgets/dataViewModel/YoutubeComponent.dart';
 import 'package:smartlecture/widgets/manage/FormEditMedia.dart';
 import 'package:provider/provider.dart';
 import 'package:smartlecture/widgets/manage/MyForm.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 bool toBool(dynamic x) {
   if (x == null) return false;
@@ -34,6 +37,12 @@ Color hexToColor(String code) {
   return new Color(int.parse(code.replaceAll('#', '0xff')));
 }
 
+String getYoutubeId(String url) {
+  url = url.replaceAll("https://www.youtube.com/watch?v=", "");
+  url = url.replaceAll("https://m.youtube.com/watch?v=", "");
+  return url;
+}
+
 Widget fromItem(Item item) {
   if (typeName.map[item.name] == Type.ITEXTBLOCK) {
     iText.Text data = item.itemInfo.text;
@@ -45,6 +54,10 @@ Widget fromItem(Item item) {
     return IImage(
       image: data,
     );
+  } else if (typeName.map[item.name] == Type.IMAINMEDIA) {
+    return YoutubeComponent(
+        //item: item,
+        );
   }
   return IImage();
 }

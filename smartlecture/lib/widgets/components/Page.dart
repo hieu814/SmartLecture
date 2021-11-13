@@ -14,6 +14,7 @@ class IPage extends StatefulWidget {
   final bool isPresentation;
   final Function(p.Page) onDataChange;
   final Function(int) onCurrentItemIndexChange;
+  final Function(int) onAction;
   const IPage({
     Key key,
     this.width,
@@ -23,6 +24,7 @@ class IPage extends StatefulWidget {
     this.onDataChange,
     this.onCurrentItemIndexChange,
     this.curentItem,
+    this.onAction,
   }) : super(key: key);
   @override
   _IPageState createState() => _IPageState();
@@ -86,6 +88,27 @@ class _IPageState extends State<IPage> {
                     temp.items.item[index] = t;
                     widget.onDataChange(temp);
                   },
+                  onHold: () async {
+                    final RelativeRect position = buttonMenuPosition(context);
+                    int select = await showMenu(
+                        context: context,
+                        position: position,
+                        items: [
+                          PopupMenuItem<int>(
+                            value: 0,
+                            child: Text('Xóa'),
+                          ),
+                          PopupMenuItem<int>(
+                            value: 1,
+                            child: Text('Thêm âm thanh'),
+                          ),
+                          // PopupMenuItem<int>(
+                          //   value: 1,
+                          //   child: Text('Working a lot smarter'),
+                          // ),
+                        ]);
+                    widget.onAction(select);
+                  },
                   onTap: () {
                     widget.onCurrentItemIndexChange(index);
                   },
@@ -97,4 +120,19 @@ class _IPageState extends State<IPage> {
       ),
     );
   }
+}
+
+RelativeRect buttonMenuPosition(BuildContext context) {
+  final RenderBox bar = context.findRenderObject() as RenderBox;
+  final RenderBox overlay =
+      Overlay.of(context).context.findRenderObject() as RenderBox;
+  const Offset offset = Offset.zero;
+  final RelativeRect position = RelativeRect.fromRect(
+    Rect.fromPoints(
+      bar.localToGlobal(bar.size.centerRight(offset), ancestor: overlay),
+      bar.localToGlobal(bar.size.centerRight(offset), ancestor: overlay),
+    ),
+    offset & overlay.size,
+  );
+  return position;
 }

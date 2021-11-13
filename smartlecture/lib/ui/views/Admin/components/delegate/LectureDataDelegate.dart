@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:smartlecture/models/lecture_model/Lecture.dart';
@@ -7,6 +5,7 @@ import 'package:smartlecture/models/lecture_model/LectuteData.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Admin/components/LectureDetail.dart';
 import 'package:smartlecture/ui/views/Home/home_viewmodel.dart';
+import 'package:smartlecture/ui/views/Lybrary/Lybrary_viewmodel.dart';
 import 'package:smartlecture/widgets/components/Page.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -70,14 +69,38 @@ class LectureDataDelegate extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  item.title,
-                  maxLines: 2,
+                Text(item.title,
+                    maxLines: 2,
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
+                SizedBox(
+                  child: FutureBuilder(
+                      initialData: User(),
+                      future: context
+                          .read<LibraryViewModel>()
+                          .getAuthor(item.authorId ?? ""),
+                      builder:
+                          (BuildContext context, AsyncSnapshot<User> users) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text("Người upload:   ",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15.0)),
+                                Text(
+                                    users.data.firstName == ""
+                                        ? "Không rõ"
+                                        : users.data.fullName(),
+                                    style: TextStyle(fontSize: 15.0)),
+                              ],
+                            ),
+                          ],
+                        );
+                      }),
                 ),
-                Text(
-                  "Author: " + item.authorId,
-                  maxLines: 1,
-                )
               ],
             ),
           ),

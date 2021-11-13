@@ -1,7 +1,4 @@
-import 'dart:async';
-import 'dart:convert';
-import 'dart:ffi';
-
+import 'package:audioplayers/audioplayers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
@@ -26,8 +23,12 @@ class PresentationViewModel with ChangeNotifier {
   SectionIndex _currentIndex;
   User currentUser;
   String uid;
-
+  AudioPlayer _audioPlayer = AudioPlayer();
   MyLectures myLectures;
+  String audioState;
+  Duration totalDuration;
+  Duration position;
+  String url;
   get currentIndex => _currentIndex;
   get lecture => _lecture;
 
@@ -35,11 +36,45 @@ class PresentationViewModel with ChangeNotifier {
   get currentPage => _currentIndex.currentPageIndex;
   get currentItem => _currentIndex.currentItemIndex;
   PresentationViewModel({Lecture init}) {
+    // initAudio();
     _lecture = init;
 
     _currentIndex = new SectionIndex(
         currentPageIndex: 0, currentSectionIndex: 0, currentItemIndex: 0);
   }
+
+  initAudio() {
+    _audioPlayer.onDurationChanged.listen((updatedDuration) {
+      totalDuration = updatedDuration;
+      notifyListeners();
+    });
+
+    _audioPlayer.onAudioPositionChanged.listen((updatedPosition) {
+      position = updatedPosition;
+
+      notifyListeners();
+    });
+
+    _audioPlayer.onPlayerStateChanged.listen((playerState) {
+      if (playerState == PlayerState.STOPPED) audioState = "Stopped";
+      if (playerState == PlayerState.PLAYING) audioState = "Playing";
+      if (playerState == PlayerState.PAUSED) audioState = "Paused";
+      notifyListeners();
+    });
+  }
+
+  playAudio(String url) async {
+    _audioPlayer.play(url);
+  }
+
+  stopAudio() async {
+    int result = await _audioPlayer.stop();
+  }
+
+  pauseAudio() async {
+    int result = await _audioPlayer.pause();
+  }
+
   void increasePageIndex() {
     if (_currentIndex.currentPageIndex <
         _lecture.section[_currentIndex.currentSectionIndex].page.length - 1) {

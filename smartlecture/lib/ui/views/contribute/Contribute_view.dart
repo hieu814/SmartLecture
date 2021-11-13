@@ -79,12 +79,16 @@ class ContributeViewModel extends ChangeNotifier {
             print('Update failed: $error');
           });
           print("          contribute " + document.id);
-          saveToServer(path, document.id);
+          await saveToServer(path, document.id);
         }
       });
     } catch (ex) {
       print("contibute " + ex.toString());
     }
+  }
+
+  Future<String> contributeSendGamil(int inx, String message, String path) {
+    return contributeEmail(_listdata[inx], message);
   }
 
   saveToServer(String path, String idContribue) async {
@@ -101,6 +105,22 @@ class ContributeViewModel extends ChangeNotifier {
     //   }
     // });
     //Navigator.pop(context, "$path");
+  }
+
+  Future<String> contributeEmail(Lecture _lecture, String message) async {
+    try {
+      String dir = await createFolderInAppDocDir2("temp");
+      String path = dir + _lecture.title + ".xml";
+      File _file = File(path);
+      _file.writeAsString(toXML(_lecture));
+      print("-----------------saveData path: ${_file.absolute.path}");
+      // await sendEmailContribute(_file.absolute.path, message);
+      return _file.absolute.path;
+    } catch (ex) {
+      print("-----------------saveData exception");
+      print(ex.toString());
+      return "";
+    }
   }
 
   updateMyLectures(String ltID) async {

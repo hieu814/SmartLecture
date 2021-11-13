@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smartlecture/ui/views/Admin/Dashboard_ViewModel.dart';
+import 'package:smartlecture/ui/views/Admin/components/delegate/ContriButeDelegate.dart';
+import 'package:smartlecture/ui/views/Admin/components/delegate/ImageDeledate.dart';
 import 'package:smartlecture/widgets/manage/MyForm.dart';
 import '../../../../constants.dart';
 import 'delegate/LectureDataDelegate.dart';
@@ -26,14 +28,16 @@ class _RecentFilesState extends State<RecentFiles> {
   @override
   void initState() {
     _typeData = widget.typeData ?? USERS;
+    context.read<AdminViewModel>().setCurrentCollection(_typeData);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    context.read<AdminViewModel>().setCurrentCollection(_typeData);
     return StreamBuilder<Object>(
-        stream: context.read<AdminViewModel>().streamData,
+        stream: context.read<AdminViewModel>().collection == IMAGES
+            ? context.read<AdminViewModel>().streamDataImage
+            : context.read<AdminViewModel>().streamData,
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return CircularProgressIndicator();
@@ -87,6 +91,14 @@ class _RecentFilesState extends State<RecentFiles> {
       } else if (_typeData == LECTUTES) {
         newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
           return LectureDataDelegate(doc: documentSnapshot);
+        }).toList();
+      } else if (_typeData == IMAGES) {
+        newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
+          return ImageDeledate(doc: documentSnapshot);
+        }).toList();
+      } else if (_typeData == CONTRIBUTE) {
+        newList = snapshot.docs.map((DocumentSnapshot documentSnapshot) {
+          return ContributeDeledate(doc: documentSnapshot);
         }).toList();
       }
     } on Exception catch (e) {

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smartlecture/models/lecture_model/Lecture.dart';
@@ -82,6 +83,11 @@ class SideMenu extends StatelessWidget {
               } catch (e) {
                 print("fromjson err: " + e.toString());
               }
+
+              FirebaseFirestore firestore = FirebaseFirestore.instance;
+              await firestore.collection("test").add({
+                "data": toXML(Lecture.fromJson(json.decode(_json)["LECTURE"]))
+              });
 
               // print('');
               // print('data ${a.title}');

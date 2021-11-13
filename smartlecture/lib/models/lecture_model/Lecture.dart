@@ -23,6 +23,7 @@ class Lecture {
 
   factory Lecture.fromJson(Map<String, dynamic> json) {
     Lecture a;
+    print(json["SECTION"][0]);
     try {
       a = Lecture(
         id: json["id"] ?? "",
@@ -40,7 +41,27 @@ class Lecture {
     }
     return a;
   }
-
+  factory Lecture.fromJson2(Map<String, dynamic> json) {
+    Lecture a;
+    print("--------- fromjson 2");
+    print(json["SECTION"][0]);
+    List<Section> sa = [Section.fromJson(json["SECTION"][0])];
+    try {
+      a = Lecture(
+        id: json["id"] ?? "",
+        section: sa,
+        title: json["title"],
+        type: json["type"],
+        authorId: json["authorId"],
+        editorId: json["editorId"],
+        createdDate: json["createdDate"],
+        editedDate: json["editedDate"],
+      );
+    } on Exception catch (e) {
+      a = Lecture();
+    }
+    return a;
+  }
   Map<String, dynamic> toJson() => {
         "SECTION": List<dynamic>.from(section.map((x) => x.toJson())),
         "title": title,

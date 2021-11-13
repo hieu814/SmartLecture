@@ -31,7 +31,8 @@ class User {
         this.appIdentifier = 'Flutter Login Screen ${Platform.operatingSystem}';
 
   String fullName() {
-    return '$firstName $lastName';
+    if (firstName == null || lastName == null) return "";
+    return '${firstName ?? ""}  ${lastName ?? ""}';
   }
 
   factory User.fromJson(Map<String, dynamic> parsedJson) {

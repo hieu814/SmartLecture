@@ -23,7 +23,7 @@ List<CloudStorageInfo> demoMyFiles = [
   CloudStorageInfo(
     title: "Hình ảnh",
     numOfFiles: 0,
-    type: VIDEOS,
+    type: IMAGES,
     icon: FontAwesomeIcons.image,
     color: primaryColor,
   ),
@@ -31,7 +31,7 @@ List<CloudStorageInfo> demoMyFiles = [
     title: "Bài giảng đóng góp",
     numOfFiles: 0,
     icon: FontAwesomeIcons.bookOpen,
-    type: AUDIOS,
+    type: CONTRIBUTE,
     color: Color(0xFFFFA113),
     percentage: 35,
   ),

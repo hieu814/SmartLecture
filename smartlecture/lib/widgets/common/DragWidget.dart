@@ -4,6 +4,7 @@ class DragWidget extends StatefulWidget {
   final Function onDrag;
   final Function onDragEnd;
   final VoidCallback onDoubleTap;
+  final VoidCallback onHold;
   final VoidCallback onTap;
   final Widget child;
   DragWidget(
@@ -12,7 +13,8 @@ class DragWidget extends StatefulWidget {
       this.child,
       this.onDragEnd,
       this.onDoubleTap,
-      this.onTap});
+      this.onTap,
+      this.onHold});
   @override
   _DragWidgetState createState() => _DragWidgetState();
 }
@@ -45,6 +47,7 @@ class _DragWidgetState extends State<DragWidget> {
           widget.onDragEnd();
         },
         onDoubleTap: widget.onDoubleTap,
+        onLongPress: widget.onHold,
         onTap: widget.onTap,
         child: widget.child);
   }

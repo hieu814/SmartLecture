@@ -12,6 +12,7 @@ import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Section/SECTION_viewmodel.dart';
 import 'package:smartlecture/widgets/components/ListSection.dart';
 import 'package:smartlecture/widgets/components/Page.dart';
+import 'package:smartlecture/widgets/components/YoutubePlayer.dart';
 import 'package:smartlecture/widgets/popup/popup.dart';
 import 'package:smartlecture/models/lecture_model/Page.dart' as p;
 import 'package:smartlecture/constants.dart' as cst;
@@ -211,6 +212,19 @@ class _SectionViewState extends State<SectionView> {
                                     currentItemIndex: index,
                                   ));
                             },
+                            onAction: (action) async {
+                              print("onAction");
+                              if (action == 0)
+                                context.read<SectionViewModel>().deleteItem();
+                              else {
+                                await popupString(context, "Nhập đường dẫn", "")
+                                    .then((value) {
+                                  context
+                                      .read<SectionViewModel>()
+                                      .updateAudio(value);
+                                });
+                              }
+                            },
                             page: model
                                 .lecture
                                 .section[model.currentIndex.currentSectionIndex]
@@ -306,6 +320,7 @@ class _SectionViewState extends State<SectionView> {
                                                 false)
                                             .then((value) {
                                           if (value != null || value != "") {
+                                            setState(() {});
                                             context
                                                 .read<SectionViewModel>()
                                                 .changeBackgroundImage(
@@ -383,14 +398,20 @@ class _SectionViewState extends State<SectionView> {
                             .read<SectionViewModel>()
                             .addComponent(cst.Type.IIMAGE);
                       }),
-                  IconButton(icon: Icon(Icons.video_label), onPressed: () {}),
+                  IconButton(
+                      icon: Icon(Icons.video_label),
+                      onPressed: () async {
+                        context
+                            .read<SectionViewModel>()
+                            .addComponent(cst.Type.IMAINMEDIA);
+                      }),
                   IconButton(
                       icon: Icon(Icons.format_align_center_sharp),
                       onPressed: () async {
-                        context.read<MyAudio>().url =
-                            "shttps://aredir.nixcdn.com/NhacCuaTui220/MyLady-Yanbi-MrT-Bueno-TMT_3znvk.mp3?st=sQRIMCC8TcAiq7I0deCB6Q&e=1624533949";
-                        //play();
-                        context.read<MyAudio>().playAudio();
+                        // locator<MyAudio>().url =
+                        //     "https://aredir.nixcdn.com/NhacCuaTui220/MyLady-Yanbi-MrT-Bueno-TMT_3znvk.mp3?st=sQRIMCC8TcAiq7I0deCB6Q&e=1624533949";
+                        // play();
+                        // locator<MyAudio>().playAudio();
                       }),
                   // IconButton(
                   //     icon: Icon(Icons.format_align_left_sharp),

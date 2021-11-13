@@ -23,6 +23,7 @@ class MenuViewModel extends ChangeNotifier {
 }
 
 class AdminViewModel extends ChangeNotifier {
+  bool alowSetLenght = false;
   SizeData _size;
   get sizeData => _size;
   Stream _streamQuery;
@@ -44,6 +45,11 @@ class AdminViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  setUpdateData(String id, Map<String, dynamic> data) {
+    FirebaseFirestore.instance.collection(_collection).doc(id).set(data);
+    notifyListeners();
+  }
+
   setFilterCollection(String collection) {
     _streamQuery =
         FirebaseFirestore.instance.collection(_collection).snapshots();
@@ -51,13 +57,46 @@ class AdminViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  setFilterImage(String path) {
-    _streamQuery = FirebaseFirestore.instance
-        .collection(IMAGES)
-        .where('path', isEqualTo: path)
-        .snapshots();
-    _collection = collection;
-    notifyListeners();
+  Future setFilterImage(String path) async {
+    print("-----setFilterImage : $path");
+    if (path == "") {
+      alowSetLenght = true;
+      _streamQueryImage =
+          FirebaseFirestore.instance.collection(IMAGES).snapshots();
+      notifyListeners();
+    } else {
+      alowSetLenght = false;
+      _streamQueryImage = FirebaseFirestore.instance
+          .collection(IMAGES)
+          .where('path', isEqualTo: path)
+          .snapshots();
+      notifyListeners();
+    }
+  }
+
+  Future setFilterContribute({String path, bool status}) async {
+    print("-----setFilterImage : $path");
+    if (path == "" && status == null) {
+      alowSetLenght = true;
+      _streamQuery =
+          FirebaseFirestore.instance.collection(CONTRIBUTE).snapshots();
+      notifyListeners();
+    } else if (path == "") {
+      alowSetLenght = false;
+      _streamQuery = FirebaseFirestore.instance
+          .collection(CONTRIBUTE)
+          .where('status', isEqualTo: status)
+          .snapshots();
+      notifyListeners();
+    } else {
+      alowSetLenght = false;
+      _streamQuery = FirebaseFirestore.instance
+          .collection(CONTRIBUTE)
+          .where('status', isEqualTo: status)
+          .where('path', isEqualTo: path)
+          .snapshots();
+      notifyListeners();
+    }
   }
 
   AdminViewModel() {
@@ -81,7 +120,7 @@ class AdminViewModel extends ChangeNotifier {
     }
   }
 
-  Future<void> deleteItem(String jobId) {
+  Future deleteItem(String jobId) {
     notifyListeners();
     return _db
         .collection(_collection)
@@ -138,29 +177,32 @@ class AdminViewModel extends ChangeNotifier {
 
   setDataLength(int length) async {
     if (_collection == USERS) {
+      alowSetLenght = true;
       _size.usersSize = length;
     } else if (_collection == LECTUTES) {
+      alowSetLenght = true;
       _size.lectureSize = length;
-    } else if (_collection == VIDEOS) {
-      _size.videosSize = length;
+    } else if (_collection == CONTRIBUTE) {
+      _size.contributeSize = length;
     } else if (_collection == AUDIOS) {
       _size.audiosSize = length;
     }
     if (_collection == IMAGES) {
       _size.imagesSize = length;
     }
-    _db
-        .collection(SIZE_DATA)
-        .doc(SIZE_DATA_ID)
-        .set(_size.toMap())
-        .catchError((error) => print('-------------------add false: $error'));
+    if (alowSetLenght)
+      _db
+          .collection(SIZE_DATA)
+          .doc(SIZE_DATA_ID)
+          .set(_size.toMap())
+          .catchError((error) => print('-------------------add false: $error'));
     notifyListeners();
   }
 
   Future<List<CloudStorageInfo>> getDataLength() async {
     await loadSize().then((value) {
-      datas[0].numOfFiles = _size.videosSize ?? 0;
-      datas[1].numOfFiles = _size.audiosSize ?? 0;
+      datas[0].numOfFiles = _size.imagesSize ?? 0;
+      datas[1].numOfFiles = _size.contributeSize ?? 0;
       datas[2].numOfFiles = _size.lectureSize ?? 0;
       datas[3].numOfFiles = _size.usersSize ?? 0;
     });

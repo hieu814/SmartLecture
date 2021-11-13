@@ -41,57 +41,59 @@ class _ListLecturesState extends State<ListLectures> {
         title: const Text(ListLectures._title),
         automaticallyImplyLeading: true,
       ),
-      body: const MyStatelessWidget(),
+      body: const Contribute_Widget(),
     );
   }
 }
 
 /// This is the stateless widget that the main application instantiates.
-class MyStatelessWidget extends StatefulWidget {
-  const MyStatelessWidget({Key key}) : super(key: key);
+class Contribute_Widget extends StatefulWidget {
+  const Contribute_Widget({Key key}) : super(key: key);
 
   @override
-  State<MyStatelessWidget> createState() => _MyStatelessWidgetState();
+  State<Contribute_Widget> createState() => _Contribute_WidgetState();
 }
 
-class _MyStatelessWidgetState extends State<MyStatelessWidget> {
+class _Contribute_WidgetState extends State<Contribute_Widget> {
   @override
   Widget build(BuildContext context) {
     //context.read<LibraryViewModel>().getdataLybrary("");
 
-    return StreamBuilder<Object>(
-        stream: context.read<LibraryViewModel>().streamData,
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return Center(child: CircularProgressIndicator());
-          } else
-            return SingleChildScrollView(
-              padding: EdgeInsets.symmetric(vertical: 20),
-              child: Column(
-                children: [
-                  Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        "Danh sách bài giảng",
-                        style: TextStyle(
-                            color: Color(COLOR_PRIMARY),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25.0),
-                      )),
-                  SizedBox(height: 20),
-                  Container(
-                    width: 1000,
-                    height: 500,
-                    child: Container(
-                      child: ListView(
-                        children: _createRows(snapshot.data),
+    return Consumer<LibraryViewModel>(builder: (context, model, child) {
+      return StreamBuilder<Object>(
+          stream: context.read<LibraryViewModel>().streamData,
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(child: CircularProgressIndicator());
+            } else
+              return SingleChildScrollView(
+                padding: EdgeInsets.symmetric(vertical: 20),
+                child: Column(
+                  children: [
+                    Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          "Danh sách bài giảng",
+                          style: TextStyle(
+                              color: Color(COLOR_PRIMARY),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25.0),
+                        )),
+                    SizedBox(height: 20),
+                    Container(
+                      width: 1000,
+                      height: 500,
+                      child: Container(
+                        child: ListView(
+                          children: _createRows(snapshot.data),
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            );
-        });
+                  ],
+                ),
+              );
+          });
+    });
   }
 
   List<Widget> _createRows(QuerySnapshot snapshot) {

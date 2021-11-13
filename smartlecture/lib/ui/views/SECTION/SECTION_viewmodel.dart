@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:ffi';
+
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -108,8 +108,16 @@ class SectionViewModel with ChangeNotifier {
   }
 
   Future<void> addComponent(Type type) async {
+    final name = typeName.reverse[type];
+    Item t = Item();
+    print("addComponent: name : $name");
+
+    await getJson(name).then((value) {
+      t = Item.fromJson(json.decode(value)["ITEM"]);
+    });
+
     String data = await getJson(typeName.reverse[type]);
-    Item t = Item.fromJson(json.decode(data)["ITEM"]);
+    //Item t = Item.fromJson(json.decode(data)["ITEM"]);
     _lecture.section[_currentIndex.currentSectionIndex]
         .page[_currentIndex.currentPageIndex].items.item
         .add(t);
@@ -274,6 +282,40 @@ class SectionViewModel with ChangeNotifier {
     setCurrenindex(SectionIndex(
         currentPageIndex: _currentIndex.currentPageIndex - 1,
         currentSectionIndex: _currentIndex.currentSectionIndex));
+    notifyListeners();
+  }
+
+  void deleteItem() async {
+    if (_lecture.section[_currentIndex.currentSectionIndex].page.length > 1) {
+      _lecture.section[_currentIndex.currentSectionIndex]
+          .page[_currentIndex.currentPageIndex].items.item
+          .removeAt(_currentIndex.currentItemIndex);
+    }
+    setCurrenindex(SectionIndex(
+        currentPageIndex: _currentIndex.currentPageIndex,
+        currentSectionIndex: _currentIndex.currentSectionIndex,
+        currentItemIndex: 0));
+    notifyListeners();
+  }
+
+  void updateAudio(String url) async {
+    if (_lecture.section[_currentIndex.currentSectionIndex].page.length > 1) {
+      Item a = _lecture
+          .section[_currentIndex.currentSectionIndex]
+          .page[_currentIndex.currentPageIndex]
+          .items
+          .item[_currentIndex.currentItemIndex];
+      a.audio.url = url;
+      _lecture
+          .section[_currentIndex.currentSectionIndex]
+          .page[_currentIndex.currentPageIndex]
+          .items
+          .item[_currentIndex.currentItemIndex] = a;
+    }
+    // setCurrenindex(SectionIndex(
+    //     currentPageIndex: _currentIndex.currentPageIndex,
+    //     currentSectionIndex: _currentIndex.currentSectionIndex,
+    //     currentItemIndex: 0));
     notifyListeners();
   }
 

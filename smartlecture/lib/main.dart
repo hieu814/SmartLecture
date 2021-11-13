@@ -25,6 +25,7 @@ void main() async {
   await Firebase.initializeApp();
   UserService _userService = locator<UserService>();
   locator<MySetting>().load();
+  locator<MyAudio>().initAudio();
   await _userService.getUser().then((user) {
     if (user != null) {
       _islog = true;
@@ -45,9 +46,6 @@ void main() async {
       ),
       ChangeNotifierProvider<AdminViewModel>(
         create: (context) => AdminViewModel(),
-      ),
-      ChangeNotifierProvider(
-        create: (context) => MyAudio(),
       ),
       ChangeNotifierProvider(
         create: (context) => LoginViewModel(),

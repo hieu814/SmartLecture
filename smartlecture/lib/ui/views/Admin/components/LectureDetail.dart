@@ -12,6 +12,8 @@ import 'package:smartlecture/models/lecture_model/Lecture.dart';
 import 'package:smartlecture/models/lecture_model/LectuteData.dart';
 import 'package:smartlecture/models/user_model/user.dart';
 import 'package:smartlecture/responsive.dart';
+import 'package:smartlecture/services/helper.dart';
+import 'package:smartlecture/ui/modules/function.dart';
 import 'package:smartlecture/ui/modules/router_name.dart';
 import 'package:smartlecture/ui/views/Admin/Dashboard_ViewModel.dart';
 import 'package:smartlecture/ui/views/Lybrary/Lybrary_viewmodel.dart';
@@ -52,11 +54,31 @@ class _LectureDetailState extends State<LectureDetail> {
             IconButton(
               icon: const Icon(Icons.delete_forever),
               color: Colors.red,
-              onPressed: () async {},
+              onPressed: () async {
+                popupYesNo(context).then((value) {
+                  if (value) {
+                    showProgress(context, 'Đang xóa...', true);
+                    Future.delayed(const Duration(milliseconds: 300), () async {
+                      context
+                          .read<AdminViewModel>()
+                          .deleteItem(widget.id)
+                          .then((value) {
+                        hideProgress();
+                        showInSnackBar(context, "đã xóa");
+                        Navigator.pop(context);
+                      });
+                    });
+                  }
+                });
+              },
             ),
             IconButton(
               icon: const Icon(Icons.edit),
-              onPressed: () async {},
+              onPressed: () async {
+                Navigator.pushNamed(context, RouteName.sectionPage,
+                    arguments:
+                        LectuteData(id: widget.id, lecture: widget.lecture));
+              },
             ),
           ]),
       body: SingleChildScrollView(
